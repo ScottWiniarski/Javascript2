@@ -17,3 +17,13 @@
     }, false)
   })
 })()
+
+$(".navigation").click(function(){
+  $("#nav-profile-tab").active;
+})
+
+
+$(".navigation").click(advance{
+  var selected = $("#btn-primary").tabIndex("option", "selected");
+  $("#nav-tab").
+});
