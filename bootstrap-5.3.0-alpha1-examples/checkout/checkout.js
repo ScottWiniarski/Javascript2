@@ -25,8 +25,8 @@ function advance(e){
   e.preventDefault();
   var sel = $('#nav-profile-tab')
   bootstrap.Tab.getOrCreateInstance(sel).show();
-  console.log(sel);
-  console.log(bootstrap.Tab.getOrCreateInstance(sel));
+  //console.log(sel);
+  //console.log(bootstrap.Tab.getOrCreateInstance(sel));
   //Needed to select every tag
 
   //$('#nav-profile').show();

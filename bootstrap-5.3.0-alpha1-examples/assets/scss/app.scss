@@ -1,0 +1,36 @@
+// do any overrides to variables BEFORE including bootstrap
+$primary: yellow;
+$btn-padding-x: 15px;
+$btn-border-width: 10px;
+$nav-link-color: #322fff;
+$nav-link-hover-color: #311f82;
+$nav-tabs-link-active-bg: #22ff33;
+$nav-tabs-link-active-border-color: #22ff82;
+@import "bootstrap";
+
+// any custom styles AFTER including bootstrap
+.btn-primary{
+  border: 3px solid gold;
+  border-radius: 50px;
+}
+.py-5 text-center{
+  background-color: #000000;
+  font-family: Amiri, Georgia, "Times New Roman", serif;
+}
+
+.bg-light{
+  background-color: #0a829b !important;
+}
+body {
+  background-color: #0a829b !important;
+}
+h4{
+  text-decoration-color: #22ff82;
+  border-color: #22ff82;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.thingamajig {
+  background-color: $secondary;
+}

@@ -1,0 +1,38 @@
+// do any overrides to variables BEFORE including bootstrap
+$primary: yellow;
+$btn-padding-x: 15px;
+
+@import "bootstrap";
+
+// any custom styles AFTER including bootstrap
+.btn-primary{
+  border: 3px solid gold;
+  border-radius: 50px;
+}
+body #background{
+  margin: auto;
+  background-color: #FFF;
+}
+
+div #introduction{
+  text-align: center;
+  margin: auto;
+  font-family: "Arial Black";
+
+}
+#imagePlaceholder{
+  border-color: #ffc720;
+}
+
+#expositionDump{
+  border: 4px solid blue;
+  border-radius: 10px;
+  background-color: white;
+  //background-color: #0a58ca;
+}
+
+nav .mainNavBar{
+  font-family: "Arial Black";
+  border-color: #0a53be;
+  background-color: #0dcaf0;
+}
