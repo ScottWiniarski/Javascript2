@@ -8,113 +8,289 @@
 </head>
 <body>
 <div id="background">
-    <nav class="mainNavBar navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid me-2 small" >
-            <a class="navbar-brand" href="#">WCTC</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Academics</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Information Technologies</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Craftsman and General Trades</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Medicinal</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Protective Services</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Degrees and Diplomas
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Certificates</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Associate Degrees</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Advanced Diplomas</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled"></a>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Learn More" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Go</button>
-                </form>
+    <header>
+        <nav class="mainNavBar navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid me-2 small" >
+                <a class="navbar-brand" href="#">WCTC</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Academics</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Information Technologies</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Craftsman and General Trades</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Medicinal</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Protective Services</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Degrees and Diplomas
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Certificates</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Associate Degrees</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Advanced Diplomas</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled"></a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Learn More" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Go</button>
+                    </form>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
+
 
     <div id="introduction">
         <p>
             <ul>
-                <h4>Get Started</h4>
-                <p>Here is where you can start</p>
+                <h4>Technical Studies - Journeyworker</h4>
             </ul>
 
         <ul>
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">
+            <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#introLink" aria-expanded="false" aria-controls="collapseExample">
                 Already have a degree?
             </button>
-            <div class="collapse" id="collapseExample3">
+            <div class="collapse" id="introLink">
                 <div class="card card-body">
-                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                    <a href="#">Click Here</a> With a degree in hand, skip the wait and get right to advancing your education!
                 </div>
             </div>
         </ul>
         </p>
     </div>
 
+    <div class="row" id="programInfo">
+        <div class="col-md-6">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <button class="nav-link active btn-secondary" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Program Information</button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                    <h5>Degree Type</h5>
+                        <p>60-Credit Associate of Applied Science Degree</p>
+                        <br>
+                    <h5>Program Code</h5>
+                        <p>10-499-5</p>
+                        <br>
+                    <h5>Time to Degree</h5>
+                        <p>Less than one year</p>
+                        <br>
+                    <h5>Start Date</h5>
+                        <p>August/ January/ June</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="programOverview" data-bs-toggle="tab" data-bs-target="#programOverview-tab" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Program Overview</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link btn-secondary" id="Application-Deadlines" data-bs-toggle="tab" data-bs-target="#applicationDeadline-tab" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Application Deadlines</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="programCost" data-bs-toggle="tab" data-bs-target="#programCost-tab" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Program Cost</button>
+                </li>
+            </ul>
+
+            <div class="program-content" id="myProgramContent">
+                <div class="tab-pane fade show active" id="programOverview-tab" role="tabpanel" aria-labelledby="programOverview-tab" tabindex="0">
+                    <p>
+                        Build on the technical skills developed in your apprenticeship by completing coursework in communications, social science, behavioral science, and math or science. Work with an academic advisor to develop a plan that meets your individual needs and goals.
+                    </p>
+                </div>
+                <div class="tab-pane fade" id="applicationDeadline-tab" role="tabpanel" aria-labelledby="applicationDeadline-tab" tabindex="0">
+                    <h4>Deadlines to Know*</h4>
+                    <h5>Fall 2023 Start</h5>
+                    <ul>
+                        <li>Submit Application by August 7, 2023</li>
+                        <li>Complete Checklist items by August 14, 2023</li>
+                    </ul>
+                    <h5>Spring 2023 Start</h5>
+                    <ul>
+                        <li>Submit application by January 9, 2023</li>
+                        <li>Complete checklist items by January 13, 2023</li>
+                    </ul>
+                    <h5>Summer 2023 Start</h5>
+                    <ul>
+                        <li>Submit Application by May 30, 2023</li>
+                        <li>Complete checklist items by June 5, 2023</li>
+                    </ul>
+                    <p class="text-info-emphasis">Application Deadlines are subject to change based on program demand.</p>
+
+                </div>
+                <div class="tab-pane fade" id="programCost-tab" role="tabpanel" aria-labelledby="programCost-tab" tabindex="0">
+                    <h5>Tuition Costs</h5>
+                    <p>
+                        The cost of your degree depends on a number of factors,
+                        including where you live, how your program is delivered,
+                        how long it takes to finish your program and the financial aid you receive.
+                        Explore current <a href="index.html">tuition and fees</a>
+                    </p>
+<!--                    <a href="index.html">tuition and fees</a>-->
+                    <h5>Additional Estimated Costs</h5>
+                    <ul>
+                        <li>Any computer or tablet</li>
+                        <li>Safety equipment (shoes/glasses): $100</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" id="howToApply">
+        <p>
+            <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Apply Now
+            </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <h3>How To Apply</h3>
+                <ul>
+                    <li><a href="index.html">Apply online</a> and pay the $30 application fee</li>
+                    <li>Submit a copy of <b>one</b> of the following to demonstrate your reading, writing, and math skills:
+                        <ul><li>High school GPA of 2.60 or above. Transcript must include completed coursework through the 11th grade.*</li></ul>
+                        <ul><li><a href="index.html">ACT</a>, ACCUPLACER® or GED - 2014 Series (165 or higher).* </li></ul>
+                        <ul><li>Prior college coursework may meet this requirement in whole or in part. Courses must be in the specific area(s), and you must have earned a grade of C or better (2.0 on a 4.0 scale) in the courses.*</li></ul>
+                        <ul><li>If none of the above apply, sign up for the ACCUPLACER® <a href="index.html">placement test.</a></li></ul>
+                    </li>
+                </ul>
+
+                <p>*Unofficial copies of these documents can be sent to <a href="index.html">info@wctc.edu.</a></p>
+                <button class="btn-primary" id="ApplicationClick">
+                Apply Online
+            </button>
+
+                <ul>
+                    <li>Proof of Eligibility:</li>
+                    <ul><li><b>Students currently enrolled in a WCTC apprenticeship:</b> no proof of eligibility needed.</li></ul>
+                    <ul><li><b>Current apprenticeship students enrolled at any Wisconsin Technical College System school: </b> submit official transcript.</li></ul>
+                    <ul><li><b>Apprenticeship completers: </b>submit copy of Wisconsin Apprenticeship Completion Certificate issued
+                        by the Department of Workforce Development - Bureau of Apprenticeship Standards.
+                        Fax to 262.691.5123 or <a href="index.html">email</a> to the Admissions Office.</li>
+                    </ul>
+                </ul>
+
+                <p>
+                    <b>Questions on the application process? </b>
+                    Visit the <a href="index.html">Admissions</a> page or contact an <a href="index.html">Enrollment Counselor</a>
+                </p>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
 
     <div class="container me-2" id="centralContent" >
         <div class="row">
                 <div class="col-lg-4">
                     <div class="card" style="width: 18rem;">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-header">
+                            <h5 class="card-title">Contact Us</h5>
+                        </div>
+<!--                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
+<!--                        <img src="..." class="card-img-top" alt="...">-->
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Learn More</a>
+
+                            <p class="card-text"><b>Questions?</b> We'd love to help! Connect with our Outreach team by filling out our <a href="index.html">online form</a> or by email at <a href="index.html">outreach@wctc.edu.</a></p>
+<!--                            <a href="#" class="btn btn-primary">Learn More</a>-->
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-4">
                     <div class="card" style="width: 18rem;">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-header">
+                            <h5 class="card-title">Potential Careers</h5>
+                        </div>
+<!--                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
+<!--                        <img src="..." class="card-img-top" alt="...">-->
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Learn More</a>
+                            <p class="card-text">The customizable approach of this program allows you to shape the associate degree to your
+                                technical interests and aptitudes, and it is up to you to determine
+                                which trade to pursue.</p>
+                            <ul>
+                                <li>Construction Manager</li>
+                                <li>Estimator</li>
+                                <li>Expeditor</li>
+                                <li>Foreman</li>
+                                <li>Production Supervisor</li>
+                            </ul>
+<!--                            <a href="#" class="btn btn-primary">Learn More</a>-->
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-4">
                     <div class="card" style="width: 18rem;">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-header">
+                            <h5 class="card-title">High School Eligibility</h5>
+                        </div>
+<!--                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
+<!--                        <img src="..." class="card-img-top" alt="...">-->
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Learn More</a>
+                            <p class="card-text">This program is open to qualified high school applicants. <a href="#">Learn more</a></p>
+<!--                            <a href="#" class="btn btn-primary">Learn More</a>-->
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <div class="col-lg-4">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-header">
+                            <h5 class="card-title">Career Salaries</h5>
+                        </div>
+                    <div class="card-body">
+                        <p card="card-text">Annual Salaries Vary. <br>
+                            Check the WCTC <a href="#">Graduate Success Report</a> to view our graduates' entry wages
+                        </p>
+                    </div>
+                </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-header">
+                            <h5 class="card-title">Financial Aid</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">As a program student, you are eligible to receive: <br>
+                                <ul>
+                                    <li>Financial aid loans</li>
+                                    <li>Scholarships</li>
+                                    <li>Other forms of assistance</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        </div>
     </div>
 
     <div class="container-md" id="expositionDump">
@@ -130,28 +306,7 @@
         </ul>
     </div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Already have a degree?
-            </button>
-            <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
-                Already have a degree?
-            </button>
-            <div class="collapse" id="collapseExample2">
-                <div class="card card-body">
-                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-                </div>
-            </div>
-        </div>
-    </div>
+
 </div>
 
 
