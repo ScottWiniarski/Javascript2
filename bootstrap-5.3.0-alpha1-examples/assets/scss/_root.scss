@@ -48,7 +48,7 @@
   --#{$prefix}gradient: #{$gradient};
 
   // Root and body
-  // scss-docs-start root-body-variables
+  // notscss-docs-start root-body-variables
   @if $font-size-root != null {
     --#{$prefix}root-font-size: #{$font-size-root};
   }
@@ -76,7 +76,7 @@
   }
   --#{$prefix}body-bg: #{$body-bg};
   --#{$prefix}body-bg-rgb: #{to-rgb($body-bg)};
-  // scss-docs-end root-body-variables
+  // notscss-docs-end root-body-variables
 
   @if $headings-color != null {
     --#{$prefix}heading-color: #{$headings-color};
@@ -96,7 +96,7 @@
   --#{$prefix}code-color: #{$code-color};
   --#{$prefix}highlight-bg: #{$mark-bg};
 
-  // scss-docs-start root-border-var
+  // notscss-docs-start root-border-var
   --#{$prefix}border-width: #{$border-width};
   --#{$prefix}border-style: #{$border-style};
   --#{$prefix}border-color: #{$border-color};
@@ -108,7 +108,7 @@
   --#{$prefix}border-radius-xl: #{$border-radius-xl};
   --#{$prefix}border-radius-2xl: #{$border-radius-2xl};
   --#{$prefix}border-radius-pill: #{$border-radius-pill};
-  // scss-docs-end root-border-var
+  // notscss-docs-end root-border-var
 
   --#{$prefix}box-shadow: #{$box-shadow};
   --#{$prefix}box-shadow-sm: #{$box-shadow-sm};
@@ -117,10 +117,10 @@
 
   --#{$prefix}emphasis-color: #{$emphasis-color};
 
-  // scss-docs-start form-control-vars
+  // notscss-docs-start form-control-vars
   --#{$prefix}form-control-bg: var(--#{$prefix}body-bg);
   --#{$prefix}form-control-disabled-bg: var(--#{$prefix}secondary-bg);
-  // scss-docs-end form-control-vars
+  // notscss-docs-end form-control-vars
 
   --#{$prefix}highlight-bg: #{$mark-bg};
 
@@ -131,7 +131,7 @@
 
 @if $enable-dark-mode {
   @include color-mode(dark, true) {
-    // scss-docs-start root-dark-mode-vars
+    // notscss-docs-start root-dark-mode-vars
     --#{$prefix}body-color: #{$body-color-dark};
     --#{$prefix}body-color-rgb: #{to-rgb($body-color-dark)};
     --#{$prefix}body-bg: #{$body-bg-dark};
@@ -190,6 +190,6 @@
 
     --#{$prefix}border-color: #{$border-color-dark};
     --#{$prefix}border-color-translucent: #{$border-color-translucent-dark};
-    // scss-docs-end root-dark-mode-vars
+    // notscss-docs-end root-dark-mode-vars
   }
 }

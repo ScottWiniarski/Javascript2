@@ -3,7 +3,7 @@
 //
 
 .btn {
-  // scss-docs-start btn-css-vars
+  // notscss-docs-start btn-css-vars
   --#{$prefix}btn-padding-x: #{$btn-padding-x};
   --#{$prefix}btn-padding-y: #{$btn-padding-y};
   --#{$prefix}btn-font-family: #{$btn-font-family};
@@ -19,7 +19,7 @@
   --#{$prefix}btn-box-shadow: #{$btn-box-shadow};
   --#{$prefix}btn-disabled-opacity: #{$btn-disabled-opacity};
   --#{$prefix}btn-focus-box-shadow: 0 0 0 #{$btn-focus-width} rgba(var(--#{$prefix}btn-focus-shadow-rgb), .5);
-  // scss-docs-end btn-css-vars
+  // notscss-docs-end btn-css-vars
 
   display: inline-block;
   padding: var(--#{$prefix}btn-padding-y) var(--#{$prefix}btn-padding-x);
@@ -118,7 +118,7 @@
 // Alternate buttons
 //
 
-// scss-docs-start btn-variant-loops
+// notscss-docs-start btn-variant-loops
 @each $color, $value in $theme-colors {
   .btn-#{$color} {
     @if $color == "light" {
@@ -150,7 +150,7 @@
     @include button-outline-variant($value);
   }
 }
-// scss-docs-end btn-variant-loops
+// notscss-docs-end btn-variant-loops
 
 
 //

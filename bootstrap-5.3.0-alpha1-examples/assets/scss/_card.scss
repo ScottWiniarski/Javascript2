@@ -3,7 +3,7 @@
 //
 
 .card {
-  // scss-docs-start card-css-vars
+  // notscss-docs-start card-css-vars
   --#{$prefix}card-spacer-y: #{$card-spacer-y};
   --#{$prefix}card-spacer-x: #{$card-spacer-x};
   --#{$prefix}card-title-spacer-y: #{$card-title-spacer-y};
@@ -23,7 +23,7 @@
   --#{$prefix}card-bg: #{$card-bg};
   --#{$prefix}card-img-overlay-padding: #{$card-img-overlay-padding};
   --#{$prefix}card-group-margin: #{$card-group-margin};
-  // scss-docs-end card-css-vars
+  // notscss-docs-end card-css-vars
 
   position: relative;
   display: flex;

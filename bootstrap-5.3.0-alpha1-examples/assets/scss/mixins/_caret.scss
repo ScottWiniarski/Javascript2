@@ -1,4 +1,4 @@
-// scss-docs-start caret-mixins
+// notscss-docs-start caret-mixins
 @mixin caret-down($width: $caret-width) {
   border-top: $width solid;
   border-right: $width solid transparent;
@@ -66,4 +66,4 @@
     }
   }
 }
-// scss-docs-end caret-mixins
+// notscss-docs-end caret-mixins

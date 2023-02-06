@@ -3,7 +3,7 @@
 //
 
 .alert {
-  // scss-docs-start alert-css-vars
+  // notscss-docs-start alert-css-vars
   --#{$prefix}alert-bg: transparent;
   --#{$prefix}alert-padding-x: #{$alert-padding-x};
   --#{$prefix}alert-padding-y: #{$alert-padding-y};
@@ -13,7 +13,7 @@
   --#{$prefix}alert-border: #{$alert-border-width} solid var(--#{$prefix}alert-border-color);
   --#{$prefix}alert-border-radius: #{$alert-border-radius};
   --#{$prefix}alert-link-color: inherit;
-  // scss-docs-end alert-css-vars
+  // notscss-docs-end alert-css-vars
 
   position: relative;
   padding: var(--#{$prefix}alert-padding-y) var(--#{$prefix}alert-padding-x);
@@ -55,7 +55,7 @@
 }
 
 
-// scss-docs-start alert-modifiers
+// notscss-docs-start alert-modifiers
 // Generate contextual modifier classes for colorizing the alert
 @each $state in map-keys($theme-colors) {
   .alert-#{$state} {
@@ -65,4 +65,4 @@
     --#{$prefix}alert-link-color: var(--#{$prefix}#{$state}-text);
   }
 }
-// scss-docs-end alert-modifiers
+// notscss-docs-end alert-modifiers

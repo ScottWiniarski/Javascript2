@@ -17,7 +17,7 @@
 
 // The dropdown menu
 .dropdown-menu {
-  // scss-docs-start dropdown-css-vars
+  // notscss-docs-start dropdown-css-vars
   --#{$prefix}dropdown-zindex: #{$zindex-dropdown};
   --#{$prefix}dropdown-min-width: #{$dropdown-min-width};
   --#{$prefix}dropdown-padding-x: #{$dropdown-padding-x};
@@ -44,7 +44,7 @@
   --#{$prefix}dropdown-header-color: #{$dropdown-header-color};
   --#{$prefix}dropdown-header-padding-x: #{$dropdown-header-padding-x};
   --#{$prefix}dropdown-header-padding-y: #{$dropdown-header-padding-y};
-  // scss-docs-end dropdown-css-vars
+  // notscss-docs-end dropdown-css-vars
 
   position: absolute;
   z-index: var(--#{$prefix}dropdown-zindex);
@@ -81,7 +81,7 @@
   }
 }
 
-// scss-docs-start responsive-breakpoints
+// notscss-docs-start responsive-breakpoints
 // We deliberately hardcode the `bs-` prefix because we check
 // this custom property in JS to determine Popper's positioning
 
@@ -108,7 +108,7 @@
     }
   }
 }
-// scss-docs-end responsive-breakpoints
+// notscss-docs-end responsive-breakpoints
 
 // Allow for dropdowns to go bottom up (aka, dropup-menu)
 // Just add .dropup after the standard .dropdown class and you're set.
@@ -233,7 +233,7 @@
 
 // Dark dropdowns
 .dropdown-menu-dark {
-  // scss-docs-start dropdown-dark-css-vars
+  // notscss-docs-start dropdown-dark-css-vars
   --#{$prefix}dropdown-color: #{$dropdown-dark-color};
   --#{$prefix}dropdown-bg: #{$dropdown-dark-bg};
   --#{$prefix}dropdown-border-color: #{$dropdown-dark-border-color};
@@ -246,5 +246,5 @@
   --#{$prefix}dropdown-link-active-bg: #{$dropdown-dark-link-active-bg};
   --#{$prefix}dropdown-link-disabled-color: #{$dropdown-dark-link-disabled-color};
   --#{$prefix}dropdown-header-color: #{$dropdown-dark-header-color};
-  // scss-docs-end dropdown-dark-css-vars
+  // notscss-docs-end dropdown-dark-css-vars
 }

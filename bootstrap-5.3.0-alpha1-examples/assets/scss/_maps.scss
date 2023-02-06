@@ -2,9 +2,9 @@
 //
 // Placed here so that others can override the default Sass maps and see automatic updates to utilities and more.
 
-// scss-docs-start theme-colors-rgb
+// notscss-docs-start theme-colors-rgb
 $theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value") !default;
-// scss-docs-end theme-colors-rgb
+// notscss-docs-end theme-colors-rgb
 
 $theme-colors-text: (
   "primary": $primary-text,
@@ -44,11 +44,11 @@ $theme-colors-border-subtle: (
 // Extends the default `$theme-colors` maps to help create our utilities.
 
 // Come v6, we'll de-dupe these variables. Until then, for backward compatibility, we keep them to reassign.
-// scss-docs-start utilities-colors
+// notscss-docs-start utilities-colors
 $utilities-colors: $theme-colors-rgb !default;
-// scss-docs-end utilities-colors
+// notscss-docs-end utilities-colors
 
-// scss-docs-start utilities-text-colors
+// notscss-docs-start utilities-text-colors
 $utilities-text: map-merge(
   $utilities-colors,
   (
@@ -69,9 +69,9 @@ $utilities-text-emphasis-colors: (
   "light-emphasis": var(--#{$prefix}light-text),
   "dark-emphasis": var(--#{$prefix}dark-text)
 ) !default;
-// scss-docs-end utilities-text-colors
+// notscss-docs-end utilities-text-colors
 
-// scss-docs-start utilities-bg-colors
+// notscss-docs-start utilities-bg-colors
 $utilities-bg: map-merge(
   $utilities-colors,
   (
@@ -93,9 +93,9 @@ $utilities-bg-subtle: (
   "dark-subtle": var(--#{$prefix}dark-bg-subtle)
 ) !default;
 // $utilities-bg-subtle-colors: map-loop($utilities-bg-subtle, rgba-css-var, "$key", "bg") !default;
-// scss-docs-end utilities-bg-colors
+// notscss-docs-end utilities-bg-colors
 
-// scss-docs-start utilities-border-colors
+// notscss-docs-start utilities-border-colors
 $utilities-border: map-merge(
   $utilities-colors,
   (
@@ -114,7 +114,7 @@ $utilities-border-subtle: (
   "light-subtle": var(--#{$prefix}light-border-subtle),
   "dark-subtle": var(--#{$prefix}dark-border-subtle)
 ) !default;
-// scss-docs-end utilities-border-colors
+// notscss-docs-end utilities-border-colors
 
 $negative-spacers: if($enable-negative-margins, negativify-map($spacers), null) !default;
 

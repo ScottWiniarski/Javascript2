@@ -8,7 +8,7 @@
 
 // Container that the modal scrolls within
 .modal {
-  // scss-docs-start modal-css-vars
+  // notscss-docs-start modal-css-vars
   --#{$prefix}modal-zindex: #{$zindex-modal};
   --#{$prefix}modal-width: #{$modal-md};
   --#{$prefix}modal-padding: #{$modal-inner-padding};
@@ -30,7 +30,7 @@
   --#{$prefix}modal-footer-bg: #{$modal-footer-bg};
   --#{$prefix}modal-footer-border-color: #{$modal-footer-border-color};
   --#{$prefix}modal-footer-border-width: #{$modal-footer-border-width};
-  // scss-docs-end modal-css-vars
+  // notscss-docs-end modal-css-vars
 
   position: fixed;
   top: 0;
@@ -111,11 +111,11 @@
 
 // Modal background
 .modal-backdrop {
-  // scss-docs-start modal-backdrop-css-vars
+  // notscss-docs-start modal-backdrop-css-vars
   --#{$prefix}backdrop-zindex: #{$zindex-modal-backdrop};
   --#{$prefix}backdrop-bg: #{$modal-backdrop-bg};
   --#{$prefix}backdrop-opacity: #{$modal-backdrop-opacity};
-  // scss-docs-end modal-backdrop-css-vars
+  // notscss-docs-end modal-backdrop-css-vars
 
   @include overlay-backdrop(var(--#{$prefix}backdrop-zindex), var(--#{$prefix}backdrop-bg), var(--#{$prefix}backdrop-opacity));
 }
@@ -205,7 +205,7 @@
   }
 }
 
-// scss-docs-start modal-fullscreen-loop
+// notscss-docs-start modal-fullscreen-loop
 @each $breakpoint in map-keys($grid-breakpoints) {
   $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
   $postfix: if($infix != "", $infix + "-down", "");
@@ -234,4 +234,4 @@
     }
   }
 }
-// scss-docs-end modal-fullscreen-loop
+// notscss-docs-end modal-fullscreen-loop

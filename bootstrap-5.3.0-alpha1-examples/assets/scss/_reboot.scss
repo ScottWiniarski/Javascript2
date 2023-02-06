@@ -45,7 +45,7 @@
 // 3. Prevent adjustments of font size after orientation changes in iOS.
 // 4. Change the default tap highlight to be completely transparent in iOS.
 
-// scss-docs-start reboot-body-rules
+// notscss-docs-start reboot-body-rules
 body {
   margin: 0; // 1
   font-family: var(--#{$prefix}body-font-family);
@@ -58,7 +58,7 @@ body {
   -webkit-text-size-adjust: 100%; // 3
   -webkit-tap-highlight-color: rgba($black, 0); // 4
 }
-// scss-docs-end reboot-body-rules
+// notscss-docs-end reboot-body-rules
 
 
 // Content grouping

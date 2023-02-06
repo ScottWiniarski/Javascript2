@@ -1,5 +1,5 @@
 .popover {
-  // scss-docs-start popover-css-vars
+  // notscss-docs-start popover-css-vars
   --#{$prefix}popover-zindex: #{$zindex-popover};
   --#{$prefix}popover-max-width: #{$popover-max-width};
   @include rfs($popover-font-size, --#{$prefix}popover-font-size);
@@ -20,7 +20,7 @@
   --#{$prefix}popover-arrow-width: #{$popover-arrow-width};
   --#{$prefix}popover-arrow-height: #{$popover-arrow-height};
   --#{$prefix}popover-arrow-border: var(--#{$prefix}popover-border-color);
-  // scss-docs-end popover-css-vars
+  // notscss-docs-end popover-css-vars
 
   z-index: var(--#{$prefix}popover-zindex);
   display: block;

@@ -1,6 +1,6 @@
 // Base class
 .tooltip {
-  // scss-docs-start tooltip-css-vars
+  // notscss-docs-start tooltip-css-vars
   --#{$prefix}tooltip-zindex: #{$zindex-tooltip};
   --#{$prefix}tooltip-max-width: #{$tooltip-max-width};
   --#{$prefix}tooltip-padding-x: #{$tooltip-padding-x};
@@ -13,7 +13,7 @@
   --#{$prefix}tooltip-opacity: #{$tooltip-opacity};
   --#{$prefix}tooltip-arrow-width: #{$tooltip-arrow-width};
   --#{$prefix}tooltip-arrow-height: #{$tooltip-arrow-height};
-  // scss-docs-end tooltip-css-vars
+  // notscss-docs-end tooltip-css-vars
 
   z-index: var(--#{$prefix}tooltip-zindex);
   display: block;

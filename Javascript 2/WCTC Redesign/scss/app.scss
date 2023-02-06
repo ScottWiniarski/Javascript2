@@ -3,6 +3,7 @@ $primary: black;
 $btn-primary: blue;
 $btn-secondary: blue;
 $btn-padding-x: 15px;
+$nav-tabs-border-radius: 0;
 
 @import "bootstrap";
 
@@ -13,14 +14,14 @@ $btn-padding-x: 15px;
   border-radius: 25px;
 }
 
-:hover{
-  color: #0a58ca;
-}
+//.btn-primary:hover{
+//  color: #0a58ca;
+//}
 
 .btn-secondary{
   --bs-body-color-rgb: blue;
   border: 4px lightblue;
-  border-radius: 25px;
+  border-radius: 0px;
 }
 body #background{
   margin: auto;
@@ -45,13 +46,20 @@ body #introduction{
 }
 
 .tab-content,#myTabContent{
+  border-radius: 25px;
+  background-color: white;
   margin: 5px;
   border: 3px #0b5ed7;
 }
+#myProgramContent{
+  background-color: white;
+}
 
 #ApplicationClick{
-  width: 20px;
-  justify-content: left;
+  margin: auto;
+  width: 200px;
+  height: auto;
+  //justify-content: left;
 }
 
 #imagePlaceholder{

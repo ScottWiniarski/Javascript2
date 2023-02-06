@@ -1,5 +1,5 @@
 .breadcrumb {
-  // scss-docs-start breadcrumb-css-vars
+  // notscss-docs-start breadcrumb-css-vars
   --#{$prefix}breadcrumb-padding-x: #{$breadcrumb-padding-x};
   --#{$prefix}breadcrumb-padding-y: #{$breadcrumb-padding-y};
   --#{$prefix}breadcrumb-margin-bottom: #{$breadcrumb-margin-bottom};
@@ -9,7 +9,7 @@
   --#{$prefix}breadcrumb-divider-color: #{$breadcrumb-divider-color};
   --#{$prefix}breadcrumb-item-padding-x: #{$breadcrumb-item-padding-x};
   --#{$prefix}breadcrumb-item-active-color: #{$breadcrumb-active-color};
-  // scss-docs-end breadcrumb-css-vars
+  // notscss-docs-end breadcrumb-css-vars
 
   display: flex;
   flex-wrap: wrap;

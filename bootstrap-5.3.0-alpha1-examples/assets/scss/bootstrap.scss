@@ -2,7 +2,7 @@
 @include bsBanner("");
 
 
-// scss-docs-start import-stack
+// notscss-docs-start import-stack
 // Configuration
 @import "functions";
 @import "variables";
@@ -49,4 +49,4 @@
 
 // Utilities
 @import "utilities/api";
-// scss-docs-end import-stack
+// notscss-docs-end import-stack

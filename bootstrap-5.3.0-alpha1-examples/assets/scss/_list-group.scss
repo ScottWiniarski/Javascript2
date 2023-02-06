@@ -3,7 +3,7 @@
 // Easily usable on <ul>, <ol>, or <div>.
 
 .list-group {
-  // scss-docs-start list-group-css-vars
+  // notscss-docs-start list-group-css-vars
   --#{$prefix}list-group-color: #{$list-group-color};
   --#{$prefix}list-group-bg: #{$list-group-bg};
   --#{$prefix}list-group-border-color: #{$list-group-border-color};
@@ -21,7 +21,7 @@
   --#{$prefix}list-group-active-color: #{$list-group-active-color};
   --#{$prefix}list-group-active-bg: #{$list-group-active-bg};
   --#{$prefix}list-group-active-border-color: #{$list-group-active-border-color};
-  // scss-docs-end list-group-css-vars
+  // notscss-docs-end list-group-css-vars
 
   display: flex;
   flex-direction: column;
@@ -104,7 +104,7 @@
     border-color: var(--#{$prefix}list-group-active-border-color);
   }
 
-  // stylelint-disable-next-line scss/selector-no-redundant-nesting-selector
+  // stylelint-disable-next-line notscss/selector-no-redundant-nesting-selector
   & + .list-group-item {
     border-top-width: 0;
 
@@ -174,7 +174,7 @@
 }
 
 
-// scss-docs-start list-group-modifiers
+// notscss-docs-start list-group-modifiers
 // List group contextual variants
 //
 // Add modifier classes to change text and background color on individual items.
@@ -201,4 +201,4 @@
     }
   }
 }
-// scss-docs-end list-group-modifiers
+// notscss-docs-end list-group-modifiers

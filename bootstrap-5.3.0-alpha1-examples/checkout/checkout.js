@@ -19,6 +19,9 @@ console.log("Echo");
   })
 })()
 
+$('#shippingToPayment').parent().next('buttons').find('button').trigger('click');
+$('#shippingToPayment').next('button').trigger('click');
+
 $(`#shippingToPayment`).on("click", advance);
 
 function advance(e){
