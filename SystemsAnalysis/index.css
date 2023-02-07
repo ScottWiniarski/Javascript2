@@ -5,7 +5,18 @@
 .navbackgroundColor{
     background-color: #FA843f;
 }
-body header
+#courseHeader{
+    text-align: center;
+    justify-content: center;
+}
+#accountHeader{
+    text-align: center;
+}
+#signInButton{
+    alignment: right;
+    text-align: right;
+    justify-content: right;
+}
 
 header nav{
     text-decoration-color: black;
