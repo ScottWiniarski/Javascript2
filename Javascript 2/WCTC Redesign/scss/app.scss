@@ -1,81 +1,172 @@
 // do any overrides to variables BEFORE including bootstrap
-$primary: black;
-$btn-primary: blue;
-$btn-secondary: blue;
-$btn-padding-x: 15px;
-$nav-tabs-border-radius: 0;
+
+//$primary: black;
+//$btn-primary: #003E7A;
+$btn-secondary:#EBF2FA;
+//$btn-padding-x: 15px;
+//$nav-tabs-border-radius: 0;
 
 @import "bootstrap";
 
 // any custom styles AFTER including bootstrap
-.btn-primary{
-  --bs-btn-bg: blue;
-  border: 3px solid gold;
-  border-radius: 25px;
+
+#navigationBar .mainNavBar,.navbar,.navbar-brand,.navbar-toggler,.navbar-collapse{
+  --bs-border-width: 2px;
+  //--bs-border-color: gold;
+  background-color: #FFF;
+  border-radius: 0px;
+  //border-color: #ffc720;
 }
 
-//.btn-primary:hover{
-//  color: #0a58ca;
-//}
+.btn-primary{
+  --bs-btn-border-radius: 0px;
+  --bs-border-radius: 0px;
+}
 
 .btn-secondary{
-  --bs-body-color-rgb: blue;
-  border: 4px lightblue;
-  border-radius: 0px;
-}
-body #background{
-  margin: auto;
-  background-color: lightblue;
+  --bs-btn-active-bg: #003e7c;
+  --bs-btn-border-radius: 0px;
+  --bs-btn-hover-bg: #003e7c;
+  --bs-btn-bg: #003e7a;
+  --bs-btn-color: white;
 }
 
-#background #programInfo{
-  padding-left: 25px;
-  margin-left: 25px;
+.btn-secondary:hover{
+  --bs-btn-hover-bg: #003e7c;
 }
 
-body #introduction{
-  --bs-nav-link-color: lightblue;
-  --bs-nav-tabs-border-color: blue;
-  --bs-link-color-rgb: blue !important;
-  text-decoration-color: #1a1d20;
-  border: 3px lightcyan;
-  text-align: center;
-  margin: auto;
-  font-family: "Arial Black";
-
+.container-fluid #introduction .collapse-show #introLink{
+  --bs-body-bg: #EBF2FA;
+  background-color: #EBF2FA;
 }
 
-.tab-content,#myTabContent, #myProgramContent{
-  border-radius: 25px;
-  background-color: white;
-  margin: 5px;
-  border: 3px #0b5ed7;
-}
-#myProgramContent{
-  background-color: white;
-}
-
-#ApplicationClick{
-  margin: auto;
-  width: 200px;
-  height: auto;
-  //justify-content: left;
+//#programInfo .col-md-6{
+//  --bs-border-width: 3px;
+//  --bs-border-color: darkred;
+//  --bs-body-bg: #EBF2FA;
+//}
+#myTab{
+  background-color: #EBF2FA;
+  border: 1px solid darkblue;
 }
 
-#imagePlaceholder{
-  border-color: #ffc720;
+.tab-pane{
+  padding: 10px;
+  margin: 10px;
 }
 
-#expositionDump{
-  border: 4px lightblue;
-  border-radius: 5px;
-  background-color: white;
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-  //background-color: #0a58ca;
+.tab-content{
+  border: 1px solid lightblue;
+  background-color: #EBF2FA;
+  --bs-backdrop-bg: slategrey;
 }
 
-nav .mainNavBar{
-  font-family: "Arial Black";
-  border-color: #0a53be;
-  background-color: #0dcaf0;
+
+#bodyBorder{
+  --bs-border-radius: 0px;
+  --bs-border-width: 3px;
+  border-color: darkblue;
+  --bs-card-bg: #EBF2FA;
 }
+h3{
+  --bs-heading-color: darkblue;
+}
+h4{
+  --bs-heading-color: darkblue;
+}
+
+.nav.nav-tabs{
+  --bs-body-bg: #003E7A;
+  --bs-nav-tabs-link-active-color: #EDF2FA;
+}
+
+.btn .btn-primary #ApplicationClick{
+  width: 100px;
+  align-self: center;
+}
+
+.card-header{
+  border: 2px solid #EBF2FA;
+  background-color: #EBF2FA;
+}
+
+//body #background{
+//  margin: auto;
+//  background-color: white;
+//}
+//
+//#background #programInfo{
+//  background-color: #EBF2FA;
+//  padding-left: 25px;
+//  margin-left: 25px;
+//}
+//
+//.btn-primary{
+//  //--bs-btn-bg: blue;
+//  //--bs-btn-background: #003E7A;
+//  //border: 3px solid gold;
+//  border-radius: 0px;
+//}
+//
+//.btn-primary:hover{
+//  color: #EBF2FA;
+//}
+//
+//.btn-secondary{
+//  //--bs-body-color-rgb: blue;
+//  border: 4px lightblue;
+//  border-radius: 0px;
+//}
+//
+//
+//#background #programInfo{
+//  background-color: lightblue;
+//  padding-left: 25px;
+//  margin-left: 25px;
+//}
+//
+//body #introduction{
+//  --bs-nav-link-color: lightblue;
+//  --bs-nav-tabs-border-color: blue;
+//  //--bs-link-color-rgb: blue !important;
+//  text-decoration-color: #1a1d20;
+//  border: 3px lightcyan;
+//  text-align: center;
+//  margin: auto;
+//  font-family: "Arial Black";
+//
+//}
+//
+//.tab-content,#myTabContent, #myProgramContent{
+//  border-radius: 25px;
+//  background-color: white;
+//  margin: 5px;
+//  border: 3px #0b5ed7;
+//}
+//#myProgramContent{
+//  background-color: white;
+//}
+//
+//#ApplicationClick{
+//  margin: auto;
+//  width: 200px;
+//  height: auto;
+//}
+//
+//#imagePlaceholder{
+//  border-color: #ffc720;
+//}
+//
+//#expositionDump{
+//  border: 4px lightblue;
+//  border-radius: 5px;
+//  background-color: white;
+//  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+//  //background-color: #0a58ca;
+//}
+//
+//nav .mainNavBar{
+//  font-family: "Arial Black";
+//  border-color: #0a53be;
+//  background-color: #0dcaf0;
+//}
