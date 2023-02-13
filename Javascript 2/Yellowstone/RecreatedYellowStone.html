@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <!--sass scss/app.scss yellowstone.css-->
     <link rel="stylesheet" href="yellowstone.css">
@@ -11,7 +12,7 @@
 
 </header>
 
-
+<div class="container">
 <div class="accordion" id="registerPersonalInformation">
     <div class="accordion-item" id="registerLandingTitle">
         <h2 class="accordion-header">
@@ -23,8 +24,8 @@
         <div id="collapseIntro" class="accordion-collapse collapse show" aria-labelledby="introHeader"
              data-bs-parent="#registerPersonalInformation">
             <div class="accordion-body">
-                <div class="container-fluid">
-                    <div class="col-6">
+                <div class="row">
+                    <div class="col-md-6">
                         <h3>Application Form</h3>
                         <p>If you are an individual with disabilities who needs accommodation or
                             you are having difficulty using our web site to apply for employment,
@@ -36,7 +37,7 @@
                             origin, ancestry, veteran status, age, disability or any other legally
                             protected status under applicable law. AA/EOE M/F/D/V</p>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <h4>!!! BEFORE YOU START THIS APPLICATION !!!</h4>
 
                         <p>Have you already submitted one application for this season's employment?&nbsp; <b>If so,
@@ -48,7 +49,7 @@
                             If you need to make ANY changes to your application for employment, please email us at
                             info@yellowstonejobs.com.</p>
                     </div>
-                    <div class="col-8">
+                    <div class="col-md-8">
                         <h4><b>PLEASE DO NOT APPLY MORE THAN ONCE PER SEASON</b>.</h4>
 
                         <p>
@@ -328,7 +329,7 @@
     </div>
     <div class="accordion-item" id="experienceTabs">
         <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#experienceTabbedContent" aria-expanded="false"
                     aria-controls="#reegisterPersonalInformation">
                 Work Experience
@@ -1638,7 +1639,7 @@
     </div>
     <div class="accordion-item" id="education/eligibility">
         <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#educationQualifiers" aria-controls="#registerPersonalInformation">
                 Education and Work Eligibility
             </button>
@@ -1837,7 +1838,8 @@
     </div>
     <div class="accordion-item" id="generalInformation">
         <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#generalKnowledge"
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#generalKnowledge"
                     aria-controls="#registerPersonalInformation">
                 General Information
             </button>
@@ -1845,68 +1847,80 @@
         <div id="generalKnowledge" class="accordion-collapse collapse" aria-labelledby=""
              data-bs-parent="#registerPersonalInformation">
             <div class="container">
-                <div class="col-6">
-                    <p>Have you ever worked for Xanterra Parks and Resorts, Amfac Park and Resorts, Fred Harvey or TWRS
-                        company?
-                    </p>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" id="priorEmployYes" value="option1"
-                               data-bs-toggle="collapse" data-bs-target="#priorEmploy" aria-expanded="false"
-                               aria-controls="priorEmploy">
-                        <label class="form-check-label" for="priorEmployYes">Yes</label>
+                <div class="row">
+                    <div class="col-6">
+                        <p>Have you ever worked for Xanterra Parks and Resorts, Amfac Park and Resorts, Fred Harvey or
+                            TWRS
+                            company?
+                        </p>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" id="priorEmployNo">
-                        <label class="form-check-label" for="priorEmployNo">No</label>
+                    <div class="col-6">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="priorEmployYes" value="show"
+                                   data-bs-target="#priorEmploy" aria-expanded="false"
+                                   aria-controls="priorEmploy" name="priorEmployee">
+                            <label class="form-check-label" for="priorEmployYes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="priorEmployNo" value="hide"
+                                   name="priorEmployee" data-bs-target="#priorEmploy">
+                            <label class="form-check-label" for="priorEmployNo">No</label>
+                        </div>
                     </div>
+                    <div class="col-12">
 
-                    <div class="collapse" id="priorEmploy">
-                        <div class="card card-body">
-                            <div class="col-6">
-                                <label class="form-label">Please enter your employee number</label>
-                                <input type="text" class="form-control" placeholder="" value="">
+                        <div class="collapse" id="priorEmploy">
+                            <div class="card card-body">
+                                <div class="col-md-6">
+                                    <label class="form-label">Please enter your employee number</label>
+                                    <input type="text" class="form-control" placeholder="" value="">
 
-                                <label for="locationWorked" class="form-label">Location</label>
-                                <select class="form-select" id="locationWorked" required>
-                                    <option selected="selected" value="">Select One</option>
-                                    <option value="CORPORATE HEADQUATERS">Corporate Headquarters</option>
-                                    <option value="BRYCE CANYON LODGE">Bryce Canyon Lodge</option>
-                                    <option value="BURR OAK STATE PARK">Burr Oak State Park</option>
-                                    <option value="CRATER LAKE NATIONAL PARK">Crater Lake National Park</option>
-                                    <option value="EVERGLADES NATIONAL PARK">Everglades National Park</option>
-                                    <option value="FURNACE CREEK INN AND RANCH">Furnace Creek Inn and Ranch</option>
-                                    <option value="GENEVA MARINA">Geneva Marina</option>
-                                    <option value="GIDEON PUTNAM">Gideon Putnam</option>
-                                    <option value="GRAND CANYON NATIONAL PARK - NORTH RIM">Grand Canyon National Park -
-                                        North Rim
-                                    </option>
-                                    <option value="GRAND CANYON NATIONAL PARK - SOUTH RIM">Grand Canyon National Park -
-                                        South Rim
-                                    </option>
-                                    <option value="HUESTON WOODS">Hueston Woods</option>
-                                    <option value="MAUMEE BAY STATE PARK">Maumee Bay State Park</option>
-                                    <option value="MOHICAN BAY STATE PARK RESORT AND CONFERENCE CENTER">Mohican State
-                                        Park
-                                        Resort and Conference Center
-                                    </option>
-                                    <option value="MOUNT RUSHMORE">Mount Rushmore</option>
-                                    <option value="PAINTED DESERT OASIS">Painted Desert Oasis</option>
-                                    <option value="PUNDERSON MANOR">Punderson Manor</option>
-                                    <option value="SALT FORK RESORT AND STATE PARK">Salt Fork Resort and State Park
-                                    </option>
-                                    <option value="SCOTTYS CASTLE">Scotty's Castle</option>
-                                    <option value="SHAWNEE STATE PARK">Shawnee State Park</option>
-                                    <option value="SILVERADO COUNTRY CLUB AND RESORT">Silverado Country Club and Resort
-                                    </option>
-                                    <option value="STOVEPIPE WELLS">Stovepipe Wells</option>
-                                    <option value="YELLOWSTONE NATIONAL PARK">Yellowstone National Park</option>
-                                    <option value="ZION NATIONAL PARK">Zion National Park</option>
-                                </select>
+                                    <label for="locationWorked" class="form-label">Location</label>
+                                    <select class="form-select" id="locationWorked" required>
+                                        <option selected="selected" value="">Select One</option>
+                                        <option value="CORPORATE HEADQUATERS">Corporate Headquarters</option>
+                                        <option value="BRYCE CANYON LODGE">Bryce Canyon Lodge</option>
+                                        <option value="BURR OAK STATE PARK">Burr Oak State Park</option>
+                                        <option value="CRATER LAKE NATIONAL PARK">Crater Lake National Park</option>
+                                        <option value="EVERGLADES NATIONAL PARK">Everglades National Park</option>
+                                        <option value="FURNACE CREEK INN AND RANCH">Furnace Creek Inn and Ranch</option>
+                                        <option value="GENEVA MARINA">Geneva Marina</option>
+                                        <option value="GIDEON PUTNAM">Gideon Putnam</option>
+                                        <option value="GRAND CANYON NATIONAL PARK - NORTH RIM">Grand Canyon National
+                                            Park -
+                                            North Rim
+                                        </option>
+                                        <option value="GRAND CANYON NATIONAL PARK - SOUTH RIM">Grand Canyon National
+                                            Park -
+                                            South Rim
+                                        </option>
+                                        <option value="HUESTON WOODS">Hueston Woods</option>
+                                        <option value="MAUMEE BAY STATE PARK">Maumee Bay State Park</option>
+                                        <option value="MOHICAN BAY STATE PARK RESORT AND CONFERENCE CENTER">Mohican
+                                            State
+                                            Park
+                                            Resort and Conference Center
+                                        </option>
+                                        <option value="MOUNT RUSHMORE">Mount Rushmore</option>
+                                        <option value="PAINTED DESERT OASIS">Painted Desert Oasis</option>
+                                        <option value="PUNDERSON MANOR">Punderson Manor</option>
+                                        <option value="SALT FORK RESORT AND STATE PARK">Salt Fork Resort and State Park
+                                        </option>
+                                        <option value="SCOTTYS CASTLE">Scotty's Castle</option>
+                                        <option value="SHAWNEE STATE PARK">Shawnee State Park</option>
+                                        <option value="SILVERADO COUNTRY CLUB AND RESORT">Silverado Country Club and
+                                            Resort
+                                        </option>
+                                        <option value="STOVEPIPE WELLS">Stovepipe Wells</option>
+                                        <option value="YELLOWSTONE NATIONAL PARK">Yellowstone National Park</option>
+                                        <option value="ZION NATIONAL PARK">Zion National Park</option>
+                                    </select>
 
-                                <label class="form-label">Enter start date: (mm/dd/yyyy)</label>
-                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" value="">
-                                <label class="form-label">Enter end date: (mm/dd/yyyy)</label>
-                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" value="">
+                                    <label class="form-label">Enter start date: (mm/dd/yyyy)</label>
+                                    <input type="text" class="form-control" placeholder="mm/dd/yyyy" value="">
+                                    <label class="form-label">Enter end date: (mm/dd/yyyy)</label>
+                                    <input type="text" class="form-control" placeholder="mm/dd/yyyy" value="">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1919,14 +1933,13 @@
                     </p>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" id="priorEmployOtherNameYes" value="option1"
-                               data-bs-toggle="collapse"
-                               data-bs-target="#otherNameYes">
+                        <input class="form-check-input" type="radio" id="priorEmployOtherNameYes" value="show"
+                               data-bs-target="#otherNameYes" name="otherNameEmploy">
                         <label class="form-check-label" for="priorEmployOtherNameYes">Yes</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" id="priorEmployOtherNameNo" value="option2"
-                               data-bs-toggle="collapse">
+                        <input class="form-check-input" type="radio" id="priorEmployOtherNameNo" value="hide"
+                               data-bs-target="#otherNameYes" name="otherNameEmploy">
                         <label class="form-check-label" for="priorEmployOtherNameNo">No</label>
                     </div>
 
@@ -1975,7 +1988,8 @@
                         Are you a spouse, dependent, relative, or Domestic Partner of a National Park Service employee?
                     </p>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" id="spouseEmployYes" data-bs-toggle="collapse" data-bs-target="#spouseEmployed" aria-controls="spouseEmployed">
+                        <input class="form-check-input" type="radio" id="spouseEmployYes" data-bs-toggle="collapse"
+                               data-bs-target="#spouseEmployed" aria-controls="spouseEmployed">
                         <label for="spouseEmployYes" class="form-check-label">Yes</label>
                     </div>
                     <div class="form-check form-check-inline">
@@ -2000,24 +2014,30 @@
                                     <option value="FURNACE CREEK INN AND RANCH">Furnace Creek Inn and Ranch</option>
                                     <option value="GENEVA MARINA">Geneva Marina</option>
                                     <option value="GIDEON PUTNAM">Gideon Putnam</option>
-                                    <option value="GRAND CANYON NATIONAL PARK - NORTH RIM">Grand Canyon National Park - North
+                                    <option value="GRAND CANYON NATIONAL PARK - NORTH RIM">Grand Canyon National Park -
+                                        North
                                         Rim
                                     </option>
-                                    <option value="GRAND CANYON NATIONAL PARK - SOUTH RIM">Grand Canyon National Park - South
+                                    <option value="GRAND CANYON NATIONAL PARK - SOUTH RIM">Grand Canyon National Park -
+                                        South
                                         Rim
                                     </option>
                                     <option value="HUESTON WOODS">Hueston Woods</option>
                                     <option value="MAUMEE BAY STATE PARK">Maumee Bay State Park</option>
-                                    <option value="MOHICAN BAY STATE PARK RESORT AND CONFERENCE CENTER">Mohican State Park
+                                    <option value="MOHICAN BAY STATE PARK RESORT AND CONFERENCE CENTER">Mohican State
+                                        Park
                                         Resort and Conference Center
                                     </option>
                                     <option value="MOUNT RUSHMORE">Mount Rushmore</option>
                                     <option value="PAINTED DESERT OASIS">Painted Desert Oasis</option>
                                     <option value="PUNDERSON MANOR">Punderson Manor</option>
-                                    <option value="SALT FORK RESORT AND STATE PARK">Salt Fork Resort and State Park</option>
+                                    <option value="SALT FORK RESORT AND STATE PARK">Salt Fork Resort and State Park
+                                    </option>
                                     <option value="SCOTTYS CASTLE">Scotty's Castle</option>
                                     <option value="SHAWNEE STATE PARK">Shawnee State Park</option>
-                                    <option value="SILVERADO COUNTRY CLUB AND RESORT">Silverado Country Club and Resort</option>
+                                    <option value="SILVERADO COUNTRY CLUB AND RESORT">Silverado Country Club and
+                                        Resort
+                                    </option>
                                     <option value="STOVEPIPE WELLS">Stovepipe Wells</option>
                                     <option value="YELLOWSTONE NATIONAL PARK">Yellowstone National Park</option>
                                     <option value="ZION NATIONAL PARK">Zion National Park</option>
@@ -2036,9 +2056,10 @@
                     <hr>
                     <p>Applying with a friend or spouse? </p>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="multiApply" data-bs-toggle="collapse" data-bs-target="#multiApplication" aria-controls="multiApplication">
+                        <input class="form-check-input" type="checkbox" id="multiApply" data-bs-toggle="collapse"
+                               data-bs-target="#multiApplication" aria-controls="multiApplication">
                         <label for="multiApply" class="form-check-label">Yes</label>
-<!--                        Applying with a friend or spouse?-->
+                        <!--                        Applying with a friend or spouse?-->
                     </div>
 
                     <div class="collapse" id="multiApplication">
@@ -2070,28 +2091,30 @@
                             </div>
                         </div>
 
-<!--                        <label class="form-label">Please provide his or her full name: </label>-->
-<!--                        <input type="text" class="form-control" placeholder="" value="">-->
+                        <!--                        <label class="form-label">Please provide his or her full name: </label>-->
+                        <!--                        <input type="text" class="form-control" placeholder="" value="">-->
 
-<!--                        <p>-->
-<!--                            Are you two traveling together?-->
-<!--                        </p>-->
+                        <!--                        <p>-->
+                        <!--                            Are you two traveling together?-->
+                        <!--                        </p>-->
 
-<!--                        <div class="form-check form-check-inline">-->
-<!--                            <input class="form-check-input" type="checkbox">-->
-<!--                            <label>Yes</label>-->
-<!--                        </div>-->
-<!--                        <div class="form-check form-check-inline">-->
-<!--                            <input class="form-check-input" type="checkbox">-->
-<!--                            <label>No</label>-->
-<!--                        </div>-->
+                        <!--                        <div class="form-check form-check-inline">-->
+                        <!--                            <input class="form-check-input" type="checkbox">-->
+                        <!--                            <label>Yes</label>-->
+                        <!--                        </div>-->
+                        <!--                        <div class="form-check form-check-inline">-->
+                        <!--                            <input class="form-check-input" type="checkbox">-->
+                        <!--                            <label>No</label>-->
+                        <!--                        </div>-->
                     </div>
 
-                    <label for="housePreferences" class="form-label">If you are hired and meet housing requirements, please indicate your housing preference: </label>
+                    <label for="housePreferences" class="form-label">If you are hired and meet housing requirements,
+                        please indicate your housing preference: </label>
                     <p>
                         Dormitory (must be 18 years or older; no housing available for children or pets)
                         RV or Trailer (this is your own self contained vehicle; space is limited)
                     </p>
+<!--                    todo:Make the following three radio buttons with rv trailer attached to collapse box-->
                     <select class="form-select" id="housePreferences" required>
                         <option>Choose...</option>
                         <option>Dormitory</option>
@@ -2104,1491 +2127,14 @@
     </div>
 </div>
 
-<!--<div class="accordion" id="registerExperience">-->
-<!--    <div class="accordion-item" id="experienceTabs">-->
-<!--        <h2 class="accordion-header">-->
-<!--            <button class="accordion-button" type="button" data-bs-toggle="collapse"-->
-<!--                    data-bs-target="#experienceTabbedContent" aria-expanded="false"-->
-<!--                    aria-controls="experienceTabbedContent">-->
-<!--                Work Experience-->
-<!--            </button>-->
-<!--        </h2>-->
-<!--        <div id="experienceTabbedContent" class="accordion-collapse collapse" aria-labelledby="headingThree"-->
-<!--             data-bs-parent="#registerPersonalInformation">-->
-<!--            <div class="accordion-body" id="employerTabs">-->
-<!--                <div class="col-6">-->
-<!--                    <ul class="nav nav-tabs" id="myTab">-->
-<!--                        <li class="nav-item">-->
-<!--                            <button class="nav-link active" id="workExperienceOne" data-bs-toggle="tab"-->
-<!--                                    data-bs-target="#employerOne-tab" type="button" role="tab"-->
-<!--                                    aria-controls="home-tab-pane" aria-selected="true">Employer One-->
-<!--                            </button>-->
-<!--                        </li>-->
-<!--                        <li class="nav-item">-->
-<!--                            <button class="nav-link" id="workExperienceTwo" data-bs-toggle="tab"-->
-<!--                                    data-bs-target="#employerTwo-tab" type="button" role="tab"-->
-<!--                                    aria-controls="profile-tab-pane" aria-selected="false">Employer Two-->
-<!--                            </button>-->
-<!--                        </li>-->
-<!--                        <li class="nav-item">-->
-<!--                            <button class="nav-link" id="workExperienceThree" data-bs-toggle="tab"-->
-<!--                                    data-bs-target="#employerThree-tab" type="button" role="tab"-->
-<!--                                    aria-controls="contact-tab-pane" aria-selected="false">Employer Three-->
-<!--                            </button>-->
-<!--                        </li>-->
-<!--                        <li class="nav-item">-->
-<!--                            <button class="nav-link" id="workExperienceFour" data-bs-toggle="tab"-->
-<!--                                    data-bs-target="#employerFour-tab" type="button" role="tab"-->
-<!--                                    aria-controls="contact-tab-pane" aria-selected="false">Employer Four-->
-<!--                            </button>-->
-<!--                        </li>-->
-<!--                    </ul>-->
-
-<!--                    <div class="tab-content" id="employerInformation">-->
-<!--                        <div class="tab-pane fade show active" id="employerOne-tab" role="tabpanel"-->
-<!--                             aria-labelledby="employerOne-tab" tabindex="0">-->
-<!--                            <h5>Employer One</h5>-->
-<!--                            <div class="col-sm-6">-->
-<!--                                <label for="companyName" class="form-label">Company Name</label>-->
-<!--                                <input type="text" class="form-control" id="companyName" placeholder="" value="">-->
-<!--                                <div class="invalid-feedback">-->
-<!--                                    Valid name is needed.-->
-<!--                                </div>-->
-<!--                            </div>-->
-
-<!--                            <div class="col-12">-->
-<!--                                <label for="address" class="form-label">Company Street Address or PO Box Number</label>-->
-<!--                                <input type="text" class="form-control" id="employerAddress" placeholder="1234 Main St">-->
-<!--                                <div class="invalid-feedback">-->
-<!--                                    Please enter the company street address.-->
-<!--                                </div>-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <label for="city" class="form-label">City</label>-->
-<!--                                <input type="text" class="form-control" id="city" placeholder="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <label for="state" class="form-label">State</label>-->
-<!--                                <select class="form-select" id="state">-->
-<!--                                    <option value="">Choose...</option>-->
-<!--                                    <option value="">Not Applicable</option>-->
-<!--                                    <option>AL</option>-->
-<!--                                    &ndash;&gt;-->
-<!--                                    <option>AK</option>-->
-<!--                                    <option>AZ</option>-->
-<!--                                    <option>AR</option>-->
-<!--                                    <option>CA</option>-->
-<!--                                    <option>CO</option>-->
-<!--                                    <option>CT</option>-->
-<!--                                    <option>DE</option>-->
-<!--                                    <option>DC</option>-->
-<!--                                    <option>FL</option>-->
-<!--                                    <option>GA</option>-->
-<!--                                    <option>HI</option>-->
-<!--                                    <option>ID</option>-->
-<!--                                    <option>IL</option>-->
-<!--                                    <option>IN</option>-->
-<!--                                    <option>IA</option>-->
-<!--                                    <option>KS</option>-->
-<!--                                    <option>KY</option>-->
-<!--                                    <option>LA</option>-->
-<!--                                    <option>ME</option>-->
-<!--                                    <option>MD</option>-->
-<!--                                    <option>MA</option>-->
-<!--                                    <option>MI</option>-->
-<!--                                    <option>MN</option>-->
-<!--                                    <option>MS</option>-->
-<!--                                    <option>MO</option>-->
-<!--                                    <option>MT</option>-->
-<!--                                    <option>NE</option>-->
-<!--                                    <option>NV</option>-->
-<!--                                    <option>NH</option>-->
-<!--                                    <option>NJ</option>-->
-<!--                                    <option>NM</option>-->
-<!--                                    <option>NY</option>-->
-<!--                                    <option>NC</option>-->
-<!--                                    <option>ND</option>-->
-<!--                                    <option>OH</option>-->
-<!--                                    <option>OK</option>-->
-<!--                                    <option>OR</option>-->
-<!--                                    <option>PA</option>-->
-<!--                                    <option>PR</option>-->
-<!--                                    <option>RI</option>-->
-<!--                                    <option>SC</option>-->
-<!--                                    <option>SD</option>-->
-<!--                                    <option>TN</option>-->
-<!--                                    <option>TX</option>-->
-<!--                                    <option>UT</option>-->
-<!--                                    <option>VT</option>-->
-<!--                                    <option>VA</option>-->
-<!--                                    <option>WA</option>-->
-<!--                                    <option>WV</option>-->
-<!--                                    <option>WI</option>-->
-<!--                                    <option>WY</option>-->
-<!--                                </select>-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <label for="zip" class="form-label">Zip Code</label>-->
-<!--                                <input type="text" class="form-control" id="companyZip" placeholder="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <label for="country" class="form-label">Country</label>-->
-<!--                                <select class="form-select" id="companyCountry">-->
-<!--                                    <option value="">Choose...</option>-->
-<!--                                    <option value="US">United States</option>-->
-<!--                                    <option value="AE">United Arab Emirates</option>-->
-<!--                                    <option value="AF">Afghanistan</option>-->
-<!--                                    <option value="AG">Antigua and Barbuda</option>-->
-<!--                                    <option value="AL">Albania</option>-->
-<!--                                    <option value="AM">Armenia</option>-->
-<!--                                    <option value="AM">Zambia</option>-->
-<!--                                    <option value="AN">Netherland Antilles</option>-->
-<!--                                    <option value="AQ">Antarctica</option>-->
-<!--                                    <option value="AR">Argentina</option>-->
-<!--                                    <option value="AS">American Samoa</option>-->
-<!--                                    <option value="AT">Austria</option>-->
-<!--                                    <option value="AU">Australia</option>-->
-<!--                                    <option value="AW">Aruba</option>-->
-<!--                                    <option value="AZ">Azerbaidjan</option>-->
-<!--                                    <option value="BA">Bosnia-Herzegovina</option>-->
-<!--                                    <option value="BB">Barbados</option>-->
-<!--                                    <option value="BD">Bangladesh</option>-->
-<!--                                    <option value="BE">Belgium</option>-->
-<!--                                    <option value="BG">Bulgaria</option>-->
-<!--                                    <option value="BH">Bahrain</option>-->
-<!--                                    <option value="BM">Bermuda</option>-->
-<!--                                    <option value="BO">Bolivia</option>-->
-<!--                                    <option value="BR">Brazil</option>-->
-<!--                                    <option value="BS">Bahamas</option>-->
-<!--                                    <option value="BW">Botswana</option>-->
-<!--                                    <option value="BY">Belarus</option>-->
-<!--                                    <option value="BZ">Belize</option>-->
-<!--                                    <option value="CA">Canada</option>-->
-<!--                                    <option value="CG">Congo</option>-->
-<!--                                    <option value="CH">Switzerland</option>-->
-<!--                                    <option value="CL">Chile</option>-->
-<!--                                    <option value="CM">Cameroon</option>-->
-<!--                                    <option value="CN">China</option>-->
-<!--                                    <option value="CO">Columbia</option>-->
-<!--                                    <option value="CR">Costa Rica</option>-->
-<!--                                    <option value="CS">Former Czechoslovakia</option>-->
-<!--                                    <option value="CZ">Czech Republic</option>-->
-<!--                                    <option value="DE">Germany</option>-->
-<!--                                    <option value="DK">Denmark</option>-->
-<!--                                    <option value="DM">Dominica</option>-->
-<!--                                    <option value="DO">Dominican Republic</option>-->
-<!--                                    <option value="DZ">Algeria</option>-->
-<!--                                    <option value="EC">Ecuador</option>-->
-<!--                                    <option value="EE">Estonia</option>-->
-<!--                                    <option value="EG">Egypt</option>-->
-<!--                                    <option value="ES">Spain</option>-->
-<!--                                    <option value="ET">Ethiopia</option>-->
-<!--                                    <option value="FI">Finland</option>-->
-<!--                                    <option value="FJ">Fiji</option>-->
-<!--                                    <option value="FK">Falkland Islands</option>-->
-<!--                                    <option value="FR">France</option>-->
-<!--                                    <option value="GB">Great Britain</option>-->
-<!--                                    <option value="GD">Grenada</option>-->
-<!--                                    <option value="GE">Georgia</option>-->
-<!--                                    <option value="GF">French Guyana</option>-->
-<!--                                    <option value="GH">Ghana</option>-->
-<!--                                    <option value="GL">Greenland</option>-->
-<!--                                    <option value="GN">Guinea</option>-->
-<!--                                    <option value="GR">Greece</option>-->
-<!--                                    <option value="GT">Guatamala</option>-->
-<!--                                    <option value="GU">Guam (USA)</option>-->
-<!--                                    <option value="GY">Guyana</option>-->
-<!--                                    <option value="HK">Hong Kong</option>-->
-<!--                                    <option value="HN">Honduras</option>-->
-<!--                                    <option value="HR">Croatia</option>-->
-<!--                                    <option value="HT">Haiti</option>-->
-<!--                                    <option value="HU">Hungary</option>-->
-<!--                                    <option value="ID">Indonesia</option>-->
-<!--                                    <option value="IE">Ireland</option>-->
-<!--                                    <option value="IL">Israel</option>-->
-<!--                                    <option value="IN">India</option>-->
-<!--                                    <option value="IQ">Iraq</option>-->
-<!--                                    <option value="IR">Iran</option>-->
-<!--                                    <option value="IS">Iceland</option>-->
-<!--                                    <option value="IT">Italy</option>-->
-<!--                                    <option value="JM">Jamaica</option>-->
-<!--                                    <option value="JO">Jordan</option>-->
-<!--                                    <option value="JP">Japan</option>-->
-<!--                                    <option value="KE">Kenya</option>-->
-<!--                                    <option value="KP">North Korea</option>-->
-<!--                                    <option value="KR">South Korea</option>-->
-<!--                                    <option value="KW">Kuwait</option>-->
-<!--                                    <option value="KY">Cayman Islands</option>-->
-<!--                                    <option value="KZ">Kazakhstan</option>-->
-<!--                                    <option value="LA">Laos</option>-->
-<!--                                    <option value="LB">Lebanon</option>-->
-<!--                                    <option value="LC">St. Lucia</option>-->
-<!--                                    <option value="LI">Liechtenstein</option>-->
-<!--                                    <option value="LK">Sri Lanka</option>-->
-<!--                                    <option value="LR">Liberia</option>-->
-<!--                                    <option value="LT">Lithuania</option>-->
-<!--                                    <option value="LU">Luxembourg</option>-->
-<!--                                    <option value="LV">Latvia</option>-->
-<!--                                    <option value="LY">Libya</option>-->
-<!--                                    <option value="MA">Morocco</option>-->
-<!--                                    <option value="MC">Monaco</option>-->
-<!--                                    <option value="MD">Moldavia</option>-->
-<!--                                    <option value="MG">Madagascar</option>-->
-<!--                                    <option value="YU">Macedonia</option>-->
-<!--                                    <option value="MN">Mongolia</option>-->
-<!--                                    <option value="MQ">Martinique (French)</option>-->
-<!--                                    <option value="MS">Montserrat</option>-->
-<!--                                    <option value="MT">Malta</option>-->
-<!--                                    <option value="MX">Mexico</option>-->
-<!--                                    <option value="MY">Malaysia</option>-->
-<!--                                    <option value="MZ">Mozambique</option>-->
-<!--                                    <option value="NA">Namibia</option>-->
-<!--                                    <option value="NG">Nigeria</option>-->
-<!--                                    <option value="NI">Nicaragua</option>-->
-<!--                                    <option value="NL">Netherlands</option>-->
-<!--                                    <option value="NO">Norway</option>-->
-<!--                                    <option value="NP">Nepal</option>-->
-<!--                                    <option value="NZ">New Zealand</option>-->
-<!--                                    <option value="PA">Panama</option>-->
-<!--                                    <option value="PE">Peru</option>-->
-<!--                                    <option value="PH">Phillipines</option>-->
-<!--                                    <option value="PK">Pakistan</option>-->
-<!--                                    <option value="PL">Poland</option>-->
-<!--                                    <option value="PR">Puerto Rico</option>-->
-<!--                                    <option value="PT">Portugal</option>-->
-<!--                                    <option value="PY">Paraguay</option>-->
-<!--                                    <option value="QA">Qatar</option>-->
-<!--                                    <option value="RO">Romania</option>-->
-<!--                                    <option value="RU">Russian Federation</option>-->
-<!--                                    <option value="RW">Rwanda</option>-->
-<!--                                    <option value="SA">Saudi Arabia</option>-->
-<!--                                    <option value="RS">Serbia</option>-->
-<!--                                    <option value="YU">Serbia and Montenegro</option>-->
-<!--                                    <option value="SD">Sudan</option>-->
-<!--                                    <option value="SE">Sweden</option>-->
-<!--                                    <option value="SG">Singapore</option>-->
-<!--                                    <option value="SI">Slovenia</option>-->
-<!--                                    <option value="SK">Slovak Republic</option>-->
-<!--                                    <option value="SN">Senegal</option>-->
-<!--                                    <option value="SO">Somalia</option>-->
-<!--                                    <option value="SR">Suriname</option>-->
-<!--                                    <option value="SV">El Salvador</option>-->
-<!--                                    <option value="SY">Syria</option>-->
-<!--                                    <option value="SZ">Swaziland</option>-->
-<!--                                    <option value="TC">Turks and Caicos Islands</option>-->
-<!--                                    <option value="TD">Chad</option>-->
-<!--                                    <option value="TH">Thailand</option>-->
-<!--                                    <option value="TJ">Tadjikistan</option>-->
-<!--                                    <option value="TM">Turkmenistan</option>-->
-<!--                                    <option value="TN">Tunisia</option>-->
-<!--                                    <option value="TR">Turkey</option>-->
-<!--                                    <option value="TT">Trinidad and Tabago</option>-->
-<!--                                    <option value="TW">Taiwan</option>-->
-<!--                                    <option value="TZ">Tanzania</option>-->
-<!--                                    <option value="UA">Ukraine</option>-->
-<!--                                    <option value="UG">Uganda</option>-->
-<!--                                    <option value="GB">United Kingdom</option>-->
-<!--                                    <option value="UY">Uruguay</option>-->
-<!--                                    <option value="UZ">Uzbekistan</option>-->
-<!--                                    <option value="VA">Vatican City</option>-->
-<!--                                    <option value="VC">St. Vincent &amp; Grenadines</option>-->
-<!--                                    <option value="VE">Venezuala</option>-->
-<!--                                    <option value="VG">Virgin Islands (British)</option>-->
-<!--                                    <option value="VI">Virgin Islands (USA)</option>-->
-<!--                                    <option value="VN">Vietnam</option>-->
-<!--                                    <option value="WS">Samoa</option>-->
-<!--                                    <option value="YE">Yemen</option>-->
-<!--                                    <option value="ZA">South Africa</option>-->
-<!--                                    <option value="ZR">Zaire</option>-->
-<!--                                    <option value="ZW">Zimbabwe</option>-->
-<!--                                </select>-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <label for="phone" class="form-label">Phone Number</label>-->
-<!--                                <input type="text" class="form-control" id="phone" placeholder="(1414) xxx xxxx">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-sm-6">-->
-<!--                                <label for="companyName" class="form-label">Position</label>-->
-<!--                                <input type="text" class="form-control" id="position" placeholder="" value="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-6">-->
-<!--                                <label for="companyName" class="form-label">Supervisor Name and Title</label>-->
-<!--                                <input type="text" class="form-control" id="supervisorInfo" placeholder="" value="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-sm-6">-->
-<!--                                <label for="companyName" class="form-label">Start Date (mm/dd/yyyy)</label>-->
-<!--                                <input type="text" class="form-control" id="startDate" placeholder="mm/dd/yyyy"-->
-<!--                                       value="">-->
-<!--                                <div class="invalid-feedback">-->
-<!--                                    Valid name is needed.-->
-<!--                                </div>-->
-
-<!--                                &lt;!&ndash;                                <label for="companyName" class="form-label">End Date (mm/dd/yyyy)</label>&ndash;&gt;-->
-<!--                                &lt;!&ndash;                                <input type="text" class="form-control" id="endDate" placeholder="mm/dd/yyyy" value="">&ndash;&gt;-->
-<!--                                &lt;!&ndash;                                <div class="invalid-feedback">&ndash;&gt;-->
-<!--                                &lt;!&ndash;                                    Valid name is needed.&ndash;&gt;-->
-<!--                                &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--                            </div>-->
-
-<!--                            <div class="col-sm-6">-->
-<!--                                <label for="companyName" class="form-label">End Date (mm/dd/yyyy)</label>-->
-<!--                                <input type="text" class="form-control" id="endDate" placeholder="mm/dd/yyyy" value="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <div class="form-check">-->
-<!--                                    <input class="form-check-input" type="checkbox" value="" id="contactCheck">-->
-<!--                                    <label class="form-check-label" for="contactCheck">-->
-<!--                                        May we contact this employer?-->
-<!--                                    </label>-->
-<!--                                </div>-->
-<!--                            </div>-->
-
-<!--                            <div class="col-12">-->
-<!--                                <label for="companyName" class="form-label">Specific Duties</label>-->
-<!--                                <input type="text" class="form-control" id="employeeDuties" placeholder="" value="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-12">-->
-<!--                                <label for="companyName" class="form-label">Reason for Leaving</label>-->
-<!--                                <input type="text" class="form-control" id="employeeReasons" placeholder="" value="">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="tab-pane fade" id="employerTwo-tab" role="tabpanel"-->
-<!--                             aria-labelledby="employerTwo-tab" tabindex="0">-->
-<!--                            <h5>Employer Two</h5>-->
-<!--                            <div class="col-sm-6">-->
-<!--                                <label for="companyName" class="form-label">Company Name</label>-->
-<!--                                <input type="text" class="form-control" placeholder="" value="">-->
-<!--                                <div class="invalid-feedback">-->
-<!--                                    Valid name is needed.-->
-<!--                                </div>-->
-<!--                            </div>-->
-
-<!--                            <div class="col-12">-->
-<!--                                <label for="address" class="form-label">Company Street Address or PO Box Number</label>-->
-<!--                                <input type="text" class="form-control" placeholder="1234 Main St">-->
-<!--                                <div class="invalid-feedback">-->
-<!--                                    Please enter the company street address.-->
-<!--                                </div>-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <label for="city" class="form-label">City</label>-->
-<!--                                <input type="text" class="form-control" placeholder="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <label for="state" class="form-label">State</label>-->
-<!--                                <select class="form-select">-->
-<!--                                    <option value="">Choose...</option>-->
-<!--                                    <option value="">Not Applicable</option>-->
-<!--                                    <option>AL</option>-->
-<!--                                    &ndash;&gt;-->
-<!--                                    <option>AK</option>-->
-<!--                                    <option>AZ</option>-->
-<!--                                    <option>AR</option>-->
-<!--                                    <option>CA</option>-->
-<!--                                    <option>CO</option>-->
-<!--                                    <option>CT</option>-->
-<!--                                    <option>DE</option>-->
-<!--                                    <option>DC</option>-->
-<!--                                    <option>FL</option>-->
-<!--                                    <option>GA</option>-->
-<!--                                    <option>HI</option>-->
-<!--                                    <option>ID</option>-->
-<!--                                    <option>IL</option>-->
-<!--                                    <option>IN</option>-->
-<!--                                    <option>IA</option>-->
-<!--                                    <option>KS</option>-->
-<!--                                    <option>KY</option>-->
-<!--                                    <option>LA</option>-->
-<!--                                    <option>ME</option>-->
-<!--                                    <option>MD</option>-->
-<!--                                    <option>MA</option>-->
-<!--                                    <option>MI</option>-->
-<!--                                    <option>MN</option>-->
-<!--                                    <option>MS</option>-->
-<!--                                    <option>MO</option>-->
-<!--                                    <option>MT</option>-->
-<!--                                    <option>NE</option>-->
-<!--                                    <option>NV</option>-->
-<!--                                    <option>NH</option>-->
-<!--                                    <option>NJ</option>-->
-<!--                                    <option>NM</option>-->
-<!--                                    <option>NY</option>-->
-<!--                                    <option>NC</option>-->
-<!--                                    <option>ND</option>-->
-<!--                                    <option>OH</option>-->
-<!--                                    <option>OK</option>-->
-<!--                                    <option>OR</option>-->
-<!--                                    <option>PA</option>-->
-<!--                                    <option>PR</option>-->
-<!--                                    <option>RI</option>-->
-<!--                                    <option>SC</option>-->
-<!--                                    <option>SD</option>-->
-<!--                                    <option>TN</option>-->
-<!--                                    <option>TX</option>-->
-<!--                                    <option>UT</option>-->
-<!--                                    <option>VT</option>-->
-<!--                                    <option>VA</option>-->
-<!--                                    <option>WA</option>-->
-<!--                                    <option>WV</option>-->
-<!--                                    <option>WI</option>-->
-<!--                                    <option>WY</option>-->
-<!--                                </select>-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <label for="zip" class="form-label">Zip Code</label>-->
-<!--                                <input type="text" class="form-control" placeholder="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <label for="country" class="form-label">Country</label>-->
-<!--                                <select class="form-select">-->
-<!--                                    <option value="">Choose...</option>-->
-<!--                                    <option value="US">United States</option>-->
-<!--                                    <option value="AE">United Arab Emirates</option>-->
-<!--                                    <option value="AF">Afghanistan</option>-->
-<!--                                    <option value="AG">Antigua and Barbuda</option>-->
-<!--                                    <option value="AL">Albania</option>-->
-<!--                                    <option value="AM">Armenia</option>-->
-<!--                                    <option value="AM">Zambia</option>-->
-<!--                                    <option value="AN">Netherland Antilles</option>-->
-<!--                                    <option value="AQ">Antarctica</option>-->
-<!--                                    <option value="AR">Argentina</option>-->
-<!--                                    <option value="AS">American Samoa</option>-->
-<!--                                    <option value="AT">Austria</option>-->
-<!--                                    <option value="AU">Australia</option>-->
-<!--                                    <option value="AW">Aruba</option>-->
-<!--                                    <option value="AZ">Azerbaidjan</option>-->
-<!--                                    <option value="BA">Bosnia-Herzegovina</option>-->
-<!--                                    <option value="BB">Barbados</option>-->
-<!--                                    <option value="BD">Bangladesh</option>-->
-<!--                                    <option value="BE">Belgium</option>-->
-<!--                                    <option value="BG">Bulgaria</option>-->
-<!--                                    <option value="BH">Bahrain</option>-->
-<!--                                    <option value="BM">Bermuda</option>-->
-<!--                                    <option value="BO">Bolivia</option>-->
-<!--                                    <option value="BR">Brazil</option>-->
-<!--                                    <option value="BS">Bahamas</option>-->
-<!--                                    <option value="BW">Botswana</option>-->
-<!--                                    <option value="BY">Belarus</option>-->
-<!--                                    <option value="BZ">Belize</option>-->
-<!--                                    <option value="CA">Canada</option>-->
-<!--                                    <option value="CG">Congo</option>-->
-<!--                                    <option value="CH">Switzerland</option>-->
-<!--                                    <option value="CL">Chile</option>-->
-<!--                                    <option value="CM">Cameroon</option>-->
-<!--                                    <option value="CN">China</option>-->
-<!--                                    <option value="CO">Columbia</option>-->
-<!--                                    <option value="CR">Costa Rica</option>-->
-<!--                                    <option value="CS">Former Czechoslovakia</option>-->
-<!--                                    <option value="CZ">Czech Republic</option>-->
-<!--                                    <option value="DE">Germany</option>-->
-<!--                                    <option value="DK">Denmark</option>-->
-<!--                                    <option value="DM">Dominica</option>-->
-<!--                                    <option value="DO">Dominican Republic</option>-->
-<!--                                    <option value="DZ">Algeria</option>-->
-<!--                                    <option value="EC">Ecuador</option>-->
-<!--                                    <option value="EE">Estonia</option>-->
-<!--                                    <option value="EG">Egypt</option>-->
-<!--                                    <option value="ES">Spain</option>-->
-<!--                                    <option value="ET">Ethiopia</option>-->
-<!--                                    <option value="FI">Finland</option>-->
-<!--                                    <option value="FJ">Fiji</option>-->
-<!--                                    <option value="FK">Falkland Islands</option>-->
-<!--                                    <option value="FR">France</option>-->
-<!--                                    <option value="GB">Great Britain</option>-->
-<!--                                    <option value="GD">Grenada</option>-->
-<!--                                    <option value="GE">Georgia</option>-->
-<!--                                    <option value="GF">French Guyana</option>-->
-<!--                                    <option value="GH">Ghana</option>-->
-<!--                                    <option value="GL">Greenland</option>-->
-<!--                                    <option value="GN">Guinea</option>-->
-<!--                                    <option value="GR">Greece</option>-->
-<!--                                    <option value="GT">Guatamala</option>-->
-<!--                                    <option value="GU">Guam (USA)</option>-->
-<!--                                    <option value="GY">Guyana</option>-->
-<!--                                    <option value="HK">Hong Kong</option>-->
-<!--                                    <option value="HN">Honduras</option>-->
-<!--                                    <option value="HR">Croatia</option>-->
-<!--                                    <option value="HT">Haiti</option>-->
-<!--                                    <option value="HU">Hungary</option>-->
-<!--                                    <option value="ID">Indonesia</option>-->
-<!--                                    <option value="IE">Ireland</option>-->
-<!--                                    <option value="IL">Israel</option>-->
-<!--                                    <option value="IN">India</option>-->
-<!--                                    <option value="IQ">Iraq</option>-->
-<!--                                    <option value="IR">Iran</option>-->
-<!--                                    <option value="IS">Iceland</option>-->
-<!--                                    <option value="IT">Italy</option>-->
-<!--                                    <option value="JM">Jamaica</option>-->
-<!--                                    <option value="JO">Jordan</option>-->
-<!--                                    <option value="JP">Japan</option>-->
-<!--                                    <option value="KE">Kenya</option>-->
-<!--                                    <option value="KP">North Korea</option>-->
-<!--                                    <option value="KR">South Korea</option>-->
-<!--                                    <option value="KW">Kuwait</option>-->
-<!--                                    <option value="KY">Cayman Islands</option>-->
-<!--                                    <option value="KZ">Kazakhstan</option>-->
-<!--                                    <option value="LA">Laos</option>-->
-<!--                                    <option value="LB">Lebanon</option>-->
-<!--                                    <option value="LC">St. Lucia</option>-->
-<!--                                    <option value="LI">Liechtenstein</option>-->
-<!--                                    <option value="LK">Sri Lanka</option>-->
-<!--                                    <option value="LR">Liberia</option>-->
-<!--                                    <option value="LT">Lithuania</option>-->
-<!--                                    <option value="LU">Luxembourg</option>-->
-<!--                                    <option value="LV">Latvia</option>-->
-<!--                                    <option value="LY">Libya</option>-->
-<!--                                    <option value="MA">Morocco</option>-->
-<!--                                    <option value="MC">Monaco</option>-->
-<!--                                    <option value="MD">Moldavia</option>-->
-<!--                                    <option value="MG">Madagascar</option>-->
-<!--                                    <option value="YU">Macedonia</option>-->
-<!--                                    <option value="MN">Mongolia</option>-->
-<!--                                    <option value="MQ">Martinique (French)</option>-->
-<!--                                    <option value="MS">Montserrat</option>-->
-<!--                                    <option value="MT">Malta</option>-->
-<!--                                    <option value="MX">Mexico</option>-->
-<!--                                    <option value="MY">Malaysia</option>-->
-<!--                                    <option value="MZ">Mozambique</option>-->
-<!--                                    <option value="NA">Namibia</option>-->
-<!--                                    <option value="NG">Nigeria</option>-->
-<!--                                    <option value="NI">Nicaragua</option>-->
-<!--                                    <option value="NL">Netherlands</option>-->
-<!--                                    <option value="NO">Norway</option>-->
-<!--                                    <option value="NP">Nepal</option>-->
-<!--                                    <option value="NZ">New Zealand</option>-->
-<!--                                    <option value="PA">Panama</option>-->
-<!--                                    <option value="PE">Peru</option>-->
-<!--                                    <option value="PH">Phillipines</option>-->
-<!--                                    <option value="PK">Pakistan</option>-->
-<!--                                    <option value="PL">Poland</option>-->
-<!--                                    <option value="PR">Puerto Rico</option>-->
-<!--                                    <option value="PT">Portugal</option>-->
-<!--                                    <option value="PY">Paraguay</option>-->
-<!--                                    <option value="QA">Qatar</option>-->
-<!--                                    <option value="RO">Romania</option>-->
-<!--                                    <option value="RU">Russian Federation</option>-->
-<!--                                    <option value="RW">Rwanda</option>-->
-<!--                                    <option value="SA">Saudi Arabia</option>-->
-<!--                                    <option value="RS">Serbia</option>-->
-<!--                                    <option value="YU">Serbia and Montenegro</option>-->
-<!--                                    <option value="SD">Sudan</option>-->
-<!--                                    <option value="SE">Sweden</option>-->
-<!--                                    <option value="SG">Singapore</option>-->
-<!--                                    <option value="SI">Slovenia</option>-->
-<!--                                    <option value="SK">Slovak Republic</option>-->
-<!--                                    <option value="SN">Senegal</option>-->
-<!--                                    <option value="SO">Somalia</option>-->
-<!--                                    <option value="SR">Suriname</option>-->
-<!--                                    <option value="SV">El Salvador</option>-->
-<!--                                    <option value="SY">Syria</option>-->
-<!--                                    <option value="SZ">Swaziland</option>-->
-<!--                                    <option value="TC">Turks and Caicos Islands</option>-->
-<!--                                    <option value="TD">Chad</option>-->
-<!--                                    <option value="TH">Thailand</option>-->
-<!--                                    <option value="TJ">Tadjikistan</option>-->
-<!--                                    <option value="TM">Turkmenistan</option>-->
-<!--                                    <option value="TN">Tunisia</option>-->
-<!--                                    <option value="TR">Turkey</option>-->
-<!--                                    <option value="TT">Trinidad and Tabago</option>-->
-<!--                                    <option value="TW">Taiwan</option>-->
-<!--                                    <option value="TZ">Tanzania</option>-->
-<!--                                    <option value="UA">Ukraine</option>-->
-<!--                                    <option value="UG">Uganda</option>-->
-<!--                                    <option value="GB">United Kingdom</option>-->
-<!--                                    <option value="UY">Uruguay</option>-->
-<!--                                    <option value="UZ">Uzbekistan</option>-->
-<!--                                    <option value="VA">Vatican City</option>-->
-<!--                                    <option value="VC">St. Vincent &amp; Grenadines</option>-->
-<!--                                    <option value="VE">Venezuala</option>-->
-<!--                                    <option value="VG">Virgin Islands (British)</option>-->
-<!--                                    <option value="VI">Virgin Islands (USA)</option>-->
-<!--                                    <option value="VN">Vietnam</option>-->
-<!--                                    <option value="WS">Samoa</option>-->
-<!--                                    <option value="YE">Yemen</option>-->
-<!--                                    <option value="ZA">South Africa</option>-->
-<!--                                    <option value="ZR">Zaire</option>-->
-<!--                                    <option value="ZW">Zimbabwe</option>-->
-<!--                                </select>-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <label for="phone" class="form-label">Phone Number</label>-->
-<!--                                <input type="text" class="form-control" placeholder="(1414) xxx xxxx">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-sm-6">-->
-<!--                                <label for="companyName" class="form-label">Position</label>-->
-<!--                                <input type="text" class="form-control" placeholder="" value="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-6">-->
-<!--                                <label for="companyName" class="form-label">Supervisor Name and Title</label>-->
-<!--                                <input type="text" class="form-control" placeholder="" value="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-sm-6">-->
-<!--                                <label for="companyName" class="form-label">Start Date (mm/dd/yyyy)</label>-->
-<!--                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" value="">-->
-<!--                                <div class="invalid-feedback">-->
-<!--                                    Valid name is needed.-->
-<!--                                </div>-->
-
-<!--                                &lt;!&ndash;                                <label for="companyName" class="form-label">End Date (mm/dd/yyyy)</label>&ndash;&gt;-->
-<!--                                &lt;!&ndash;                                <input type="text" class="form-control" id="endDate" placeholder="mm/dd/yyyy" value="">&ndash;&gt;-->
-<!--                                &lt;!&ndash;                                <div class="invalid-feedback">&ndash;&gt;-->
-<!--                                &lt;!&ndash;                                    Valid name is needed.&ndash;&gt;-->
-<!--                                &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--                            </div>-->
-
-<!--                            <div class="col-sm-6">-->
-<!--                                <label for="companyName" class="form-label">End Date (mm/dd/yyyy)</label>-->
-<!--                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" value="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <div class="form-check">-->
-<!--                                    <input class="form-check-input" type="checkbox" value="">-->
-<!--                                    <label class="form-check-label" for="contactCheck">-->
-<!--                                        May we contact this employer?-->
-<!--                                    </label>-->
-<!--                                </div>-->
-<!--                            </div>-->
-
-<!--                            <div class="col-12">-->
-<!--                                <label for="companyName" class="form-label">Specific Duties</label>-->
-<!--                                <input type="text" class="form-control" placeholder="" value="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-12">-->
-<!--                                <label for="companyName" class="form-label">Reason for Leaving</label>-->
-<!--                                <input type="text" class="form-control" placeholder="" value="">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="tab-pane fade" id="employerThree-tab" role="tabpanel"-->
-<!--                             aria-labelledby="employerThree-tab" tabindex="0">-->
-<!--                            <h5>Employer Three</h5>-->
-<!--                            <div class="col-sm-6">-->
-<!--                                <label for="companyName" class="form-label">Company Name</label>-->
-<!--                                <input type="text" class="form-control" placeholder="" value="">-->
-<!--                                <div class="invalid-feedback">-->
-<!--                                    Valid name is needed.-->
-<!--                                </div>-->
-<!--                            </div>-->
-
-<!--                            <div class="col-12">-->
-<!--                                <label for="address" class="form-label">Company Street Address or PO Box Number</label>-->
-<!--                                <input type="text" class="form-control" placeholder="1234 Main St">-->
-<!--                                <div class="invalid-feedback">-->
-<!--                                    Please enter the company street address.-->
-<!--                                </div>-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <label for="city" class="form-label">City</label>-->
-<!--                                <input type="text" class="form-control" placeholder="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <label for="state" class="form-label">State</label>-->
-<!--                                <select class="form-select">-->
-<!--                                    <option value="">Choose...</option>-->
-<!--                                    <option value="">Not Applicable</option>-->
-<!--                                    <option>AL</option>-->
-<!--                                    &ndash;&gt;-->
-<!--                                    <option>AK</option>-->
-<!--                                    <option>AZ</option>-->
-<!--                                    <option>AR</option>-->
-<!--                                    <option>CA</option>-->
-<!--                                    <option>CO</option>-->
-<!--                                    <option>CT</option>-->
-<!--                                    <option>DE</option>-->
-<!--                                    <option>DC</option>-->
-<!--                                    <option>FL</option>-->
-<!--                                    <option>GA</option>-->
-<!--                                    <option>HI</option>-->
-<!--                                    <option>ID</option>-->
-<!--                                    <option>IL</option>-->
-<!--                                    <option>IN</option>-->
-<!--                                    <option>IA</option>-->
-<!--                                    <option>KS</option>-->
-<!--                                    <option>KY</option>-->
-<!--                                    <option>LA</option>-->
-<!--                                    <option>ME</option>-->
-<!--                                    <option>MD</option>-->
-<!--                                    <option>MA</option>-->
-<!--                                    <option>MI</option>-->
-<!--                                    <option>MN</option>-->
-<!--                                    <option>MS</option>-->
-<!--                                    <option>MO</option>-->
-<!--                                    <option>MT</option>-->
-<!--                                    <option>NE</option>-->
-<!--                                    <option>NV</option>-->
-<!--                                    <option>NH</option>-->
-<!--                                    <option>NJ</option>-->
-<!--                                    <option>NM</option>-->
-<!--                                    <option>NY</option>-->
-<!--                                    <option>NC</option>-->
-<!--                                    <option>ND</option>-->
-<!--                                    <option>OH</option>-->
-<!--                                    <option>OK</option>-->
-<!--                                    <option>OR</option>-->
-<!--                                    <option>PA</option>-->
-<!--                                    <option>PR</option>-->
-<!--                                    <option>RI</option>-->
-<!--                                    <option>SC</option>-->
-<!--                                    <option>SD</option>-->
-<!--                                    <option>TN</option>-->
-<!--                                    <option>TX</option>-->
-<!--                                    <option>UT</option>-->
-<!--                                    <option>VT</option>-->
-<!--                                    <option>VA</option>-->
-<!--                                    <option>WA</option>-->
-<!--                                    <option>WV</option>-->
-<!--                                    <option>WI</option>-->
-<!--                                    <option>WY</option>-->
-<!--                                </select>-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <label for="zip" class="form-label">Zip Code</label>-->
-<!--                                <input type="text" class="form-control" placeholder="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <label for="country" class="form-label">Country</label>-->
-<!--                                <select class="form-select">-->
-<!--                                    <option value="">Choose...</option>-->
-<!--                                    <option value="US">United States</option>-->
-<!--                                    <option value="AE">United Arab Emirates</option>-->
-<!--                                    <option value="AF">Afghanistan</option>-->
-<!--                                    <option value="AG">Antigua and Barbuda</option>-->
-<!--                                    <option value="AL">Albania</option>-->
-<!--                                    <option value="AM">Armenia</option>-->
-<!--                                    <option value="AM">Zambia</option>-->
-<!--                                    <option value="AN">Netherland Antilles</option>-->
-<!--                                    <option value="AQ">Antarctica</option>-->
-<!--                                    <option value="AR">Argentina</option>-->
-<!--                                    <option value="AS">American Samoa</option>-->
-<!--                                    <option value="AT">Austria</option>-->
-<!--                                    <option value="AU">Australia</option>-->
-<!--                                    <option value="AW">Aruba</option>-->
-<!--                                    <option value="AZ">Azerbaidjan</option>-->
-<!--                                    <option value="BA">Bosnia-Herzegovina</option>-->
-<!--                                    <option value="BB">Barbados</option>-->
-<!--                                    <option value="BD">Bangladesh</option>-->
-<!--                                    <option value="BE">Belgium</option>-->
-<!--                                    <option value="BG">Bulgaria</option>-->
-<!--                                    <option value="BH">Bahrain</option>-->
-<!--                                    <option value="BM">Bermuda</option>-->
-<!--                                    <option value="BO">Bolivia</option>-->
-<!--                                    <option value="BR">Brazil</option>-->
-<!--                                    <option value="BS">Bahamas</option>-->
-<!--                                    <option value="BW">Botswana</option>-->
-<!--                                    <option value="BY">Belarus</option>-->
-<!--                                    <option value="BZ">Belize</option>-->
-<!--                                    <option value="CA">Canada</option>-->
-<!--                                    <option value="CG">Congo</option>-->
-<!--                                    <option value="CH">Switzerland</option>-->
-<!--                                    <option value="CL">Chile</option>-->
-<!--                                    <option value="CM">Cameroon</option>-->
-<!--                                    <option value="CN">China</option>-->
-<!--                                    <option value="CO">Columbia</option>-->
-<!--                                    <option value="CR">Costa Rica</option>-->
-<!--                                    <option value="CS">Former Czechoslovakia</option>-->
-<!--                                    <option value="CZ">Czech Republic</option>-->
-<!--                                    <option value="DE">Germany</option>-->
-<!--                                    <option value="DK">Denmark</option>-->
-<!--                                    <option value="DM">Dominica</option>-->
-<!--                                    <option value="DO">Dominican Republic</option>-->
-<!--                                    <option value="DZ">Algeria</option>-->
-<!--                                    <option value="EC">Ecuador</option>-->
-<!--                                    <option value="EE">Estonia</option>-->
-<!--                                    <option value="EG">Egypt</option>-->
-<!--                                    <option value="ES">Spain</option>-->
-<!--                                    <option value="ET">Ethiopia</option>-->
-<!--                                    <option value="FI">Finland</option>-->
-<!--                                    <option value="FJ">Fiji</option>-->
-<!--                                    <option value="FK">Falkland Islands</option>-->
-<!--                                    <option value="FR">France</option>-->
-<!--                                    <option value="GB">Great Britain</option>-->
-<!--                                    <option value="GD">Grenada</option>-->
-<!--                                    <option value="GE">Georgia</option>-->
-<!--                                    <option value="GF">French Guyana</option>-->
-<!--                                    <option value="GH">Ghana</option>-->
-<!--                                    <option value="GL">Greenland</option>-->
-<!--                                    <option value="GN">Guinea</option>-->
-<!--                                    <option value="GR">Greece</option>-->
-<!--                                    <option value="GT">Guatamala</option>-->
-<!--                                    <option value="GU">Guam (USA)</option>-->
-<!--                                    <option value="GY">Guyana</option>-->
-<!--                                    <option value="HK">Hong Kong</option>-->
-<!--                                    <option value="HN">Honduras</option>-->
-<!--                                    <option value="HR">Croatia</option>-->
-<!--                                    <option value="HT">Haiti</option>-->
-<!--                                    <option value="HU">Hungary</option>-->
-<!--                                    <option value="ID">Indonesia</option>-->
-<!--                                    <option value="IE">Ireland</option>-->
-<!--                                    <option value="IL">Israel</option>-->
-<!--                                    <option value="IN">India</option>-->
-<!--                                    <option value="IQ">Iraq</option>-->
-<!--                                    <option value="IR">Iran</option>-->
-<!--                                    <option value="IS">Iceland</option>-->
-<!--                                    <option value="IT">Italy</option>-->
-<!--                                    <option value="JM">Jamaica</option>-->
-<!--                                    <option value="JO">Jordan</option>-->
-<!--                                    <option value="JP">Japan</option>-->
-<!--                                    <option value="KE">Kenya</option>-->
-<!--                                    <option value="KP">North Korea</option>-->
-<!--                                    <option value="KR">South Korea</option>-->
-<!--                                    <option value="KW">Kuwait</option>-->
-<!--                                    <option value="KY">Cayman Islands</option>-->
-<!--                                    <option value="KZ">Kazakhstan</option>-->
-<!--                                    <option value="LA">Laos</option>-->
-<!--                                    <option value="LB">Lebanon</option>-->
-<!--                                    <option value="LC">St. Lucia</option>-->
-<!--                                    <option value="LI">Liechtenstein</option>-->
-<!--                                    <option value="LK">Sri Lanka</option>-->
-<!--                                    <option value="LR">Liberia</option>-->
-<!--                                    <option value="LT">Lithuania</option>-->
-<!--                                    <option value="LU">Luxembourg</option>-->
-<!--                                    <option value="LV">Latvia</option>-->
-<!--                                    <option value="LY">Libya</option>-->
-<!--                                    <option value="MA">Morocco</option>-->
-<!--                                    <option value="MC">Monaco</option>-->
-<!--                                    <option value="MD">Moldavia</option>-->
-<!--                                    <option value="MG">Madagascar</option>-->
-<!--                                    <option value="YU">Macedonia</option>-->
-<!--                                    <option value="MN">Mongolia</option>-->
-<!--                                    <option value="MQ">Martinique (French)</option>-->
-<!--                                    <option value="MS">Montserrat</option>-->
-<!--                                    <option value="MT">Malta</option>-->
-<!--                                    <option value="MX">Mexico</option>-->
-<!--                                    <option value="MY">Malaysia</option>-->
-<!--                                    <option value="MZ">Mozambique</option>-->
-<!--                                    <option value="NA">Namibia</option>-->
-<!--                                    <option value="NG">Nigeria</option>-->
-<!--                                    <option value="NI">Nicaragua</option>-->
-<!--                                    <option value="NL">Netherlands</option>-->
-<!--                                    <option value="NO">Norway</option>-->
-<!--                                    <option value="NP">Nepal</option>-->
-<!--                                    <option value="NZ">New Zealand</option>-->
-<!--                                    <option value="PA">Panama</option>-->
-<!--                                    <option value="PE">Peru</option>-->
-<!--                                    <option value="PH">Phillipines</option>-->
-<!--                                    <option value="PK">Pakistan</option>-->
-<!--                                    <option value="PL">Poland</option>-->
-<!--                                    <option value="PR">Puerto Rico</option>-->
-<!--                                    <option value="PT">Portugal</option>-->
-<!--                                    <option value="PY">Paraguay</option>-->
-<!--                                    <option value="QA">Qatar</option>-->
-<!--                                    <option value="RO">Romania</option>-->
-<!--                                    <option value="RU">Russian Federation</option>-->
-<!--                                    <option value="RW">Rwanda</option>-->
-<!--                                    <option value="SA">Saudi Arabia</option>-->
-<!--                                    <option value="RS">Serbia</option>-->
-<!--                                    <option value="YU">Serbia and Montenegro</option>-->
-<!--                                    <option value="SD">Sudan</option>-->
-<!--                                    <option value="SE">Sweden</option>-->
-<!--                                    <option value="SG">Singapore</option>-->
-<!--                                    <option value="SI">Slovenia</option>-->
-<!--                                    <option value="SK">Slovak Republic</option>-->
-<!--                                    <option value="SN">Senegal</option>-->
-<!--                                    <option value="SO">Somalia</option>-->
-<!--                                    <option value="SR">Suriname</option>-->
-<!--                                    <option value="SV">El Salvador</option>-->
-<!--                                    <option value="SY">Syria</option>-->
-<!--                                    <option value="SZ">Swaziland</option>-->
-<!--                                    <option value="TC">Turks and Caicos Islands</option>-->
-<!--                                    <option value="TD">Chad</option>-->
-<!--                                    <option value="TH">Thailand</option>-->
-<!--                                    <option value="TJ">Tadjikistan</option>-->
-<!--                                    <option value="TM">Turkmenistan</option>-->
-<!--                                    <option value="TN">Tunisia</option>-->
-<!--                                    <option value="TR">Turkey</option>-->
-<!--                                    <option value="TT">Trinidad and Tabago</option>-->
-<!--                                    <option value="TW">Taiwan</option>-->
-<!--                                    <option value="TZ">Tanzania</option>-->
-<!--                                    <option value="UA">Ukraine</option>-->
-<!--                                    <option value="UG">Uganda</option>-->
-<!--                                    <option value="GB">United Kingdom</option>-->
-<!--                                    <option value="UY">Uruguay</option>-->
-<!--                                    <option value="UZ">Uzbekistan</option>-->
-<!--                                    <option value="VA">Vatican City</option>-->
-<!--                                    <option value="VC">St. Vincent &amp; Grenadines</option>-->
-<!--                                    <option value="VE">Venezuala</option>-->
-<!--                                    <option value="VG">Virgin Islands (British)</option>-->
-<!--                                    <option value="VI">Virgin Islands (USA)</option>-->
-<!--                                    <option value="VN">Vietnam</option>-->
-<!--                                    <option value="WS">Samoa</option>-->
-<!--                                    <option value="YE">Yemen</option>-->
-<!--                                    <option value="ZA">South Africa</option>-->
-<!--                                    <option value="ZR">Zaire</option>-->
-<!--                                    <option value="ZW">Zimbabwe</option>-->
-<!--                                </select>-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <label for="phone" class="form-label">Phone Number</label>-->
-<!--                                <input type="text" class="form-control" placeholder="(1414) xxx xxxx">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-sm-6">-->
-<!--                                <label for="companyName" class="form-label">Position</label>-->
-<!--                                <input type="text" class="form-control" placeholder="" value="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-6">-->
-<!--                                <label for="companyName" class="form-label">Supervisor Name and Title</label>-->
-<!--                                <input type="text" class="form-control" placeholder="" value="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-sm-6">-->
-<!--                                <label for="companyName" class="form-label">Start Date (mm/dd/yyyy)</label>-->
-<!--                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" value="">-->
-<!--                                <div class="invalid-feedback">-->
-<!--                                    Valid name is needed.-->
-<!--                                </div>-->
-
-<!--                                &lt;!&ndash;                                <label for="companyName" class="form-label">End Date (mm/dd/yyyy)</label>&ndash;&gt;-->
-<!--                                &lt;!&ndash;                                <input type="text" class="form-control" id="endDate" placeholder="mm/dd/yyyy" value="">&ndash;&gt;-->
-<!--                                &lt;!&ndash;                                <div class="invalid-feedback">&ndash;&gt;-->
-<!--                                &lt;!&ndash;                                    Valid name is needed.&ndash;&gt;-->
-<!--                                &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--                            </div>-->
-
-<!--                            <div class="col-sm-6">-->
-<!--                                <label for="companyName" class="form-label">End Date (mm/dd/yyyy)</label>-->
-<!--                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" value="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <div class="form-check">-->
-<!--                                    <input class="form-check-input" type="checkbox" value="">-->
-<!--                                    <label class="form-check-label" for="contactCheck">-->
-<!--                                        May we contact this employer?-->
-<!--                                    </label>-->
-<!--                                </div>-->
-<!--                            </div>-->
-
-<!--                            <div class="col-12">-->
-<!--                                <label for="companyName" class="form-label">Specific Duties</label>-->
-<!--                                <input type="text" class="form-control" placeholder="" value="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-12">-->
-<!--                                <label for="companyName" class="form-label">Reason for Leaving</label>-->
-<!--                                <input type="text" class="form-control" placeholder="" value="">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="tab-pane fade" id="employerFour-tab" role="tabpanel"-->
-<!--                             aria-labelledby="employerFour-tab" tabindex="0">-->
-<!--                            <h5>Employer Four</h5>-->
-<!--                            <div class="col-sm-6">-->
-<!--                                <label for="companyName" class="form-label">Company Name</label>-->
-<!--                                <input type="text" class="form-control" placeholder="" value="">-->
-<!--                                <div class="invalid-feedback">-->
-<!--                                    Valid name is needed.-->
-<!--                                </div>-->
-<!--                            </div>-->
-
-<!--                            <div class="col-12">-->
-<!--                                <label for="address" class="form-label">Company Street Address or PO Box Number</label>-->
-<!--                                <input type="text" class="form-control" placeholder="1234 Main St">-->
-<!--                                <div class="invalid-feedback">-->
-<!--                                    Please enter the company street address.-->
-<!--                                </div>-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <label for="city" class="form-label">City</label>-->
-<!--                                <input type="text" class="form-control" placeholder="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <label for="state" class="form-label">State</label>-->
-<!--                                <select class="form-select">-->
-<!--                                    <option value="">Choose...</option>-->
-<!--                                    <option value="">Not Applicable</option>-->
-<!--                                    <option>AL</option>-->
-<!--                                    &ndash;&gt;-->
-<!--                                    <option>AK</option>-->
-<!--                                    <option>AZ</option>-->
-<!--                                    <option>AR</option>-->
-<!--                                    <option>CA</option>-->
-<!--                                    <option>CO</option>-->
-<!--                                    <option>CT</option>-->
-<!--                                    <option>DE</option>-->
-<!--                                    <option>DC</option>-->
-<!--                                    <option>FL</option>-->
-<!--                                    <option>GA</option>-->
-<!--                                    <option>HI</option>-->
-<!--                                    <option>ID</option>-->
-<!--                                    <option>IL</option>-->
-<!--                                    <option>IN</option>-->
-<!--                                    <option>IA</option>-->
-<!--                                    <option>KS</option>-->
-<!--                                    <option>KY</option>-->
-<!--                                    <option>LA</option>-->
-<!--                                    <option>ME</option>-->
-<!--                                    <option>MD</option>-->
-<!--                                    <option>MA</option>-->
-<!--                                    <option>MI</option>-->
-<!--                                    <option>MN</option>-->
-<!--                                    <option>MS</option>-->
-<!--                                    <option>MO</option>-->
-<!--                                    <option>MT</option>-->
-<!--                                    <option>NE</option>-->
-<!--                                    <option>NV</option>-->
-<!--                                    <option>NH</option>-->
-<!--                                    <option>NJ</option>-->
-<!--                                    <option>NM</option>-->
-<!--                                    <option>NY</option>-->
-<!--                                    <option>NC</option>-->
-<!--                                    <option>ND</option>-->
-<!--                                    <option>OH</option>-->
-<!--                                    <option>OK</option>-->
-<!--                                    <option>OR</option>-->
-<!--                                    <option>PA</option>-->
-<!--                                    <option>PR</option>-->
-<!--                                    <option>RI</option>-->
-<!--                                    <option>SC</option>-->
-<!--                                    <option>SD</option>-->
-<!--                                    <option>TN</option>-->
-<!--                                    <option>TX</option>-->
-<!--                                    <option>UT</option>-->
-<!--                                    <option>VT</option>-->
-<!--                                    <option>VA</option>-->
-<!--                                    <option>WA</option>-->
-<!--                                    <option>WV</option>-->
-<!--                                    <option>WI</option>-->
-<!--                                    <option>WY</option>-->
-<!--                                </select>-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <label for="zip" class="form-label">Zip Code</label>-->
-<!--                                <input type="text" class="form-control" placeholder="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <label for="country" class="form-label">Country</label>-->
-<!--                                <select class="form-select">-->
-<!--                                    <option value="">Choose...</option>-->
-<!--                                    <option value="US">United States</option>-->
-<!--                                    <option value="AE">United Arab Emirates</option>-->
-<!--                                    <option value="AF">Afghanistan</option>-->
-<!--                                    <option value="AG">Antigua and Barbuda</option>-->
-<!--                                    <option value="AL">Albania</option>-->
-<!--                                    <option value="AM">Armenia</option>-->
-<!--                                    <option value="AM">Zambia</option>-->
-<!--                                    <option value="AN">Netherland Antilles</option>-->
-<!--                                    <option value="AQ">Antarctica</option>-->
-<!--                                    <option value="AR">Argentina</option>-->
-<!--                                    <option value="AS">American Samoa</option>-->
-<!--                                    <option value="AT">Austria</option>-->
-<!--                                    <option value="AU">Australia</option>-->
-<!--                                    <option value="AW">Aruba</option>-->
-<!--                                    <option value="AZ">Azerbaidjan</option>-->
-<!--                                    <option value="BA">Bosnia-Herzegovina</option>-->
-<!--                                    <option value="BB">Barbados</option>-->
-<!--                                    <option value="BD">Bangladesh</option>-->
-<!--                                    <option value="BE">Belgium</option>-->
-<!--                                    <option value="BG">Bulgaria</option>-->
-<!--                                    <option value="BH">Bahrain</option>-->
-<!--                                    <option value="BM">Bermuda</option>-->
-<!--                                    <option value="BO">Bolivia</option>-->
-<!--                                    <option value="BR">Brazil</option>-->
-<!--                                    <option value="BS">Bahamas</option>-->
-<!--                                    <option value="BW">Botswana</option>-->
-<!--                                    <option value="BY">Belarus</option>-->
-<!--                                    <option value="BZ">Belize</option>-->
-<!--                                    <option value="CA">Canada</option>-->
-<!--                                    <option value="CG">Congo</option>-->
-<!--                                    <option value="CH">Switzerland</option>-->
-<!--                                    <option value="CL">Chile</option>-->
-<!--                                    <option value="CM">Cameroon</option>-->
-<!--                                    <option value="CN">China</option>-->
-<!--                                    <option value="CO">Columbia</option>-->
-<!--                                    <option value="CR">Costa Rica</option>-->
-<!--                                    <option value="CS">Former Czechoslovakia</option>-->
-<!--                                    <option value="CZ">Czech Republic</option>-->
-<!--                                    <option value="DE">Germany</option>-->
-<!--                                    <option value="DK">Denmark</option>-->
-<!--                                    <option value="DM">Dominica</option>-->
-<!--                                    <option value="DO">Dominican Republic</option>-->
-<!--                                    <option value="DZ">Algeria</option>-->
-<!--                                    <option value="EC">Ecuador</option>-->
-<!--                                    <option value="EE">Estonia</option>-->
-<!--                                    <option value="EG">Egypt</option>-->
-<!--                                    <option value="ES">Spain</option>-->
-<!--                                    <option value="ET">Ethiopia</option>-->
-<!--                                    <option value="FI">Finland</option>-->
-<!--                                    <option value="FJ">Fiji</option>-->
-<!--                                    <option value="FK">Falkland Islands</option>-->
-<!--                                    <option value="FR">France</option>-->
-<!--                                    <option value="GB">Great Britain</option>-->
-<!--                                    <option value="GD">Grenada</option>-->
-<!--                                    <option value="GE">Georgia</option>-->
-<!--                                    <option value="GF">French Guyana</option>-->
-<!--                                    <option value="GH">Ghana</option>-->
-<!--                                    <option value="GL">Greenland</option>-->
-<!--                                    <option value="GN">Guinea</option>-->
-<!--                                    <option value="GR">Greece</option>-->
-<!--                                    <option value="GT">Guatamala</option>-->
-<!--                                    <option value="GU">Guam (USA)</option>-->
-<!--                                    <option value="GY">Guyana</option>-->
-<!--                                    <option value="HK">Hong Kong</option>-->
-<!--                                    <option value="HN">Honduras</option>-->
-<!--                                    <option value="HR">Croatia</option>-->
-<!--                                    <option value="HT">Haiti</option>-->
-<!--                                    <option value="HU">Hungary</option>-->
-<!--                                    <option value="ID">Indonesia</option>-->
-<!--                                    <option value="IE">Ireland</option>-->
-<!--                                    <option value="IL">Israel</option>-->
-<!--                                    <option value="IN">India</option>-->
-<!--                                    <option value="IQ">Iraq</option>-->
-<!--                                    <option value="IR">Iran</option>-->
-<!--                                    <option value="IS">Iceland</option>-->
-<!--                                    <option value="IT">Italy</option>-->
-<!--                                    <option value="JM">Jamaica</option>-->
-<!--                                    <option value="JO">Jordan</option>-->
-<!--                                    <option value="JP">Japan</option>-->
-<!--                                    <option value="KE">Kenya</option>-->
-<!--                                    <option value="KP">North Korea</option>-->
-<!--                                    <option value="KR">South Korea</option>-->
-<!--                                    <option value="KW">Kuwait</option>-->
-<!--                                    <option value="KY">Cayman Islands</option>-->
-<!--                                    <option value="KZ">Kazakhstan</option>-->
-<!--                                    <option value="LA">Laos</option>-->
-<!--                                    <option value="LB">Lebanon</option>-->
-<!--                                    <option value="LC">St. Lucia</option>-->
-<!--                                    <option value="LI">Liechtenstein</option>-->
-<!--                                    <option value="LK">Sri Lanka</option>-->
-<!--                                    <option value="LR">Liberia</option>-->
-<!--                                    <option value="LT">Lithuania</option>-->
-<!--                                    <option value="LU">Luxembourg</option>-->
-<!--                                    <option value="LV">Latvia</option>-->
-<!--                                    <option value="LY">Libya</option>-->
-<!--                                    <option value="MA">Morocco</option>-->
-<!--                                    <option value="MC">Monaco</option>-->
-<!--                                    <option value="MD">Moldavia</option>-->
-<!--                                    <option value="MG">Madagascar</option>-->
-<!--                                    <option value="YU">Macedonia</option>-->
-<!--                                    <option value="MN">Mongolia</option>-->
-<!--                                    <option value="MQ">Martinique (French)</option>-->
-<!--                                    <option value="MS">Montserrat</option>-->
-<!--                                    <option value="MT">Malta</option>-->
-<!--                                    <option value="MX">Mexico</option>-->
-<!--                                    <option value="MY">Malaysia</option>-->
-<!--                                    <option value="MZ">Mozambique</option>-->
-<!--                                    <option value="NA">Namibia</option>-->
-<!--                                    <option value="NG">Nigeria</option>-->
-<!--                                    <option value="NI">Nicaragua</option>-->
-<!--                                    <option value="NL">Netherlands</option>-->
-<!--                                    <option value="NO">Norway</option>-->
-<!--                                    <option value="NP">Nepal</option>-->
-<!--                                    <option value="NZ">New Zealand</option>-->
-<!--                                    <option value="PA">Panama</option>-->
-<!--                                    <option value="PE">Peru</option>-->
-<!--                                    <option value="PH">Phillipines</option>-->
-<!--                                    <option value="PK">Pakistan</option>-->
-<!--                                    <option value="PL">Poland</option>-->
-<!--                                    <option value="PR">Puerto Rico</option>-->
-<!--                                    <option value="PT">Portugal</option>-->
-<!--                                    <option value="PY">Paraguay</option>-->
-<!--                                    <option value="QA">Qatar</option>-->
-<!--                                    <option value="RO">Romania</option>-->
-<!--                                    <option value="RU">Russian Federation</option>-->
-<!--                                    <option value="RW">Rwanda</option>-->
-<!--                                    <option value="SA">Saudi Arabia</option>-->
-<!--                                    <option value="RS">Serbia</option>-->
-<!--                                    <option value="YU">Serbia and Montenegro</option>-->
-<!--                                    <option value="SD">Sudan</option>-->
-<!--                                    <option value="SE">Sweden</option>-->
-<!--                                    <option value="SG">Singapore</option>-->
-<!--                                    <option value="SI">Slovenia</option>-->
-<!--                                    <option value="SK">Slovak Republic</option>-->
-<!--                                    <option value="SN">Senegal</option>-->
-<!--                                    <option value="SO">Somalia</option>-->
-<!--                                    <option value="SR">Suriname</option>-->
-<!--                                    <option value="SV">El Salvador</option>-->
-<!--                                    <option value="SY">Syria</option>-->
-<!--                                    <option value="SZ">Swaziland</option>-->
-<!--                                    <option value="TC">Turks and Caicos Islands</option>-->
-<!--                                    <option value="TD">Chad</option>-->
-<!--                                    <option value="TH">Thailand</option>-->
-<!--                                    <option value="TJ">Tadjikistan</option>-->
-<!--                                    <option value="TM">Turkmenistan</option>-->
-<!--                                    <option value="TN">Tunisia</option>-->
-<!--                                    <option value="TR">Turkey</option>-->
-<!--                                    <option value="TT">Trinidad and Tabago</option>-->
-<!--                                    <option value="TW">Taiwan</option>-->
-<!--                                    <option value="TZ">Tanzania</option>-->
-<!--                                    <option value="UA">Ukraine</option>-->
-<!--                                    <option value="UG">Uganda</option>-->
-<!--                                    <option value="GB">United Kingdom</option>-->
-<!--                                    <option value="UY">Uruguay</option>-->
-<!--                                    <option value="UZ">Uzbekistan</option>-->
-<!--                                    <option value="VA">Vatican City</option>-->
-<!--                                    <option value="VC">St. Vincent &amp; Grenadines</option>-->
-<!--                                    <option value="VE">Venezuala</option>-->
-<!--                                    <option value="VG">Virgin Islands (British)</option>-->
-<!--                                    <option value="VI">Virgin Islands (USA)</option>-->
-<!--                                    <option value="VN">Vietnam</option>-->
-<!--                                    <option value="WS">Samoa</option>-->
-<!--                                    <option value="YE">Yemen</option>-->
-<!--                                    <option value="ZA">South Africa</option>-->
-<!--                                    <option value="ZR">Zaire</option>-->
-<!--                                    <option value="ZW">Zimbabwe</option>-->
-<!--                                </select>-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <label for="phone" class="form-label">Phone Number</label>-->
-<!--                                <input type="text" class="form-control" placeholder="(1414) xxx xxxx">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-sm-6">-->
-<!--                                <label for="companyName" class="form-label">Position</label>-->
-<!--                                <input type="text" class="form-control" placeholder="" value="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-6">-->
-<!--                                <label for="companyName" class="form-label">Supervisor Name and Title</label>-->
-<!--                                <input type="text" class="form-control" placeholder="" value="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-sm-6">-->
-<!--                                <label for="companyName" class="form-label">Start Date (mm/dd/yyyy)</label>-->
-<!--                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" value="">-->
-<!--                                <div class="invalid-feedback">-->
-<!--                                    Valid name is needed.-->
-<!--                                </div>-->
-
-<!--                                &lt;!&ndash;                                <label for="companyName" class="form-label">End Date (mm/dd/yyyy)</label>&ndash;&gt;-->
-<!--                                &lt;!&ndash;                                <input type="text" class="form-control" id="endDate" placeholder="mm/dd/yyyy" value="">&ndash;&gt;-->
-<!--                                &lt;!&ndash;                                <div class="invalid-feedback">&ndash;&gt;-->
-<!--                                &lt;!&ndash;                                    Valid name is needed.&ndash;&gt;-->
-<!--                                &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--                            </div>-->
-
-<!--                            <div class="col-sm-6">-->
-<!--                                <label for="companyName" class="form-label">End Date (mm/dd/yyyy)</label>-->
-<!--                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" value="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-4">-->
-<!--                                <div class="form-check">-->
-<!--                                    <input class="form-check-input" type="checkbox" value="">-->
-<!--                                    <label class="form-check-label" for="contactCheck">-->
-<!--                                        May we contact this employer?-->
-<!--                                    </label>-->
-<!--                                </div>-->
-<!--                            </div>-->
-
-<!--                            <div class="col-12">-->
-<!--                                <label for="companyName" class="form-label">Specific Duties</label>-->
-<!--                                <input type="text" class="form-control" placeholder="" value="">-->
-<!--                            </div>-->
-
-<!--                            <div class="col-12">-->
-<!--                                <label for="companyName" class="form-label">Reason for Leaving</label>-->
-<!--                                <input type="text" class="form-control" placeholder="" value="">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-
-<!--    <div class="accordion-item" id="education/eligibility">-->
-<!--        <h2 class="accordion-header">-->
-<!--            <button class="accordion-button" type="button" data-bs-toggle="collapse"-->
-<!--                    data-bs-target="#educationQualifiers" aria-controls="educationQualifiers">-->
-<!--                Education and Work Eligibility-->
-<!--            </button>-->
-<!--        </h2>-->
-<!--        <div id="educationQualifiers" class="accordion-collapse collapse" aria-labelledby="">-->
-<!--            <div class="container-fluid">-->
-<!--                <form>-->
-<!--                    <div class="row">-->
-<!--                        <div class="col">-->
-<!--                            <input type="text" class="form-control" placeholder="School Name">-->
-<!--                        </div>-->
-<!--                        <div class="col">-->
-<!--                            <input type="text" class="form-control" placeholder="location">-->
-<!--                        </div>-->
-<!--                        <div class="col">-->
-<!--                            <input type="text" class="form-control" placeholder="Degree Received">-->
-<!--                        </div>-->
-<!--                        <div class="col">-->
-<!--                            <input type="text" class="form-control" placeholder="Field of Study">-->
-<!--                        </div>-->
-<!--                        <div class="col-2">-->
-<!--                            <input type="text" class="form-control" placeholder="Graduate? (Y or N)">-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </form>-->
-<!--                <form>-->
-<!--                    <div class="row">-->
-<!--                        <div class="col">-->
-<!--                            <input type="text" class="form-control" placeholder="School Name">-->
-<!--                        </div>-->
-<!--                        <div class="col">-->
-<!--                            <input type="text" class="form-control" placeholder="location">-->
-<!--                        </div>-->
-<!--                        <div class="col">-->
-<!--                            <input type="text" class="form-control" placeholder="Degree Received">-->
-<!--                        </div>-->
-<!--                        <div class="col">-->
-<!--                            <input type="text" class="form-control" placeholder="Field of Study">-->
-<!--                        </div>-->
-<!--                        <div class="col-2">-->
-<!--                            <input type="text" class="form-control" placeholder="Graduate? (Y or N)">-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </form>-->
-<!--                <form>-->
-<!--                    <div class="row">-->
-<!--                        <div class="col">-->
-<!--                            <input type="text" class="form-control" placeholder="School Name">-->
-<!--                        </div>-->
-<!--                        <div class="col">-->
-<!--                            <input type="text" class="form-control" placeholder="location">-->
-<!--                        </div>-->
-<!--                        <div class="col">-->
-<!--                            <input type="text" class="form-control" placeholder="Degree Received">-->
-<!--                        </div>-->
-<!--                        <div class="col">-->
-<!--                            <input type="text" class="form-control" placeholder="Field of Study">-->
-<!--                        </div>-->
-<!--                        <div class="col-2">-->
-<!--                            <input type="text" class="form-control" placeholder="Graduate? (Y or N)">-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </form>-->
-<!--            </div>-->
-
-<!--            <div class="container-fluid">-->
-<!--                <p>*For Maintenance, Employee Recreation, Security, Marina, Vending, Transportation and all driving-->
-<!--                    jobs.-->
-<!--                    Do you have a current and valid Driver's License?</p>-->
-<!--                <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#driverCollapse"-->
-<!--                        aria-expanded="false" aria-controls="driversCollapse">-->
-<!--                    I Do-->
-<!--                </button>-->
-
-<!--                <div class="collapse" id="driverCollapse">-->
-<!--                    <div class="card card-body">-->
-<!--                        <label for="firstName" class="form-label">License Number</label>-->
-<!--                        <input type="text" class="form-control" placeholder="" value="" required>-->
-
-<!--                        <label for="firstName" class="form-label">License Type</label>-->
-<!--                        <input type="text" class="form-control" placeholder="" value="" required>-->
-
-<!--                        <div class="col-4">-->
-<!--                            <label for="state" class="form-label">State of Issue</label>-->
-<!--                            <select class="form-select">-->
-<!--                                <option value="">Choose...</option>-->
-<!--                                <option value="">Not Applicable</option>-->
-<!--                                <option>AL</option>-->
-<!--                                <option>AK</option>-->
-<!--                                <option>AZ</option>-->
-<!--                                <option>AR</option>-->
-<!--                                <option>CA</option>-->
-<!--                                <option>CO</option>-->
-<!--                                <option>CT</option>-->
-<!--                                <option>DE</option>-->
-<!--                                <option>DC</option>-->
-<!--                                <option>FL</option>-->
-<!--                                <option>GA</option>-->
-<!--                                <option>HI</option>-->
-<!--                                <option>ID</option>-->
-<!--                                <option>IL</option>-->
-<!--                                <option>IN</option>-->
-<!--                                <option>IA</option>-->
-<!--                                <option>KS</option>-->
-<!--                                <option>KY</option>-->
-<!--                                <option>LA</option>-->
-<!--                                <option>ME</option>-->
-<!--                                <option>MD</option>-->
-<!--                                <option>MA</option>-->
-<!--                                <option>MI</option>-->
-<!--                                <option>MN</option>-->
-<!--                                <option>MS</option>-->
-<!--                                <option>MO</option>-->
-<!--                                <option>MT</option>-->
-<!--                                <option>NE</option>-->
-<!--                                <option>NV</option>-->
-<!--                                <option>NH</option>-->
-<!--                                <option>NJ</option>-->
-<!--                                <option>NM</option>-->
-<!--                                <option>NY</option>-->
-<!--                                <option>NC</option>-->
-<!--                                <option>ND</option>-->
-<!--                                <option>OH</option>-->
-<!--                                <option>OK</option>-->
-<!--                                <option>OR</option>-->
-<!--                                <option>PA</option>-->
-<!--                                <option>PR</option>-->
-<!--                                <option>RI</option>-->
-<!--                                <option>SC</option>-->
-<!--                                <option>SD</option>-->
-<!--                                <option>TN</option>-->
-<!--                                <option>TX</option>-->
-<!--                                <option>UT</option>-->
-<!--                                <option>VT</option>-->
-<!--                                <option>VA</option>-->
-<!--                                <option>WA</option>-->
-<!--                                <option>WV</option>-->
-<!--                                <option>WI</option>-->
-<!--                                <option>WY</option>-->
-<!--                            </select>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--            <div class="container-fluid">-->
-<!--                <label for="firstName" class="form-label">Additional School/Training/Special Skills</label>-->
-<!--                <input type="text" class="form-control" placeholder="" value="">-->
-
-<!--                <label for="firstName" class="form-label">Additional Info/Application Requests/Location Request</label>-->
-<!--                <input type="text" class="form-control" placeholder="" value="" required>-->
-<!--            </div>-->
-
-<!--            <div class="container-fluid">-->
-<!--                <h5>Work Eligibility</h5>-->
-<!--                <p>In accordance with the Immigration Reform and Control Act of 1986, upon acceptance for-->
-<!--                    employment you will be required to provide proof of your-->
-<!--                    identity and eligibility to work in the United States.-->
-<!--                </p>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
+<script src="yellowstone.js"></script>
 <!--<div class="accordion" id="introLanding">-->
 <!--    <div class="accordion-item">-->
 <!--        <h2 class="accordion-header" id="introHeader">-->

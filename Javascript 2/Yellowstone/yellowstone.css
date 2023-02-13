@@ -4451,7 +4451,7 @@ textarea.form-control-lg {
   --bs-accordion-body-padding-x: 1.25rem;
   --bs-accordion-body-padding-y: 1rem;
   --bs-accordion-active-color: var(--bs-primary-text);
-  --bs-accordion-active-bg: var(--bs-primary-bg-subtle);
+  --bs-accordion-active-bg: red;
 }
 
 .accordion-button {
@@ -11614,8 +11614,17 @@ textarea.form-control-lg {
   border-radius: 25px;
 }
 
+body {
+  background-color: #D3CDB6;
+}
+
+#registerPersonalInformation {
+  --bs-body-bg: #D3CDB6;
+}
+
 .accordion-header {
-  --bs-body-color: grey;
+  --bs-accordion-btn-bg: blue;
+  --bs-body-bg: grey;
 }
 
 /*# sourceMappingURL=yellowstone.css.map */
