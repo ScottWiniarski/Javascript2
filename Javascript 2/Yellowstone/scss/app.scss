@@ -11,3 +11,7 @@ $btn-primary: blue;
   border: 3px solid gold;
   border-radius: 25px;
 }
+
+.accordion-header{
+  --bs-body-color: grey;
+}
