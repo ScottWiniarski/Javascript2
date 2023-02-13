@@ -80,7 +80,7 @@
         </div>
     </div>
     <div class="accordion-item" id="registerPersonalHeader">
-        <h2 class="accordion-header" >
+        <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#personalInformation" aria-expanded="false" aria-controls="personalInformation">
                 Personal Information
@@ -337,7 +337,7 @@
         <div id="experienceTabbedContent" class="accordion-collapse collapse" aria-labelledby="headingThree"
              data-bs-parent="#registerPersonalInformation">
             <div class="accordion-body" id="employerTabs">
-                <div class="col-6">
+                <div class="container">
                     <ul class="nav nav-tabs" id="myTab">
                         <li class="nav-item">
                             <button class="nav-link active" id="workExperienceOne" data-bs-toggle="tab"
@@ -1643,8 +1643,9 @@
                 Education and Work Eligibility
             </button>
         </h2>
-        <div id="educationQualifiers" class="accordion-collapse collapse" aria-labelledby="" data-bs-parent="#registerPersonalInformation">
-            <div class="container-fluid">
+        <div id="educationQualifiers" class="accordion-collapse collapse" aria-labelledby=""
+             data-bs-parent="#registerPersonalInformation">
+            <div class="container">
                 <form>
                     <div class="row">
                         <div class="col">
@@ -1708,7 +1709,8 @@
                 <p>*For Maintenance, Employee Recreation, Security, Marina, Vending, Transportation and all driving
                     jobs.
                     Do you have a current and valid Driver's License?</p>
-                <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#driverCollapse"
+                <button class="btn btn-secondary" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#driverCollapse"
                         aria-expanded="false" aria-controls="driverCollapse">
                     I Do
                 </button>
@@ -1814,7 +1816,9 @@
                     automatic ban to employment - circumstances will be considered.)
                 </p>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="felonyYes" value="option1" data-bs-toggle="collapse" data-bs-target="#felonyExplanation" aria-expanded="false" aria-controls="felonyExplanation">
+                    <input class="form-check-input" type="checkbox" id="felonyYes" value="option1"
+                           data-bs-toggle="collapse" data-bs-target="#felonyExplanation" aria-expanded="false"
+                           aria-controls="felonyExplanation">
                     <label class="form-check-label" for="felonyYes">Yes</label>
                 </div>
                 <div class="form-check form-check-inline">
@@ -1831,66 +1835,269 @@
             </div>
         </div>
     </div>
-
     <div class="accordion-item" id="generalInformation">
         <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#generalKnowledge" aria-controls="#registerPersonalInformation">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#generalKnowledge"
+                    aria-controls="#registerPersonalInformation">
                 General Information
             </button>
         </h2>
-        <div id="generalKnowledge" class="accordion-collapse collapse" aria-labelledby="" data-bs-parent="#registerPersonalInformation">
-            <div class="container-fluid">
-                <p>Have you ever worked for Xanterra Parks and Resorts, Amfac Park and Resorts, Fred Harvey or TWRS company?</p>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" id="priorEmployYes" value="option1" data-bs-toggle="collapse" data-bs-target="#priorEmploy" aria-expanded="false" aria-controls="priorEmploy">
-                    <label class="form-check-label" for="priorEmployYes">Yes</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" id="priorEmployNo">
-                    <label class="form-check-label" for="priorEmployNo">No</label>
-                </div>
+        <div id="generalKnowledge" class="accordion-collapse collapse" aria-labelledby=""
+             data-bs-parent="#registerPersonalInformation">
+            <div class="container">
+                <div class="col-6">
+                    <p>Have you ever worked for Xanterra Parks and Resorts, Amfac Park and Resorts, Fred Harvey or TWRS
+                        company?
+                    </p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="priorEmployYes" value="option1"
+                               data-bs-toggle="collapse" data-bs-target="#priorEmploy" aria-expanded="false"
+                               aria-controls="priorEmploy">
+                        <label class="form-check-label" for="priorEmployYes">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="priorEmployNo">
+                        <label class="form-check-label" for="priorEmployNo">No</label>
+                    </div>
 
-                <div class="collapse" id="priorEmploy">
-                    <div class="card card-body">
-                        <div class="col-4">
-                            <label class="form-label">Please enter your employee number</label>
+                    <div class="collapse" id="priorEmploy">
+                        <div class="card card-body">
+                            <div class="col-6">
+                                <label class="form-label">Please enter your employee number</label>
+                                <input type="text" class="form-control" placeholder="" value="">
+
+                                <label for="locationWorked" class="form-label">Location</label>
+                                <select class="form-select" id="locationWorked" required>
+                                    <option selected="selected" value="">Select One</option>
+                                    <option value="CORPORATE HEADQUATERS">Corporate Headquarters</option>
+                                    <option value="BRYCE CANYON LODGE">Bryce Canyon Lodge</option>
+                                    <option value="BURR OAK STATE PARK">Burr Oak State Park</option>
+                                    <option value="CRATER LAKE NATIONAL PARK">Crater Lake National Park</option>
+                                    <option value="EVERGLADES NATIONAL PARK">Everglades National Park</option>
+                                    <option value="FURNACE CREEK INN AND RANCH">Furnace Creek Inn and Ranch</option>
+                                    <option value="GENEVA MARINA">Geneva Marina</option>
+                                    <option value="GIDEON PUTNAM">Gideon Putnam</option>
+                                    <option value="GRAND CANYON NATIONAL PARK - NORTH RIM">Grand Canyon National Park -
+                                        North Rim
+                                    </option>
+                                    <option value="GRAND CANYON NATIONAL PARK - SOUTH RIM">Grand Canyon National Park -
+                                        South Rim
+                                    </option>
+                                    <option value="HUESTON WOODS">Hueston Woods</option>
+                                    <option value="MAUMEE BAY STATE PARK">Maumee Bay State Park</option>
+                                    <option value="MOHICAN BAY STATE PARK RESORT AND CONFERENCE CENTER">Mohican State
+                                        Park
+                                        Resort and Conference Center
+                                    </option>
+                                    <option value="MOUNT RUSHMORE">Mount Rushmore</option>
+                                    <option value="PAINTED DESERT OASIS">Painted Desert Oasis</option>
+                                    <option value="PUNDERSON MANOR">Punderson Manor</option>
+                                    <option value="SALT FORK RESORT AND STATE PARK">Salt Fork Resort and State Park
+                                    </option>
+                                    <option value="SCOTTYS CASTLE">Scotty's Castle</option>
+                                    <option value="SHAWNEE STATE PARK">Shawnee State Park</option>
+                                    <option value="SILVERADO COUNTRY CLUB AND RESORT">Silverado Country Club and Resort
+                                    </option>
+                                    <option value="STOVEPIPE WELLS">Stovepipe Wells</option>
+                                    <option value="YELLOWSTONE NATIONAL PARK">Yellowstone National Park</option>
+                                    <option value="ZION NATIONAL PARK">Zion National Park</option>
+                                </select>
+
+                                <label class="form-label">Enter start date: (mm/dd/yyyy)</label>
+                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" value="">
+                                <label class="form-label">Enter end date: (mm/dd/yyyy)</label>
+                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" value="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-6">
+                    <p>Have you ever been employed under a different name with any
+                        Xanterra Parks and Resorts, Amfac Parks and
+                        Resorts, Fred Harvey or TWRS company?
+                    </p>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="priorEmployOtherNameYes" value="option1"
+                               data-bs-toggle="collapse"
+                               data-bs-target="#otherNameYes">
+                        <label class="form-check-label" for="priorEmployOtherNameYes">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="priorEmployOtherNameNo" value="option2"
+                               data-bs-toggle="collapse">
+                        <label class="form-check-label" for="priorEmployOtherNameNo">No</label>
+                    </div>
+
+                    <div class="collapse" id="otherNameYes">
+                        <label class="form-label">Please enter the name: </label>
+                        <input type="text" class="form-control" placeholder="" value="">
+
+                        <label for="locationWorks" class="form-label">Location</label>
+                        <select class="form-select" id="locationWorks" required>
+                            <option selected="selected" value="">Select One</option>
+                            <option value="CORPORATE HEADQUATERS">Corporate Headquarters</option>
+                            <option value="BRYCE CANYON LODGE">Bryce Canyon Lodge</option>
+                            <option value="BURR OAK STATE PARK">Burr Oak State Park</option>
+                            <option value="CRATER LAKE NATIONAL PARK">Crater Lake National Park</option>
+                            <option value="EVERGLADES NATIONAL PARK">Everglades National Park</option>
+                            <option value="FURNACE CREEK INN AND RANCH">Furnace Creek Inn and Ranch</option>
+                            <option value="GENEVA MARINA">Geneva Marina</option>
+                            <option value="GIDEON PUTNAM">Gideon Putnam</option>
+                            <option value="GRAND CANYON NATIONAL PARK - NORTH RIM">Grand Canyon National Park - North
+                                Rim
+                            </option>
+                            <option value="GRAND CANYON NATIONAL PARK - SOUTH RIM">Grand Canyon National Park - South
+                                Rim
+                            </option>
+                            <option value="HUESTON WOODS">Hueston Woods</option>
+                            <option value="MAUMEE BAY STATE PARK">Maumee Bay State Park</option>
+                            <option value="MOHICAN BAY STATE PARK RESORT AND CONFERENCE CENTER">Mohican State Park
+                                Resort and Conference Center
+                            </option>
+                            <option value="MOUNT RUSHMORE">Mount Rushmore</option>
+                            <option value="PAINTED DESERT OASIS">Painted Desert Oasis</option>
+                            <option value="PUNDERSON MANOR">Punderson Manor</option>
+                            <option value="SALT FORK RESORT AND STATE PARK">Salt Fork Resort and State Park</option>
+                            <option value="SCOTTYS CASTLE">Scotty's Castle</option>
+                            <option value="SHAWNEE STATE PARK">Shawnee State Park</option>
+                            <option value="SILVERADO COUNTRY CLUB AND RESORT">Silverado Country Club and Resort</option>
+                            <option value="STOVEPIPE WELLS">Stovepipe Wells</option>
+                            <option value="YELLOWSTONE NATIONAL PARK">Yellowstone National Park</option>
+                            <option value="ZION NATIONAL PARK">Zion National Park</option>
+                        </select>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-6">
+                    <p>
+                        Are you a spouse, dependent, relative, or Domestic Partner of a National Park Service employee?
+                    </p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="spouseEmployYes" data-bs-toggle="collapse" data-bs-target="#spouseEmployed" aria-controls="spouseEmployed">
+                        <label for="spouseEmployYes" class="form-check-label">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="spouseEmployNo">
+                        <label for="spouseEmployNo" class="form-check-label">No</label>
+                    </div>
+
+                    <div class="collapse" id="spouseEmployed">
+                        <div class="card card-body">
+                            <div class="col-6">
+                                <label class="form-label">Please enter the name: </label>
+                                <input type="text" class="form-control" placeholder="" value="">
+
+                                <label for="locationss" class="form-label">Location</label>
+                                <select class="form-select" id="locationss" required>
+                                    <option selected="selected" value="">Select One</option>
+                                    <option value="CORPORATE HEADQUATERS">Corporate Headquarters</option>
+                                    <option value="BRYCE CANYON LODGE">Bryce Canyon Lodge</option>
+                                    <option value="BURR OAK STATE PARK">Burr Oak State Park</option>
+                                    <option value="CRATER LAKE NATIONAL PARK">Crater Lake National Park</option>
+                                    <option value="EVERGLADES NATIONAL PARK">Everglades National Park</option>
+                                    <option value="FURNACE CREEK INN AND RANCH">Furnace Creek Inn and Ranch</option>
+                                    <option value="GENEVA MARINA">Geneva Marina</option>
+                                    <option value="GIDEON PUTNAM">Gideon Putnam</option>
+                                    <option value="GRAND CANYON NATIONAL PARK - NORTH RIM">Grand Canyon National Park - North
+                                        Rim
+                                    </option>
+                                    <option value="GRAND CANYON NATIONAL PARK - SOUTH RIM">Grand Canyon National Park - South
+                                        Rim
+                                    </option>
+                                    <option value="HUESTON WOODS">Hueston Woods</option>
+                                    <option value="MAUMEE BAY STATE PARK">Maumee Bay State Park</option>
+                                    <option value="MOHICAN BAY STATE PARK RESORT AND CONFERENCE CENTER">Mohican State Park
+                                        Resort and Conference Center
+                                    </option>
+                                    <option value="MOUNT RUSHMORE">Mount Rushmore</option>
+                                    <option value="PAINTED DESERT OASIS">Painted Desert Oasis</option>
+                                    <option value="PUNDERSON MANOR">Punderson Manor</option>
+                                    <option value="SALT FORK RESORT AND STATE PARK">Salt Fork Resort and State Park</option>
+                                    <option value="SCOTTYS CASTLE">Scotty's Castle</option>
+                                    <option value="SHAWNEE STATE PARK">Shawnee State Park</option>
+                                    <option value="SILVERADO COUNTRY CLUB AND RESORT">Silverado Country Club and Resort</option>
+                                    <option value="STOVEPIPE WELLS">Stovepipe Wells</option>
+                                    <option value="YELLOWSTONE NATIONAL PARK">Yellowstone National Park</option>
+                                    <option value="ZION NATIONAL PARK">Zion National Park</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-6">
+                    <label class="form-label">For certain positions and certain reporting relationships,
+                        we are unable to employ family relatives. Please identify relative(s)
+                        currently employed by Xanterra Parks and Resorts, Amfac Park and Resorts,
+                        Fred Harvey or TWRS company.: </label>
+                    <input type="text" class="form-control" placeholder="Leave blank if non-applicable" value="">
+                    <hr>
+                    <p>Applying with a friend or spouse? </p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="multiApply" data-bs-toggle="collapse" data-bs-target="#multiApplication" aria-controls="multiApplication">
+                        <label for="multiApply" class="form-check-label">Yes</label>
+<!--                        Applying with a friend or spouse?-->
+                    </div>
+
+                    <div class="collapse" id="multiApplication">
+                        <div class="col-8">
+                            <label class="form-label">Please provide his or her full name: </label>
                             <input type="text" class="form-control" placeholder="" value="">
+                            <p>
+                                Are you two traveling together?
+                            </p>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox">
+                                <label>Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox">
+                                <label>No</label>
+                            </div>
 
-                            <label for="locationWorked" class="form-label">State</label>
-                            <select class="form-select" id="locationWorked" required>
-                                <option selected="selected" value="">Select One</option>
-                                <option value="CORPORATE HEADQUATERS">Corporate Headquarters</option>
-                                <option value="BRYCE CANYON LODGE">Bryce Canyon Lodge</option>
-                                <option value="BURR OAK STATE PARK">Burr Oak State Park</option>
-                                <option value="CRATER LAKE NATIONAL PARK">Crater Lake National Park</option>
-                                <option value="EVERGLADES NATIONAL PARK">Everglades National Park</option>
-                                <option value="FURNACE CREEK INN AND RANCH">Furnace Creek Inn and Ranch</option>
-                                <option value="GENEVA MARINA">Geneva Marina</option>
-                                <option value="GIDEON PUTNAM">Gideon Putnam</option>
-                                <option value="GRAND CANYON NATIONAL PARK - NORTH RIM">Grand Canyon National Park - North Rim</option>
-                                <option value="GRAND CANYON NATIONAL PARK - SOUTH RIM">Grand Canyon National Park - South Rim</option>
-                                <option value="HUESTON WOODS">Hueston Woods</option>
-                                <option value="MAUMEE BAY STATE PARK">Maumee Bay State Park</option>
-                                <option value="MOHICAN BAY STATE PARK RESORT AND CONFERENCE CENTER">Mohican State Park Resort and Conference Center</option>
-                                <option value="MOUNT RUSHMORE">Mount Rushmore</option>
-                                <option value="PAINTED DESERT OASIS">Painted Desert Oasis</option>
-                                <option value="PUNDERSON MANOR">Punderson Manor</option>
-                                <option value="SALT FORK RESORT AND STATE PARK">Salt Fork Resort and State Park</option>
-                                <option value="SCOTTYS CASTLE">Scotty's Castle</option>
-                                <option value="SHAWNEE STATE PARK">Shawnee State Park</option>
-                                <option value="SILVERADO COUNTRY CLUB AND RESORT">Silverado Country Club and Resort</option>
-                                <option value="STOVEPIPE WELLS">Stovepipe Wells</option>
-                                <option value="YELLOWSTONE NATIONAL PARK">Yellowstone National Park</option>
-                                <option value="ZION NATIONAL PARK">Zion National Park</option>
-                            </select>
-
-                            <label class="form-label">Enter start date: (mm/dd/yyyy)</label>
-                            <input type="text" class="form-control" placeholder="mm/dd/yyyy" value="">
-                            <label class="form-label">Enter end date: (mm/dd/yyyy)</label>
-                            <input type="text" class="form-control" placeholder="mm/dd/yyyy" value="">
+                            <p>
+                                Do you want to work in the same location?
+                            </p>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox">
+                                <label>Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox">
+                                <label>No</label>
+                            </div>
                         </div>
 
+<!--                        <label class="form-label">Please provide his or her full name: </label>-->
+<!--                        <input type="text" class="form-control" placeholder="" value="">-->
+
+<!--                        <p>-->
+<!--                            Are you two traveling together?-->
+<!--                        </p>-->
+
+<!--                        <div class="form-check form-check-inline">-->
+<!--                            <input class="form-check-input" type="checkbox">-->
+<!--                            <label>Yes</label>-->
+<!--                        </div>-->
+<!--                        <div class="form-check form-check-inline">-->
+<!--                            <input class="form-check-input" type="checkbox">-->
+<!--                            <label>No</label>-->
+<!--                        </div>-->
                     </div>
+
+                    <label for="housePreferences" class="form-label">If you are hired and meet housing requirements, please indicate your housing preference: </label>
+                    <p>
+                        Dormitory (must be 18 years or older; no housing available for children or pets)
+                        RV or Trailer (this is your own self contained vehicle; space is limited)
+                    </p>
+                    <select class="form-select" id="housePreferences" required>
+                        <option>Choose...</option>
+                        <option>Dormitory</option>
+                        <option value="RV/Trailer">RV or Trailer</option>
+                        <option></option>
+                    </select>
                 </div>
             </div>
         </div>
