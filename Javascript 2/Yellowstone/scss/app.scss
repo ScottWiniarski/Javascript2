@@ -1,8 +1,17 @@
 // do any overrides to variables BEFORE including bootstrap
+$menuColor: #293C5A;
+$menuActiveColor: #293cff;
+$titleColor: #EDD681;
+$titleColorActive: #F7C202;
+$paddingColor: #A4A863;
+
 $bodyColor: #D3CDB6;
-$accordion-button-active-bg: red;
+$accordion-button-bg: $titleColor;
+$accordion-button-active-bg: $titleColorActive;
 $primary: black;
 $btn-primary: blue;
+
+
 
 
 @import "bootstrap";
@@ -15,6 +24,9 @@ $btn-primary: blue;
 }
 body{
   //background-color: $bodyColor;
+  background-color: $paddingColor;
+}
+#stopGapMeasure{
   background-color: $bodyColor;
 }
 #registerPersonalInformation{
@@ -22,6 +34,6 @@ body{
 }
 
 .accordion-header{
-  --bs-accordion-btn-bg: blue;
-  --bs-body-bg: grey;
+  --bs-accordion-active-color: $menuColor;
+
 }
