@@ -9,7 +9,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-<!--    <link rel="manifest" href="images/site.webmanifest">-->
+    <!--    <link rel="manifest" href="images/site.webmanifest">-->
     <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="shortcut icon" href="images/favicon.ico">
     <meta name="msapplication-TileColor" content="#da532c">
@@ -18,90 +18,75 @@
 
     <!-- fonts / icons / css -->
     <link href="https://fonts.googleapis.com/css?family=Kreon:700|Hind" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="css/app.min.css">
 </head>
 <body>
-<nav class="navbar fixed-top px-3">
-    <span class="navbar-brand">GET IT</span>
-    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addItemModal" title="Add Item">
-        <i class="fas fa-plus"></i> ADD IT
-    </button>
-</nav>
-<div id="app" class="container-fluid">
-    <div class="row header">
-        <div class="col text-center">
-            <!-- image borrowed for education purposes only -->
-            <!-- source: https://www.grammarly.com/blog/get-it-vs-got-it-difference/ -->
-            <img src="images/get-it.gif" class="img-fluid get-it-img">
+<div id="app">
+    <nav class="navbar fixed-top px-3">
+        <span class="navbar-brand">GET IT</span>
+        <app-button data-bs-toggle="modal" data-bs-target="#addItemModal" title="Add Item">
+            <i class="fas fa-plus"></i> ADD IT
+        </app-button>
+    </nav>
+    <div  class="container-fluid">
+<!--        <app-button label="Add It" icon="fa-plus" data-bs-toggle="modal" data-bs-target="#addItemModal" title="Add Item">-->
+<!--            <i class="fas fa-plus"></i> ADD IT-->
+<!--        </app-button>-->
+<!--        <app-button label="Like <b> It </b>" icon="fa-thumbs-up"></app-button>-->
+<!--        <app-button>-->
+<!--            <i class="far fa-thumbs-up"></i>Like It-->
+<!--        </app-button>-->
+        <div class="row header">
+            <div class="col text-center">
+                <!-- image borrowed for education purposes only -->
+                <!-- source: https://www.grammarly.com/blog/get-it-vs-got-it-difference/ -->
+                <img src="images/get-it.gif" class="img-fluid get-it-img">
+            </div>
         </div>
-    </div>
 
-    <div class="row get-it-lists">
-        <div class="col-md-4 p-0">
-<!--                                         Bind this prop to a variable -->
-            <shopping-list title="Need It" :items="needList" @remove-item="removeItem"></shopping-list>
+        <div class="row get-it-lists">
+            <div class="col-md-4 p-0">
+                <!--                                         Bind this prop to a variable -->
+                <shopping-list title="Need It" :items="needList" @remove-item="removeItem"></shopping-list>
+            </div>
+            <div class="col-md-4 p-0">
+                <!--                                      All 3 are the same thing, with v-bind being the longhand version-->
+                <shopping-list title="Got It" v-bind:items="gotList" @remove-item="removeItem"></shopping-list>
+            </div>
+            <div class="col-md-4 p-0">
+                <shopping-list title="Want It" :items="wantList" @remove-item="removeItem"></shopping-list>
+            </div>
         </div>
-        <div class="col-md-4 p-0">
-<!--                                      All 3 are the same thing, with v-bind being the longhand version-->
-            <shopping-list title="Got It" v-bind:items="gotList" @remove-item="removeItem"></shopping-list>
-        </div>
-        <div class="col-md-4 p-0">
-            <shopping-list title="Want It" :items="wantList" @remove-item="removeItem"></shopping-list>
-        </div>
-    </div>
 
-    <div class="modal fade" id="addItemModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <form @submit.prevent="addIt">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalTitle">Add Item</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
-                            <input id="name" type="text" class="form-control" v-model="newItem.name">
-                        </div>
-                        <div class="mb-3">
-                            <label for="qty" class="form-label">Quantity</label>
-                            <input id="qty" type="number" class="form-control" size="3" v-model="newItem.qty">
-                        </div>
-                        <div class="mb-3">
-                            <label for="category" class="form-label">Category</label>
-                            <select id="category" class="form-select" v-model="newItem.category">
-                                <option value="need">Need</option>
-                                <option value="want">Want</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nevermind</button>
-                        <button type="submit" class="btn btn-primary" @click>Add It</button>
-                    </div>
-                </div>
-            </form>
-        </div>
+        <add-item-modal @add-item="addItem"></add-item-modal>
+
+
     </div>
+    <footer class="d-sm-flex justify-content-between text-light bg-dark">
+        <p class="text-center slogan"><em>Whether you <span class="it">NEED IT</span> or <span class="it">WANT IT</span>,<br
+                class="d-sm-none"> we <span class="it">GOT IT</span> covered! &trade;</em></p>
+        <p class="text-center like-it">
+            <button class="btn btn-outline-primary"><i class="far fa-thumbs-up"></i>Like It</button>
+        </p>
+        <p class="text-center like-it">
+            <app-button>
+                <i class="far fa-thumbs-up"></i>Like It
+            </app-button>
+        </p>
+    </footer>
 </div>
 
-<footer class="d-sm-flex justify-content-between text-light bg-dark">
-    <p class="text-center slogan"><em>Whether you <span class="it">NEED IT</span> or <span class="it">WANT IT</span>,<br class="d-sm-none"> we <span class="it">GOT IT</span> covered! &trade;</em></p>
-    <p class="text-center like-it"><button class="btn btn-outline-primary"><i class="far fa-thumbs-up"></i>Like It</button></p>
-</footer>
 
 <!-- Bootstrap -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-<script>
-    $(document).ready(function(){
-        // set focus to name field when modal is opened
-        $('#addItemModal').on('shown.bs.modal', function () {
-            $('#name').focus();
-        });
-    });
-</script>
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"-->
+<!--        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"-->
+<!--        crossorigin="anonymous"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+
 
 <!-- Vue Application -->
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

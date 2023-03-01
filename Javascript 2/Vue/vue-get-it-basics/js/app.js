@@ -2,12 +2,6 @@ const app = Vue.createApp({
     // data: all the data for the app, must return an object
     data: function () {
         return {
-            newItem: {
-                name: '',
-                qty: 1,
-                category: 'need',
-                purchased: false,
-            },
             shoppingList: [
                 {name: 'Hammer', qty: 1, purchased: true, category: 'need'},
                 {name: 'Nails', qty: 10, purchased: false, category: 'need'},
@@ -18,18 +12,9 @@ const app = Vue.createApp({
 
     // methods: usually "events" triggered by v-on:
     methods: {
-        addIt() {
-            this.shoppingList.push(this.newItem);
-
-            // clear the form
-            this.newItem = {
-                name: '',
-                qty: 1,
-                category: 'need',
-                purchased: false,
-            }
+        addItem(item) {
+            this.shoppingList.push(item);
         },
-
         removeItem(item) {
             this.shoppingList.splice(this.shoppingList.indexOf(item), 1);
         }
