@@ -5,17 +5,6 @@
     <title>GET IT</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- favicon - https://realfavicongenerator.net -->
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-    <!--    <link rel="manifest" href="images/site.webmanifest">-->
-    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="msapplication-config" content="images/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-
     <!-- fonts / icons / css -->
     <link href="https://fonts.googleapis.com/css?family=Kreon:700|Hind" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
@@ -24,20 +13,29 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar fixed-top px-3">
-        <span class="navbar-brand">GET IT</span>
-        <app-button data-bs-toggle="modal" data-bs-target="#addItemModal" title="Add Item">
-            <i class="fas fa-plus"></i> ADD IT
-        </app-button>
-    </nav>
+    <header>
+        <slot :ref="ishimuraNavbar"></slot>
+<!--        <nav class="navbar navbar-expand-md navbar-brand">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Ishimura Shipping</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="ishimuraNavbar"
+                aria-controls="ishimuraNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="ishimuraNavbar">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="index.html">Manifest</a>
+                        <a class="nav-link" href="#">Promotions</a>
+                        <a class="nav-link" href="#">Company Statement</a>
+                        <a class="nav-link" href="#">Customer Welfare</a>
+                    </div>
+                </div>
+            </div>
+        </nav>-->
+    </header>
+
     <div  class="container-fluid">
-        <!--        <app-button label="Add It" icon="fa-plus" data-bs-toggle="modal" data-bs-target="#addItemModal" title="Add Item">-->
-        <!--            <i class="fas fa-plus"></i> ADD IT-->
-        <!--        </app-button>-->
-        <!--        <app-button label="Like <b> It </b>" icon="fa-thumbs-up"></app-button>-->
-        <!--        <app-button>-->
-        <!--            <i class="far fa-thumbs-up"></i>Like It-->
-        <!--        </app-button>-->
+
         <div class="row header">
             <div class="col text-center">
                 <!-- image borrowed for education purposes only -->
@@ -46,21 +44,7 @@
             </div>
         </div>
 
-        <div class="row get-it-lists">
-            <div class="col-md-4 p-0">
-                <!--                                         Bind this prop to a variable -->
-                <shopping-list title="Need It" :items="needList" @remove-item="removeItem"></shopping-list>
-            </div>
-            <div class="col-md-4 p-0">
-                <!--                                      All 3 are the same thing, with v-bind being the longhand version-->
-                <shopping-list title="Got It" v-bind:items="gotList" @remove-item="removeItem"></shopping-list>
-            </div>
-            <div class="col-md-4 p-0">
-                <shopping-list title="Want It" :items="wantList" @remove-item="removeItem"></shopping-list>
-            </div>
-        </div>
 
-        <add-item-modal @add-item="addItem"></add-item-modal>
 
 
     </div>
