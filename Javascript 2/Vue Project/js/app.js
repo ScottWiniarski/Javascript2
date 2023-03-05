@@ -33,25 +33,25 @@ const app = Vue.createApp({
     },
 
     computed: {
-        receiveList: function(){
+        receiveTable: function(){
             return this.receivingList.filter(function (item){
                 return item.category === 'receiving';
             })
         },
 
-        receiveGotList(){
+        receiveGotTable(){
             return this.receivingList.filter(function (item) {
                 return item.itemStatus === 'received';
             })
         },
 
-        shipList(){
+        shipTable(){
             return this.shippingList.filter(function (item){
                 return item.category === 'shipping';
             })
         },
 
-        shippedList(){
+        shippedTable(){
             return this.shippingList.filter(function (item){
                 return item.itemStatus = 'shipped';
             })

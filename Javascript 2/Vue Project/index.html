@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>GET IT</title>
+    <title>Ishimura Logistics</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- fonts / icons / css -->
@@ -14,7 +14,9 @@
 <body>
 <div id="app">
     <header>
-        <slot :ref="ishimuraNavbar"></slot>
+        <ishimura-header>
+            <slot></slot>
+        </ishimura-header>
 <!--        <nav class="navbar navbar-expand-md navbar-brand">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Ishimura Shipping</a>
@@ -35,30 +37,20 @@
     </header>
 
     <div  class="container-fluid">
-
-        <div class="row header">
-            <div class="col text-center">
-                <!-- image borrowed for education purposes only -->
-                <!-- source: https://www.grammarly.com/blog/get-it-vs-got-it-difference/ -->
-                <img src="images/get-it.gif" class="img-fluid get-it-img">
+        <div class="row">
+            <div class="col-md-3 p-3">
+                <receiving-Table title="Receiving" :items="receivingTable" @remove-item="removeItem"></receiving-Table>
+            </div>
+            <div class="col-md-3 p-3">
+                <shipping-Table title="Shipping" :items="shippingTable" @remove-item="removeItem"></shipping-Table>
             </div>
         </div>
 
-
-
-
     </div>
-    <footer class="d-sm-flex justify-content-between text-light bg-dark">
-        <p class="text-center slogan"><em>Whether you <span class="it">NEED IT</span> or <span class="it">WANT IT</span>,<br
-                class="d-sm-none"> we <span class="it">GOT IT</span> covered! &trade;</em></p>
-        <p class="text-center like-it">
-            <button class="btn btn-outline-primary"><i class="far fa-thumbs-up"></i>Like It</button>
-        </p>
-        <p class="text-center like-it">
-            <app-button>
-                <i class="far fa-thumbs-up"></i>Like It
-            </app-button>
-        </p>
+    <footer>
+        <ishimura-footer>
+            <slot></slot>
+        </ishimura-footer>
     </footer>
 </div>
 
