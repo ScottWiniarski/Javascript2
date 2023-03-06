@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>POST IT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+
+    <!-- favicon - https://realfavicongenerator.net -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+	<!--<link rel="manifest" href="images/site.webmanifest">-->
+    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- fonts / icons / css -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons|Caveat+Brush|Coming+Soon' rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@3.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@3.0.0-beta.11/dist/vuetify.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+<div id="app">
+<!--    v-show adds a class of hiding for the loading page, before the app is fully loaded-->
+    <h3 class="text-center mt-5" v-show="false">Loading...</h3>
+<!--    Once Vue loads, it'll go and show the app then remove the "loading" message.-->
+    <v-app class="d-none" :class="{'d-block': true}">
+        <!-- SLIDE OUT DRAWER / MENU-->
+        <v-navigation-drawer
+                v-model="drawer"
+                temporary
+                disable-resize-watcher
+                location="left"
+        >
+            <v-list density="compact" nav>
+                <template v-for="item in menuItems">
+                    <v-divider v-if="item.divider"></v-divider>
+                    <v-list-item
+                            v-else
+                            :prepend-icon="item.icon"
+                            :title="item.text"
+                            v-if="!item.divider"
+                            @click="navigate(item)"
+                    ></v-list-item>
+                </template>
+            </v-list>
+        </v-navigation-drawer>
+
+
+        <!-- ******** PUT NAV DRAWER HERE ******** -->
+
+
+
+        <!-- TOP TOOLBAR -->
+        <v-app-bar color="primary" app fixed>
+            <template v-slot:prepend>
+                <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+
+                <span class="site-title">POST IT</span>
+            </template>
+
+
+            <!-- SEARCH BUTTON AND FIELD -->
+            <template v-slot:append>
+                <div class="d-flex align-center">
+                    <v-expand-x-transition>
+                        <div v-show="searching">
+                            <v-text-field name="search" label="Search" id="searchbar"
+                                          text hide-details solo-inverted repend-inner-icon="search"
+                                          v-model="searchTerm" size="20" class="mr-3"></v-text-field>
+                        </div>
+                    </v-expand-x-transition>
+                    <v-btn text icon @click="searching = !searching"><v-icon icon="mdi-magnify"></v-icon></v-btn>
+                </div>
+            </template>
+        </v-app-bar>
+
+        <!-- MAIN CONTENT AREA -->
+        <v-main class="grey lighten-4" :class="showStatus" fluid grid-list-md text-xs-center>
+            <v-layout justify-center>
+                <v-container grid-list-lg fluid class="justify-space-around align-content-start">
+                    <v-layout class="notes" >
+                        <div v-if="!filteredNotes.length && !showStatus" class="no-note">
+                            <!-- image borrowed for education purposes only -->
+                            <!-- source https://www.grammarly.com/blog/duly-noted/ -->
+                            <v-img src="images/dont-forget-it-post-it.gif"></v-img>
+                        </div>
+
+                        <post-it-note v-for="(note, n) in filteredNotes" :key="note.id" :note="note" @duplicate="duplicateNote"></post-it-note>
+                    </v-layout>
+
+                    <!-- FAB (Floating Action Button)-->
+                    <v-btn color="deep-purple" dark icon="mdi-plus" @click="addNote" v-show="!showStatus" class="fab"></v-btn>
+
+                </v-container>
+            </v-layout>
+        </v-main>
+
+        <!-- FOOTER -->
+        <v-footer class="pa-3" color="primary">
+            <v-spacer></v-spacer>
+            <div>&copy; {{ new Date().getFullYear() }} — <strong>POST IT</strong></div>
+            <v-spacer></v-spacer>
+        </v-footer>
+
+        <!-- BOTTOM SNACKBAR FOR MISSING PAGES-->
+        <v-snackbar v-model="snackbarDisplay" :timeout="snackbarTimeout">
+            Page not built yet.
+            <template v-slot:actions>
+                <v-btn dark text @click="snackbarDisplay = false" >Okay</v-btn>
+            </template>
+        </v-snackbar>
+    </v-app>
+</div>
+
+<!-- Vue Application -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@3.0.0-beta.11/dist/vuetify.min.js"></script>
+<script src="js/app-models.js"></script>
+<script src="js/app.js"></script>
+<script src="js/components/note.js"></script>
+
+
+<script>
+    // adds Vuetify functionality to your Vue app
+    const vuetify = Vuetify.createVuetify({
+        theme: {
+            defaultTheme: 'postItThemeLight',
+            themes: {
+                // modify themes (light or dark) on the fly
+                postItThemeLight: {
+                    dark: false,
+                    colors: {
+                        primary: '#ffcc00'
+                    }
+                },
+            }
+        }
+    })
+    app.use(vuetify);
+
+    // mount app
+    app.mount('#app');
+</script>
+
+</body>
+</html>

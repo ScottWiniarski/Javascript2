@@ -1,84 +1,85 @@
 const app = Vue.createApp({
     data: function() {
         return {
-            receivingList: [
-                {name: 'Steel Beam', ProductID: '040020', itemStatus: 'pending', priority: 'low', category: 'receiving'},
-                {name: 'Iron Core', ProductID: '001283', itemStatus: 'received', priority: 'high', category: 'receiving'},
-                {name: 'Cutting Tool Tips', ProductID: '044932', itemStatus: 'pending', priority: 'absolute', category: 'receiving'},
-                {name: 'Plasma Fuel Cells', ProductID: '009332', itemStatus: 'received', priority: 'high', category: 'receiving'},
+            receivingTable: [
+                {name: 'Steel Beam', productID: '040020', itemStatus: 'pending', priority: 'low', category: 'receiving'},
+                {name: 'Iron Core', productID: '001283', itemStatus: 'received', priority: 'high', category: 'receiving'},
+                {name: 'Cutting Tool Tips', productID: '044932', itemStatus: 'pending', priority: 'absolute', category: 'receiving'},
+                {name: 'Plasma Fuel Cells', productID: '009332', itemStatus: 'received', priority: 'high', category: 'receiving'},
             ],
-            shippingList: [
-                {name: 'Iron 3/4th flat', ProductID: '044221', itemStatus: 'pending', priority: 'low', category: 'shipping'},
-                {name: 'Iron Rivets', ProductID: '061273', itemStatus: 'shipped', priority: 'high', category: 'shipping'},
-                {name: 'Iron Blades', ProductID: '045132', itemStatus: 'pending', priority: 'absolute', category: 'shipping'},
-                {name: 'Oxygen Tanks', ProductID: '007782', itemStatus: 'shipped', priority: 'high', category: 'shipping'},
+            shippingTable: [
+                {name: 'Iron 3/4th flat', productID: '044221', itemStatus: 'pending', priority: 'low', category: 'shipping'},
+                {name: 'Iron Rivets', productID: '061273', itemStatus: 'shipped', priority: 'high', category: 'shipping'},
+                {name: 'Iron Blades', productID: '045132', itemStatus: 'pending', priority: 'absolute', category: 'shipping'},
+                {name: 'Oxygen Tanks', productID: '007782', itemStatus: 'shipped', priority: 'high', category: 'shipping'},
             ],
         }
     },
 
     methods: {
         addReceiving(item){
-            this.receivingList.push(item);
+            this.receivingTable.push(item);
         },
         removeReceiving(item){
-            this.receivingList.splice(this.receivingList.indexOf(item), 1);
+            console.log("Removed table from app");
+            this.receivingTable.splice(this.receivingTable.indexOf(item), 1);
         },
 
         addShipping(item){
-            this.shippingList.push(item);
+            this.shippingTable.push(item);
         },
         removeShipping(item){
-            this.shippingList.splice(this.shippingList.indexOf(item), 1);
+            this.shippingTable.splice(this.shippingTable.indexOf(item), 1);
         },
     },
 
     computed: {
         receiveTable: function(){
-            return this.receivingList.filter(function (item){
+            return this.receivingTable.filter(function (item){
                 return item.category === 'receiving';
             })
         },
 
         receiveGotTable(){
-            return this.receivingList.filter(function (item) {
+            return this.receivingTable.filter(function (item) {
                 return item.itemStatus === 'received';
             })
         },
 
         shipTable(){
-            return this.shippingList.filter(function (item){
+            return this.shippingTable.filter(function (item){
                 return item.category === 'shipping';
             })
         },
 
         shippedTable(){
-            return this.shippingList.filter(function (item){
+            return this.shippingTable.filter(function (item){
                 return item.itemStatus = 'shipped';
             })
         }
     },
 
     mounted: function () {
-        if (localStorage.getItem('receivingList')) {
-            this.receivingList = JSON.parse(localStorage.getItem('receivingList'));
+        if (localStorage.getItem('receivingTable')) {
+            this.receivingTable = JSON.parse(localStorage.getItem('receivingTable'));
         }
-        if (localStorage.getItem('shippingList')){
-            this.shippingList = JSON.parse(localStorage.getItem('shippingList'));
+        if (localStorage.getItem('shippingTable')){
+            this.shippingTable = JSON.parse(localStorage.getItem('shippingTable'));
         }
     },
 
     watch: {
-        receivingList: {
+        receivingTable: {
             handler: function (newList) {
-                localStorage.setItem('receivingList', JSON.stringify(newList));
+                localStorage.setItem('receivingTable', JSON.stringify(newList));
             },
 
             deep: true
         },
 
-        shippingList: {
+        shippingTable: {
             handler: function (newList) {
-                localStorage.setItem('shippingList', JSON.stringify(newList));
+                localStorage.setItem('shippingTable', JSON.stringify(newList));
             },
 
             deep: true

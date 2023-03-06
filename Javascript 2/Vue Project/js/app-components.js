@@ -1,16 +1,8 @@
-
 app.component('ishimuraNavbar', {
-    data: {
 
-    },
+    props: {},
 
-    props: {
-
-    },
-
-    methods: {
-
-    },
+    methods: {},
 
     computed: {},
 
@@ -36,9 +28,7 @@ app.component('ishimuraNavbar', {
 });
 
 app.component('receivingTable', {
-    data: {
 
-    },
 
     props: {
         title: String,
@@ -47,6 +37,7 @@ app.component('receivingTable', {
 
     methods: {
         removeItem(item) {
+            console.log("Removed table");
             this.$emit('remove-item', item)
         }
     },
@@ -55,25 +46,25 @@ app.component('receivingTable', {
 
     template: `
       <div class="receivingTable">
-      <h3>{{title}}</h3>
+      <h3>{{ title }}</h3>
+      <button class="btn btn-tiny" @click="add"><i class="fas fa-plus-circle"></i></button>
       <table class="table table-striped table-hover">
         <thead>
-          <tr>
-            <th scope="col">Product ID</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Item Status</th>
-            <th scope="col">Priority</th>
-          </tr>
+        <tr>
+          <th scope="col">Product ID</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Item Status</th>
+          <th scope="col">Priority</th>
+        </tr>
         </thead>
         <tbody>
-          <tr>
-            <receiving-Table-Item
-              v-for="item in items"
-              :item="item"
-              :key="item.category"
-              @remove-item="removeItem"
-            ></receiving-Table-Item>
-          </tr>
+        <receiving-Table-Item
+            v-for="item in items"
+            :item="item"
+            :key="item.category"
+            @remove-item="removeItem"
+        ></receiving-Table-Item>
+        
         </tbody>
       </table>
       </div>
@@ -94,28 +85,38 @@ app.component('receivingTableItem', {
     methods: {
         add() {
             this.item.category = 'receiving'
+            this.$emit('add-item', this.item);
         },
-        remove(){
+        remove() {
+            console.log("Removed table.item");
             this.$emit('remove-item', this.item);
         }
     },
 
     template: `
       <tr>
-        <div class="d-flex justify-content-between">
-          <div>
-            <button class="btn btn-tiny" @click="add"><i class="fas fa-plus-circle"></i></button>
-            <button class="btn btn-tiny" v-on:click="remove"><i class="fas fa-minus-circle"></i></button>
-          </div>
-        </div>
+      
+        <td>
+          {{item.productID}}
+        </td>
+        <td>
+          {{item.name}}
+        </td>
+        <td>
+          {{item.itemStatus}}
+        </td>
+        <td>
+          {{item.priority}}
+        </td>
+        <td>
+          <button class="btn btn-tiny" v-on:click="remove"><i class="fas fa-minus-circle"></i></button>
+        </td>
       </tr>
     `
 });
 
 app.component('shippingTable', {
-    data: {
 
-    },
 
     props: {
         title: String,
@@ -132,25 +133,25 @@ app.component('shippingTable', {
 
     template: `
       <div class="shippingTable">
-      <h3>{{title}}</h3>
+      <h3>{{ title }}</h3>
       <table class="table table-striped table-hover">
         <thead>
-          <tr>
-            <th scope="col">Product ID</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Item Status</th>
-            <th scope="col">Priority</th>
-          </tr>
+        <tr>
+          <th scope="col">Product ID</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Item Status</th>
+          <th scope="col">Priority</th>
+        </tr>
         </thead>
         <tbody>
-          <tr>
-            <shipping-Table-Item
+        <tr>
+          <shipping-Table-Item
               v-for="item in items"
               :item="item"
               :key="item.category"
               @remove-item="removeItem"
-            ></shipping-Table-Item>
-          </tr>
+          ></shipping-Table-Item>
+        </tr>
         </tbody>
       </table>
       </div>
@@ -172,22 +173,90 @@ app.component('shippingTableItem', {
         add() {
             this.item.category = 'shipping'
         },
-        remove(){
+        remove() {
             this.$emit('remove-item', this.item);
         }
     },
 
     template: `
       <tr>
-        <div class="d-flex justify-content-between">
-          <div>
-            <button class="btn btn-tiny" @click="add"><i class="fas fa-plus-circle"></i></button>
-            <button class="btn btn-tiny" v-on:click="remove"><i class="fas fa-minus-circle"></i></button>
-          </div>
+      <div class="d-flex justify-content-between">
+        <div>
+          <button class="btn btn-tiny" @click="add"><i class="fas fa-plus-circle"></i></button>
+          <button class="btn btn-tiny" v-on:click="remove"><i class="fas fa-minus-circle"></i></button>
         </div>
+      </div>
       </tr>
     `
 });
+
+app.component('addToReceiving', {
+        data: function () {
+            return {
+                newItem: {
+                    name: '',
+                    qty: 1,
+                    category: 'need',
+                    purchased: false,
+                },
+            }
+        },
+
+        // methods: usually "events" triggered by v-on:
+        methods: {
+            addIt() {
+                // cannot do this here, we don't have access to shoppingList
+                // this.shoppingList.push(this.newItem);
+                // Do not do this:
+                // app._data.shoppingList.push(...);
+                console.log("adding");
+
+                // emit the new item to the app
+                this.$emit('add-item', this.newItem);
+                console.log("emitted");
+                // clear the form
+                this.newItem = {
+                    name: '',
+                    qty: 1,
+                    category: 'need',
+                    purchased: false,
+                }
+                //close the modal
+                bootstrap.Modal.getInstance(this.$el).hide();
+            },
+
+
+        },
+        template: `
+        <app-modal modal-id="addItemModal" title="Add Item" :form-submit="addIt">
+        <div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input id="name" type="text" class="form-control" v-model="newItem.name" autofocus>
+            </div>
+            <div class="mb-3">
+                <label for="qty" class="form-label">Quantity</label>
+                <input id="qty" type="number" class="form-control" size="3" v-model="newItem.qty">
+            </div>
+            <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <select id="category" class="form-select" v-model="newItem.category">
+                    <option value="need">Need</option>
+                    <option value="want">Want</option>
+                </select>
+            </div>
+        </div>
+<!--                -->
+        <template #footer>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nevermind</button>
+<!--            <button type="submit" class="btn btn-primary" @click.prevent="addIt">Add It</button>-->
+            <button type="submit" class="btn btn-primary">Add It</button>
+        </template>
+
+    </app-modal>
+    `
+})
+
 
 app.component('ishimuraFooter', {
     template: `
