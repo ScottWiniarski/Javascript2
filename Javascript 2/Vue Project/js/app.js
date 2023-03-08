@@ -64,6 +64,7 @@ const app = Vue.createApp({
 
     methods: {
         addToTable(item) {
+            console.log('added from the app method')
             this.shipAndReceivingTable.push(item);
         },
         removeFromTable(item) {
