@@ -27,9 +27,133 @@ app.component('ishimuraNavbar', {
     `
 });
 
+app.component('shippingAndReceivingTable', {
+    props: {
+        title: String,
+        items: Array,
+    },
+
+    methods: {
+        removeItem(item) {
+            console.log("Removed at Table");
+            this.$emit('remove-item', item)
+        }
+    },
+
+    computed: {},
+
+    template: `
+      <div class="container-md">
+      <h3 class="text-center">{{ title }}</h3>
+      <button class="btn btn-tiny" @click="add"><i class="fas fa-plus-circle"></i></button>
+      <table class="table table-striped table-hover table-bordered">
+        <thead>
+        <tr>
+          <th scope="col">Product ID</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Item Status</th>
+          <th scope="col">Priority</th>
+          <th scope="col">Remove?</th>
+        </tr>
+        </thead>
+        <tbody>
+        <shipment-Item
+            v-for="item in items"
+            :item="item"
+            :key="item.category"
+            @remove-item="removeItem"
+        ></shipment-Item>
+        </tbody>
+      </table>
+      </div>
+    `
+});
+
+app.component('shipmentItem', {
+    data() {
+        return {
+            vid: 'sli' + Math.floor(Math.random() * 10e16)
+        }
+    },
+
+    props: {
+        item: Object,
+    },
+    methods: {
+        add() {
+            this.$emit('add-item', this.item);
+        },
+        remove() {
+            console.log("Removed table.item");
+            this.$emit('remove-item', this.item);
+        },
+    },
+
+
+    template: `
+      <tr>
+      <td>
+        {{ item.productID }}
+      </td>
+      <td>
+        {{ item.name }}
+      </td>
+      <td>
+        {{ item.itemStatus }}
+      </td>
+      <td>
+        {{ item.priority }}
+      </td>
+      <td>
+        <button class="btn btn-tiny" v-on:click="remove"><i class="fas fa-minus-circle"></i></button>
+      </td>
+      </tr>
+    `
+})
+
+app.component('ishimuraFooter', {
+    template: `
+    <footer class="d-sm-flex justify-content-between text-light bg-dark p-3">
+        <p class="text-center slogan">Property of Ishimura Logistics</p>
+        <p class="text-center small">Unwarranted access will be punished.</p>
+    </footer>
+    `
+});
+
+app.component('addToManifestModal',{
+    data: function () {
+        return {
+            newItem: {
+                name: '',
+                productID: '',
+                itemStatus: '',
+                priority: '',
+                category: '',
+            },
+        }
+    },
+
+    methods: {
+        addToTable(){
+            this.$emit('add-To-Table', this.newItem);
+
+            this.newItem = {
+                name: '',
+                productID: '',
+                itemStatus: '',
+                priority: '',
+                category: '',
+            }
+            bootstrap.Modal.getInstance(this.$el).hide();
+        },
+    },
+
+    template: `
+      
+    `
+});
+/*
 app.component('receivingTable', {
-
-
     props: {
         title: String,
         items: Array,
@@ -55,6 +179,7 @@ app.component('receivingTable', {
           <th scope="col">Product Name</th>
           <th scope="col">Item Status</th>
           <th scope="col">Priority</th>
+          <th scope="col">Remove Item?</th>
         </tr>
         </thead>
         <tbody>
@@ -64,7 +189,7 @@ app.component('receivingTable', {
             :key="item.category"
             @remove-item="removeItem"
         ></receiving-Table-Item>
-        
+
         </tbody>
       </table>
       </div>
@@ -95,7 +220,6 @@ app.component('receivingTableItem', {
 
     template: `
       <tr>
-      
         <td>
           {{item.productID}}
         </td>
@@ -114,7 +238,9 @@ app.component('receivingTableItem', {
       </tr>
     `
 });
+*/
 
+/*
 app.component('shippingTable', {
 
 
@@ -189,80 +315,4 @@ app.component('shippingTableItem', {
       </tr>
     `
 });
-
-app.component('addToReceiving', {
-        data: function () {
-            return {
-                newItem: {
-                    name: '',
-                    qty: 1,
-                    category: 'need',
-                    purchased: false,
-                },
-            }
-        },
-
-        // methods: usually "events" triggered by v-on:
-        methods: {
-            addIt() {
-                // cannot do this here, we don't have access to shoppingList
-                // this.shoppingList.push(this.newItem);
-                // Do not do this:
-                // app._data.shoppingList.push(...);
-                console.log("adding");
-
-                // emit the new item to the app
-                this.$emit('add-item', this.newItem);
-                console.log("emitted");
-                // clear the form
-                this.newItem = {
-                    name: '',
-                    qty: 1,
-                    category: 'need',
-                    purchased: false,
-                }
-                //close the modal
-                bootstrap.Modal.getInstance(this.$el).hide();
-            },
-
-
-        },
-        template: `
-        <app-modal modal-id="addItemModal" title="Add Item" :form-submit="addIt">
-        <div>
-            <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input id="name" type="text" class="form-control" v-model="newItem.name" autofocus>
-            </div>
-            <div class="mb-3">
-                <label for="qty" class="form-label">Quantity</label>
-                <input id="qty" type="number" class="form-control" size="3" v-model="newItem.qty">
-            </div>
-            <div class="mb-3">
-                <label for="category" class="form-label">Category</label>
-                <select id="category" class="form-select" v-model="newItem.category">
-                    <option value="need">Need</option>
-                    <option value="want">Want</option>
-                </select>
-            </div>
-        </div>
-<!--                -->
-        <template #footer>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nevermind</button>
-<!--            <button type="submit" class="btn btn-primary" @click.prevent="addIt">Add It</button>-->
-            <button type="submit" class="btn btn-primary">Add It</button>
-        </template>
-
-    </app-modal>
-    `
-})
-
-
-app.component('ishimuraFooter', {
-    template: `
-    <footer class="d-sm-flex justify-content-between text-light bg-dark">
-        <p class="text-center slogan">Property of Ishimura Logistics</p>
-        <p class="text-center small">Unwarranted access will be punished.</p>
-    </footer>
-    `
-});
+*/
