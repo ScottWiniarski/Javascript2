@@ -110,6 +110,7 @@ app.component('shipmentItem', {
     `
 });
 
+/*
 app.component('ishimuraFooter', {
     template: `
     <footer class="d-sm-flex justify-content-between text-light bg-dark p-3">
@@ -118,7 +119,9 @@ app.component('ishimuraFooter', {
     </footer>
     `
 });
+*/
 
+/*
 app.component('addToManifestModal', {
     data: function () {
         return {
@@ -257,6 +260,7 @@ app.component('addToManifestModal', {
 
     `
 });
+*/
 /*
 app.component('receivingTable', {
     props: {
