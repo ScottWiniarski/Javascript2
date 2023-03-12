@@ -68,7 +68,12 @@ const app = Vue.createApp({
             this.shipAndReceivingTable.push(item);
         },
         removeFromTable(item) {
+            console.log("removed from table");
             this.shipAndReceivingTable.splice(this.shipAndReceivingTable.indexOf(item), 1);
+        },
+
+        editTable(item){
+            console.log("editing item in app.js");
         },
     },
 

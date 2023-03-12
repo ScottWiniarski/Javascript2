@@ -37,6 +37,11 @@ app.component('shippingAndReceivingTable', {
         removeItem(item) {
             console.log("Removed at Table");
             this.$emit('remove-item', item)
+        },
+
+        editItem(item){
+            console.log("editing at the table");
+            this.$emit('edit-this-item', item);
         }
     },
 
@@ -61,6 +66,7 @@ app.component('shippingAndReceivingTable', {
             :item="item"
             :key="item.category"
             @remove-item="removeItem"
+            @edit-table-item="editItem"
         ></shipment-Item>
         </tbody>
       </table>
@@ -83,9 +89,14 @@ app.component('shipmentItem', {
             this.$emit('add-item', this.item);
         },
         remove() {
-            console.log("Removed table.item");
+            console.log("Removed table.item 020");
             this.$emit('remove-item', this.item);
         },
+
+        edit(){
+            console.log("editing item at shipmentItem component");
+            this.$emit('edit-this-item', this.item);
+        }
     },
 
 
@@ -104,6 +115,9 @@ app.component('shipmentItem', {
         {{ item.priority }}
       </td>
       <td>
+        <button class="btn btn-info" data-bs-toggle="modal"
+                data-bs-target="#editingManifestModal" v-on:click="edit"><i class="fas fa-minus-circle"></i> Edit?</button>
+        
         <button class="btn btn-danger" v-on:click="remove"><i class="fas fa-minus-circle"></i> Remove?</button>
       </td>
       </tr>
