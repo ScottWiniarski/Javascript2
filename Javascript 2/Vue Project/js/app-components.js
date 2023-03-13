@@ -27,6 +27,7 @@ app.component('ishimuraNavbar', {
     `
 });
 
+/*
 app.component('shippingAndReceivingTable', {
     props: {
         title: String,
@@ -73,7 +74,9 @@ app.component('shippingAndReceivingTable', {
       </div>
     `
 });
+*/
 
+/*
 app.component('shipmentItem', {
     data() {
         return {
@@ -115,14 +118,24 @@ app.component('shipmentItem', {
         {{ item.priority }}
       </td>
       <td>
-        <button class="btn btn-info" data-bs-toggle="modal"
-                data-bs-target="#editingManifestModal" v-on:click="edit"><i class="fas fa-minus-circle"></i> Edit?</button>
+        <edit-Item-Modal title="Edit Table Item" :id="'#' + item.id" @edit-this-item="editTable" :item="item"></edit-Item-Modal>
+        
+        <button class="btn btn-info"
+                data-bs-toggle="modal"
+                :data-bs-target="'#'+ item.id"
+                v-on:click="edit">
+          <i class="fas fa-minus-circle"></i> Edit?
+        </button>
         
         <button class="btn btn-danger" v-on:click="remove"><i class="fas fa-minus-circle"></i> Remove?</button>
       </td>
       </tr>
+      
+<!--      data-bs-toggle="modal"
+      :data-bs-target="'#' + item.id"-->
     `
 });
+*/
 
 /*
 app.component('ishimuraFooter', {
@@ -275,6 +288,8 @@ app.component('addToManifestModal', {
     `
 });
 */
+
+
 /*
 app.component('receivingTable', {
     props: {

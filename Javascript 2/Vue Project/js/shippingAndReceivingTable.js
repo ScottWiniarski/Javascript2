@@ -1,3 +1,4 @@
+
 app.component('shippingAndReceivingTable', {
     props: {
         title: String,
@@ -8,6 +9,11 @@ app.component('shippingAndReceivingTable', {
         removeItem(item) {
             console.log("Removed at Table");
             this.$emit('remove-item', item)
+        },
+
+        editItem(item, newItem){
+            console.log("emitted from table");
+            this.$emit('edit-table', item, newItem)
         }
     },
 
@@ -31,6 +37,7 @@ app.component('shippingAndReceivingTable', {
             v-for="item in items"
             :item="item"
             :key="item.category"
+            @edit-this-item="editItem"
             @remove-item="removeItem"
         ></shipment-Item>
         </tbody>

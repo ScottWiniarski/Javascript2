@@ -3,17 +3,17 @@ app.component('editItemModal', {
         return {
 
             newItem: {
-                name: '',
-                productID: '',
-                itemStatus: '',
-                priority: '',
-                category: '',
+                name: this.item.name,
+                productID: this.item.productID,
+                itemStatus: this.item.itemStatus,
+                priority: this.item.priority,
+                category: this.item.category,
             },
         }
     },
 
     props: {
-
+        item: Object,
 
         title: {
             type: String,
@@ -32,16 +32,10 @@ app.component('editItemModal', {
         editTableItem() {
             if (this.newItem.name && this.newItem.productID && this.newItem.itemStatus && this.newItem.priority && this.newItem.category) {
                 console.log("Edited from modal");
-                this.$emit('edit-Table-Item', this.newItem);
+                this.$emit('edit-table-item', this.item, this.newItem);
 
-                this.newItem = {
-                    name: '',
-                    productID: '',
-                    itemStatus: '',
-                    priority: '',
-                    category: '',
-                }
-                bootstrap.Modal.getInstance(this.$el).hide();
+                console.log(this.$refs.ModalElement);
+                bootstrap.Modal.getInstance(this.$refs.ModalElement).hide();
             }
 
         },
@@ -75,7 +69,14 @@ app.component('editItemModal', {
     },
 
     template: `
-      <div class="modal fade" tabindex="-1" role="dialog">
+      <div>
+      <button class="btn btn-info"
+              data-bs-toggle="modal"
+              :data-bs-target="'#sli'+ item.productID">
+        <i class="fas fa-minus-circle"></i> Edit?
+      </button>
+      
+      <div ref="ModalElement" class="modal fade" tabindex="-1" role="dialog" :id="'sli'+ item.productID">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 <!--          <div class="container-fluid">-->
@@ -84,7 +85,7 @@ app.component('editItemModal', {
               <form @submit.prevent="formSubmit" class="needs-validation" novalidate>
                 <div>
                   <label for="name" class="form-label">Name</label>
-                  <input id="name" type="text" class="form-control" required v-model="newItem.name" autofocus :placeholder="item.name">
+                  <input id="name" type="text" class="form-control" required v-model="newItem.name" autofocus >
                   <div class="invalid-feedback">
                     Please enter the product name.
                   </div>
@@ -92,11 +93,11 @@ app.component('editItemModal', {
                 <div class="row">
                   <div class="col-md-6">
                     <label for="productID" class="form-label">Product ID</label>
-                    <input id="productID" type="text" class="form-control" v-model="newItem.productID">
+                    <input id="productID" type="text" class="form-control" v-model="newItem.productID" >
                   </div>
                   <div class="col-md-6">
                     <label for="itemStatus" class="form-label">Item Status</label>
-                    <input id="itemStatus" type="text" class="form-control" v-model="newItem.itemStatus" required>
+                    <input id="itemStatus" type="text" class="form-control" v-model="newItem.itemStatus" required  >
                     <div class="invalid-feedback">
                       Please enter the product ID
                     </div>
@@ -105,14 +106,14 @@ app.component('editItemModal', {
                 <div class="row">
                   <div class="col-md-6">
                     <label for="priority" class="form-label">Priority</label>
-                    <input id="priority" type="text" class="form-control" v-model="newItem.priority" required>
+                    <input id="priority" type="text" class="form-control" v-model="newItem.priority" required >
                     <div class="invalid-feedback">
                       Please enter the product's priority
                     </div>
                   </div>
                   <div class="col-md-6">
                     <label for="category" class="form-label">Category</label>
-                    <select id="category" type="text" class="form-select" v-model="newItem.category" autofocus required>
+                    <select id="category" type="text" class="form-select" v-model="newItem.category" autofocus required >
                       <option value="receiving">Receiving</option>
                       <option value="shipping">Shipping</option>
                     </select>
@@ -133,6 +134,7 @@ app.component('editItemModal', {
           </div>
         </div>
 <!--      </div>-->
+      </div>
       </div>
 
 

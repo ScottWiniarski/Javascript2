@@ -72,13 +72,15 @@ const app = Vue.createApp({
             this.shipAndReceivingTable.splice(this.shipAndReceivingTable.indexOf(item), 1);
         },
 
-        editTable(item){
-            console.log("editing item in app.js");
+        editTable(item, newItem){
+            console.log("editing item in app.js", item, newItem);
+            this.shipAndReceivingTable.splice(this.shipAndReceivingTable.indexOf(item), 1, newItem)
         },
     },
 
     computed: {
         receivingTable: function () {
+            console.log(this.shipAndReceivingTable);
             return this.shipAndReceivingTable.filter(function (item) {
                 return item.category === 'receiving';
             })
