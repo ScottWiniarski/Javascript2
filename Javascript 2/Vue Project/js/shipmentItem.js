@@ -13,12 +13,12 @@ app.component('shipmentItem', {
             this.$emit('add-item', this.item);
         },
         remove() {
-            console.log("Removed table item at shipmentItem component.");
+            //console.log("Removed table item at shipmentItem component.");
             this.$emit('remove-item', this.item);
         },
 
         edit(item, newItem){
-            console.log("editing item at shipmentItem component.");
+            //console.log("editing item at shipmentItem component.");
             this.$emit('edit-this-item', item, newItem);
         }
     },
@@ -39,8 +39,12 @@ app.component('shipmentItem', {
         {{ item.priority }}
       </td>
       <td>
+
+        <edit-Item-Modal title="Edit Table Item" @edit-table-item="edit" :item="item"></edit-Item-Modal>
+        
+<!--                  This line works if we have a button for each object in the shipmentItem component, hooked up to the id   -->
 <!--        <edit-Item-Modal title="Edit Table Item" :id="'sli'+ item.productID" @edit-table-item="edit" :item="item"></edit-Item-Modal>-->
-                <edit-Item-Modal title="Edit Table Item" @edit-table-item="edit" :item="item"></edit-Item-Modal>
+                
 <!--        <button class="btn btn-info"
                 data-bs-toggle="modal"
                 :data-bs-target="'#sli'+ item.productID">

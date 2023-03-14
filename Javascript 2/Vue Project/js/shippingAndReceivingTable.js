@@ -7,12 +7,12 @@ app.component('shippingAndReceivingTable', {
 
     methods: {
         removeItem(item) {
-            console.log("Removed at Table");
+            //console.log("Removed at Table");
             this.$emit('remove-item', item)
         },
 
         editItem(item, newItem){
-            console.log("emitted from table");
+            //console.log("emitted from table");
             this.$emit('edit-table', item, newItem)
         }
     },

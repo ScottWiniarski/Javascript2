@@ -29,7 +29,7 @@ app.component('addToManifestModal', {
     methods: {
         addToTable() {
             if (this.newItem.name && this.newItem.productID && this.newItem.itemStatus && this.newItem.priority && this.newItem.category) {
-                console.log("added from the modal method");
+                //console.log("added from the modal method");
                 this.$emit('add-To-Table', this.newItem);
 
                 this.newItem = {
