@@ -44,7 +44,7 @@ app.component('ishimuraNavbar', {
       </div>
     </div>
     </nav>
-      <nav class="navbar navbar-expand-md navbar-brand m-3" id="ishiNavBar">
+<!--      <nav class="navbar navbar-expand-md navbar-brand m-3" id="ishiNavBar">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Ishimura Shipping</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="ishimuraNavbar"
@@ -64,7 +64,8 @@ app.component('ishimuraNavbar', {
       <script>export default {
         components: {}
       }
-      </script>`
+      </script>-->
+    `
 });
 
 /*
