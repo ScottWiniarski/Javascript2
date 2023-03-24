@@ -93,6 +93,9 @@ const app = Vue.createApp({
 
         searchTable(item){
             console.log('Searching the table for an item in app.js');
+            return this.shipAndReceivingTable.filter(function (item) {
+                return item.name === this.item;
+            })
         }
     },
 

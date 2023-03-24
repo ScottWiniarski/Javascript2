@@ -60,9 +60,18 @@ app.component('ishimuraNavbar', {
           </li>-->
           <form class="d-flex justify-content-end" @submit.prevent="formSubmit">
             <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" v-model="newItem.name">
-            <button class="btn btn-outline-success" type="submit">Submit</button>
+            <button class="btn btn-outline-success" type="submit" @click="searchForItem" data-bs-toggle="collapse" data-bs-target="#searchCollapseWindow">Submit</button>
           </form>
+          
+          
         </ul>
+      </div>
+
+      
+    </div>
+    <div class="collapse" id="searchCollapseWindow">
+      <div class="card card-body">
+
       </div>
     </div>
     </nav>

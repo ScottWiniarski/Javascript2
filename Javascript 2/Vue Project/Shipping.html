@@ -19,7 +19,12 @@
 <body>
 <div id="app">
     <header>
-        <ishimura-navbar></ishimura-navbar>
+        <ishimura-navbar @search-in-table-from-navbar="searchTable"></ishimura-navbar>
+        <div class="collapse" id="searchCollapseWindow">
+            <div class="card card-body">
+
+            </div>
+        </div>
     </header>
 
     <add-To-Manifest-Modal title="Add to Table" id="addtomanifestmodal"
