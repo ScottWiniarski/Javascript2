@@ -73,7 +73,7 @@ app.component('editItemModal', {
       <button class="btn btn-info"
               data-bs-toggle="modal"
               :data-bs-target="'#sli'+ item.productID">
-        <i class="fas fa-minus-circle"></i> Edit?
+        <i class="fas fa-plus-circle"></i> Modify
       </button>
       
       <div ref="ModalElement" class="modal fade" tabindex="-1" role="dialog" :id="'sli'+ item.productID">

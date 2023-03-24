@@ -51,7 +51,7 @@ app.component('shipmentItem', {
           <i class="fas fa-minus-circle"></i> Edit?
         </button>-->
         
-        <button class="btn btn-danger" v-on:click="remove"><i class="fas fa-minus-circle"></i> Remove?</button>
+        <button class="btn btn-danger" v-on:click="remove"><i class="fas fa-minus-circle"></i> Remove</button>
       </td>
       </tr>
       

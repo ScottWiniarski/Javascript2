@@ -1,8 +1,30 @@
 app.component('ishimuraNavbar', {
+    data: function () {
+        return {
 
-    props: {},
+            newItem: {
+                name: this.newItem,
+            },
+        }
+    },
 
-    methods: {},
+    props: {
+        formSubmit: {
+            type: Function,
+            default: function () {
+            },
+        }
+    },
+
+    methods: {
+        searchForItem(){
+            if (this.newItem.name){
+                console.log('searching in the navbar component methods');
+                this.$emit('search-in-table-from-navbar', this.newItem);
+            }
+            console.log(this.newItem)
+        },
+    },
 
     computed: {},
 
@@ -23,7 +45,7 @@ app.component('ishimuraNavbar', {
           <li class="nav-item">
             <a class="nav-link" href="Shipping.html">Shipping</a>
           </li>
-          <li class="nav-item">
+<!--          <li class="nav-item">
             <a class="nav-link" href="#">Pricing</a>
           </li>
           <li class="nav-item dropdown">
@@ -35,10 +57,10 @@ app.component('ishimuraNavbar', {
               <li><a class="dropdown-item" href="#">Another action</a></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
-          </li>
-          <form class="d-flex justify-content-end">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+          </li>-->
+          <form class="d-flex justify-content-end" @submit.prevent="formSubmit">
+            <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" v-model="newItem.name">
+            <button class="btn btn-outline-success" type="submit">Submit</button>
           </form>
         </ul>
       </div>

@@ -5,58 +5,72 @@ const app = Vue.createApp({
                 {
                     name: 'Steel Beam',
                     productID: '040020',
-                    itemStatus: 'pending',
-                    priority: 'low',
+                    itemStatus: 'Pending',
+                    priority: 'Low',
                     category: 'receiving'
                 },
                 {
                     name: 'Iron Core',
                     productID: '001283',
-                    itemStatus: 'received',
-                    priority: 'high',
+                    itemStatus: 'Received',
+                    priority: 'High',
                     category: 'receiving'
                 },
                 {
                     name: 'Cutting Tool Tips',
                     productID: '044932',
-                    itemStatus: 'pending',
-                    priority: 'absolute',
+                    itemStatus: 'Pending',
+                    priority: 'Absolute',
                     category: 'receiving'
                 },
                 {
                     name: 'Plasma Fuel Cells',
                     productID: '009332',
-                    itemStatus: 'received',
-                    priority: 'high',
+                    itemStatus: 'Received',
+                    priority: 'High',
                     category: 'receiving'
                 },
                 {
                     name: 'Iron 3/4th flat',
                     productID: '044221',
-                    itemStatus: 'pending',
+                    itemStatus: 'Pending',
                     priority: 'low',
                     category: 'shipping'
                 },
                 {
                     name: 'Iron Rivets',
                     productID: '061273',
-                    itemStatus: 'shipped',
-                    priority: 'high',
+                    itemStatus: 'Shipped',
+                    priority: 'High',
                     category: 'shipping'
                 },
                 {
                     name: 'Iron Blades',
                     productID: '045132',
-                    itemStatus: 'pending',
-                    priority: 'absolute',
+                    itemStatus: 'Pending',
+                    priority: 'Absolute',
                     category: 'shipping'
                 },
                 {
                     name: 'Oxygen Tanks',
                     productID: '007782',
-                    itemStatus: 'shipped',
-                    priority: 'high',
+                    itemStatus: 'Shipped',
+                    priority: 'High',
                     category: 'shipping'
+                },
+                {
+                    name: 'Arkenstout',
+                    productID: '003282',
+                    itemStatus: 'Pending',
+                    priority: 'Absolute',
+                    category: 'receiving'
+                },
+                {
+                    name: 'Gunpowder Surprise',
+                    productID: '008283',
+                    itemStatus: 'Shipped',
+                    priority: 'Absolute',
+                    category: "receiving",
                 },
             ],
         }
@@ -64,23 +78,27 @@ const app = Vue.createApp({
 
     methods: {
         addToTable(item) {
-            console.log('added from the app method')
+            //console.log('added from the app method')
             this.shipAndReceivingTable.push(item);
         },
         removeFromTable(item) {
-            console.log("removed from table");
+            //console.log("removed from table");
             this.shipAndReceivingTable.splice(this.shipAndReceivingTable.indexOf(item), 1);
         },
 
         editTable(item, newItem){
-            console.log("editing item in app.js", item, newItem);
+            //console.log("editing item in app.js", item, newItem);
             this.shipAndReceivingTable.splice(this.shipAndReceivingTable.indexOf(item), 1, newItem)
         },
+
+        searchTable(item){
+            console.log('Searching the table for an item in app.js');
+        }
     },
 
     computed: {
         receivingTable: function () {
-            console.log(this.shipAndReceivingTable);
+            //console.log(this.shipAndReceivingTable);
             return this.shipAndReceivingTable.filter(function (item) {
                 return item.category === 'receiving';
             })
@@ -88,7 +106,7 @@ const app = Vue.createApp({
 
         shippingTable() {
             return this.shipAndReceivingTable.filter(function (item) {
-                console.log(item.name)
+                //console.log(item.name)
                 return item.category === 'shipping';
             })
         },
