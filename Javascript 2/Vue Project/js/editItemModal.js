@@ -73,7 +73,7 @@ app.component('editItemModal', {
       <button class="btn btn-info"
               data-bs-toggle="modal"
               :data-bs-target="'#sli'+ item.productID">
-        <i class="fas fa-plus-circle"></i> Modify
+        <i class="fas fa-wrench"></i> Modify
       </button>
       
       <div ref="ModalElement" class="modal fade" tabindex="-1" role="dialog" :id="'sli'+ item.productID">
@@ -113,7 +113,7 @@ app.component('editItemModal', {
                   </div>
                   <div class="col-md-6">
                     <label for="category" class="form-label">Category</label>
-                    <select id="category" type="text" class="form-select" v-model="newItem.category" autofocus required >
+                    <select id="category" class="form-select" v-model="newItem.category" autofocus required >
                       <option value="receiving">Receiving</option>
                       <option value="shipping">Shipping</option>
                     </select>

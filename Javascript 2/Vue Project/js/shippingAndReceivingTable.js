@@ -1,6 +1,8 @@
 
 app.component('shippingAndReceivingTable', {
     props: {
+        allowEdit: Boolean,
+
         title: String,
         items: Array,
     },
@@ -29,11 +31,12 @@ app.component('shippingAndReceivingTable', {
           <th scope="col">Product Name</th>
           <th scope="col">Item Status</th>
           <th scope="col">Priority</th>
-          <th scope="col">Admin Tools</th>
+          <th scope="col" v-show="allowEdit">Admin Tools</th>
         </tr>
         </thead>
         <tbody>
         <shipment-Item
+            :allow-edit="allowEdit"
             v-for="item in items"
             :item="item"
             :key="item.category"

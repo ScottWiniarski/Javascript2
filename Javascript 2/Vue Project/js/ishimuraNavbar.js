@@ -9,6 +9,10 @@ app.component('ishimuraNavbar', {
     },
 
     props: {
+
+        searchTargets: Array,
+
+
         formSubmit: {
             type: Function,
             default: function () {
@@ -24,6 +28,8 @@ app.component('ishimuraNavbar', {
             }
             console.log(this.newItem)
         },
+
+
     },
 
     computed: {},
@@ -62,17 +68,11 @@ app.component('ishimuraNavbar', {
             <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" v-model="newItem.name">
             <button class="btn btn-outline-success" type="submit" @click="searchForItem" data-bs-toggle="collapse" data-bs-target="#searchCollapseWindow">Submit</button>
           </form>
-          
-          
         </ul>
       </div>
-
-      
     </div>
-    <div class="collapse" id="searchCollapseWindow">
-      <div class="card card-body">
-
-      </div>
+    <div class="collapse w-100" id="searchCollapseWindow">
+      <shipping-And-Receiving-Table title="Search Results" :items="searchTargets" :allow-edit="false"></shipping-And-Receiving-Table>
     </div>
     </nav>
 <!--      <nav class="navbar navbar-expand-md navbar-brand m-3" id="ishiNavBar">

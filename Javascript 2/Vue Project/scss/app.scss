@@ -1,0 +1,77 @@
+// overrides
+$celadon: #b4edd2ff;
+$air-force-blue: #568ea3ff;
+$misty-rose: #f1dedeff;
+$black-olive: #36382eff;
+$coyote: #826754ff;
+$hunter-green: #436436;
+$chocolate-cosmos: #420217;
+$red-orange: #c84c09;
+$malachite: #6ADE6D;
+
+$primary: $air-force-blue;
+$dark:    #343A40;
+$border-color: #495057;
+$list-group-border-color: #495057;
+$small-font-size: .8em;
+
+// include bootstrap
+@import "bootstrap";
+@media (min-width: 992px) {
+  .navbar-expand-lg {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
+.nav{
+  background-color: $misty-rose;
+}
+.nav-link{
+  background-color: $misty-rose;
+}
+.navbar-brand{
+  background-color: $misty-rose;
+}
+#app{
+  background-color: $black-olive;
+}
+.btn-primary{
+  background-color: $malachite;
+  --bs-btn-border-radius: 12px;
+}
+.btn-danger{
+  background-color: $red-orange;
+  --bs-btn-border-radius: 0px;
+}
+.btn-info{
+  background-color: $celadon;
+  --bs-btn-border-radius: 0px;
+}
+
+#searchCollapseWindow{
+  background-color: $misty-rose;
+}
+
+#ishiNavBar{
+  background-color: $coyote;
+}
+
+#receivingTable{
+  background-color: $misty-rose;
+}
+
+#shippingTable{
+  background-color: $misty-rose;
+}
+h3{
+  background-color: #6AA889;
+  font-size: calc(1.4rem + 0.8vw);
+  --bs-body-color: $hunter-green;
+}
+
+#modalFooter{
+  background-color: #92A35D;
+}
+
+
+

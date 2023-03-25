@@ -19,12 +19,7 @@
 <body>
 <div id="app">
     <header>
-        <ishimura-navbar @search-in-table-from-navbar="searchTable"></ishimura-navbar>
-        <div class="collapse" id="searchCollapseWindow">
-            <div class="card card-body">
-
-            </div>
-        </div>
+        <ishimura-navbar @search-in-table-from-navbar="searchTable" :search-targets="searchResults"></ishimura-navbar>
     </header>
 
     <add-To-Manifest-Modal title="Add to Table" id="addtomanifestmodal"
@@ -33,7 +28,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md p-3 m-3" id="shippingTable">
-                <shipping-And-Receiving-Table title="Shipping" :items="shippingTable" @edit-table="editTable"
+                <shipping-And-Receiving-Table title="Shipping" :allow-edit="true" :items="shippingTable" @edit-table="editTable"
                                               @remove-item="removeFromTable"></shipping-And-Receiving-Table>
                 <div class="text-center">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"

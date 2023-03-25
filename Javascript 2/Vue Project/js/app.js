@@ -73,6 +73,10 @@ const app = Vue.createApp({
                     category: "receiving",
                 },
             ],
+
+            searchResults: [
+
+            ],
         }
     },
 
@@ -86,18 +90,17 @@ const app = Vue.createApp({
             this.shipAndReceivingTable.splice(this.shipAndReceivingTable.indexOf(item), 1);
         },
 
-        editTable(item, newItem){
+        editTable(item, newItem) {
             //console.log("editing item in app.js", item, newItem);
             this.shipAndReceivingTable.splice(this.shipAndReceivingTable.indexOf(item), 1, newItem)
         },
 
-        searchTable(item){
+        searchTable(keyword) {
             console.log('Searching the table for an item in app.js');
-            if (this.shipAndReceivingTable.includes(item.name)){
-                return this.shipAndReceivingTable.filter(function (item) {
-                    return item.name === this.item;
-                })
-            }
+            this.searchResults = this.shipAndReceivingTable.filter(function (item) {
+                return item.name === keyword.name;
+            })
+            console.log(this.searchResults, keyword);
         }
     },
 

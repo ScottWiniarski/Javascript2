@@ -6,6 +6,8 @@ app.component('shipmentItem', {
     },
 
     props: {
+        allowEdit: Boolean,
+
         item: Object,
     },
     methods: {
@@ -40,22 +42,23 @@ app.component('shipmentItem', {
       </td>
       <td>
 
-        <edit-Item-Modal title="Edit Table Item" @edit-table-item="edit" :item="item"></edit-Item-Modal>
-        
-<!--                  This line works if we have a button for each object in the shipmentItem component, hooked up to the id   -->
-<!--        <edit-Item-Modal title="Edit Table Item" :id="'sli'+ item.productID" @edit-table-item="edit" :item="item"></edit-Item-Modal>-->
-                
-<!--        <button class="btn btn-info"
-                data-bs-toggle="modal"
-                :data-bs-target="'#sli'+ item.productID">
-          <i class="fas fa-minus-circle"></i> Edit?
-        </button>-->
-        
-        <button class="btn btn-danger" v-on:click="remove"><i class="fas fa-minus-circle"></i> Remove</button>
+        <edit-Item-Modal title="Edit Table Item" v-show="allowEdit" @edit-table-item="edit"
+                         :item="item"></edit-Item-Modal>
+
+        <!--                  This line works if we have a button for each object in the shipmentItem component, hooked up to the id   -->
+        <!--        <edit-Item-Modal title="Edit Table Item" :id="'sli'+ item.productID" @edit-table-item="edit" :item="item"></edit-Item-Modal>-->
+
+        <!--        <button class="btn btn-info"
+                        data-bs-toggle="modal"
+                        :data-bs-target="'#sli'+ item.productID">
+                  <i class="fas fa-minus-circle"></i> Edit?
+                </button>-->
+
+        <button class="btn btn-danger" v-show="allowEdit" v-on:click="remove"><i class="fas fa-minus-circle"></i> Remove</button>
       </td>
       </tr>
-      
-<!--      data-bs-toggle="modal"
-      :data-bs-target="'#' + item.id"-->
+
+      <!--      data-bs-toggle="modal"
+            :data-bs-target="'#' + item.id"-->
     `
 });
