@@ -10784,7 +10784,11 @@ textarea.form-control-lg {
 }
 
 #app {
-  background-color: #36382e;
+  background-color: #f1dede;
+}
+
+#companyNotice {
+  background-color: #f1dede;
 }
 
 .btn-primary {
