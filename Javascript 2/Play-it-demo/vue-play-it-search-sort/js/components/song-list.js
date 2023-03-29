@@ -35,10 +35,6 @@ app.component('SongList', {
 
         search(keyword){
             this.filteredKeyword = keyword;
-            /*this.filteredSongs = this.songs.filter((song) => {
-                return song.title.toLowerCase().includes(keyword.toLowerCase()) ||
-                    song.artist.toLowerCase().includes(keyword.toLowerCase());
-            })*/
         },
     },
 
