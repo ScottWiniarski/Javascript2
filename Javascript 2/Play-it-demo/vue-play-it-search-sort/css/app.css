@@ -1,0 +1,35 @@
+.q-toolbar, h1, h2, h3, h4, h5, h6 {
+  font-family: "Paytone One", "Arial Black", sans-serif;
+}
+
+.q-header .q-toolbar {
+  min-height: 55px;
+}
+.q-header .q-toolbar__title {
+  font-size: 28px;
+}
+.q-header .q-avatar {
+  vertical-align: text-bottom;
+  margin-right: 5px;
+}
+
+.q-footer .q-toolbar {
+  min-height: 30px;
+}
+.q-footer .q-toolbar__title {
+  font-size: 14px;
+  text-align: center;
+}
+
+.q-timeline__heading-title {
+  font-size: 3em;
+}
+
+.q-timeline__dot .q-icon {
+  top: 1px;
+  font-size: 40px;
+}
+
+.q-toolbar .q-icon {
+  font-size: 40px;
+}
