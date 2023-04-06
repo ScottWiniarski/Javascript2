@@ -34,7 +34,7 @@ app.component('InventoryItemTable', {
         <th scope="col">Product Priority</th>
       </tr>
       </thead>
-      <inventory-item-table-row  v-for="item in inventory" :InventoryItem="item"/>
+      <inventory-item-table-row  v-for="item in inventory" :item="item"/>
     </table>
     </div>
    `
@@ -78,6 +78,9 @@ app.component('ReceivingItemDetails', {
    <td>
      {{item.status}}
    </td>
+   <td>
+     {{item.priority}}
+   </td>
    </tr>
    `
 });
@@ -93,10 +96,13 @@ app.component('ShippingItemDetails', {
      {{item.title}}
    </td>
    <td>
-     {{item.productID}}
+     {{item.productId}}
    </td>
    <td>
      {{item.status}}
+   </td>
+   <td>
+     {{item.priority}}
    </td>
    </tr>
    `
