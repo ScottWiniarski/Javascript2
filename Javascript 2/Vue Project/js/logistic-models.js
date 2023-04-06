@@ -1,20 +1,31 @@
-function InventoryItem(title){
-    const STATUSES = {PENDING: 'pending', RECEIVED: 'received', SHIPPED:'shipped'}
-    this.title = title ?? 'Not Available';
+function InventoryItem(material){
+    this.material = material;
+}
 
-    this.status = STATUSES.PENDING;
+function ReceivingItem(title, productId, status, priority){
+    this.title = title ?? 'Default Title';
+    this.productId = productId ?? 0;
+    this.status = status ?? 'N/A'
+    this.priority = priority ?? "N/A"
+}
+ReceivingItem.type = 'ReceivingItem';
 
-    this.inHand = function(){
-        this.status = STATUSES.RECEIVED;
-    }
+class ShippingItem {
+    static type = "ShippingItem"
+    title = '';
+    productId = 0;
+    status = 'N/A';
+    priority = 'N/A'
 
-    this.sentOut = function(){
-        this.status = STATUSES.SHIPPED;
+    constructor(title, productId, status, priority) {
+        this.title = title ?? '';
+        this.productId = productId ?? 0;
+        this.status = status ?? 'N/A'
+        this.priority = priority ?? "N/A"
     }
 }
 
-function Ale(title, servingSize){
-    InventoryItem.call(this, title);
-
-    this.servingSize = servingSize ?? 'big';
-}
+let receivingItem = new InventoryItem( new ReceivingItem('Iron Ore', 231093, "received", 'High'));
+let shippingItem = new InventoryItem( new ShippingItem('Steel I-Beam', 323810, 'shipped', 'High'));
+console.log(receivingItem.material.title);
+console.log(receivingItem, shippingItem);

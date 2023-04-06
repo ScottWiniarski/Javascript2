@@ -74,9 +74,6 @@ const app = Vue.createApp({
                 },
             ],
 
-            searchResults: [
-
-            ],
         }
     },
 

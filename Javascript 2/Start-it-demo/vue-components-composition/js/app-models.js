@@ -48,5 +48,7 @@ class Movie  {
 let book = new LibraryItem( new Book('Book Title', 123));
 let movie = new LibraryItem( new Movie('Movie Title', 99));
 // pretend that == new Product( new Book(...));
+
+// in console type book.media.title for "Book Title"
 console.log(book, movie)
 

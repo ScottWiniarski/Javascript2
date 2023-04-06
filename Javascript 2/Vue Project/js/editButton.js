@@ -1,11 +1,11 @@
-$('input[type=button]').on('submit', function(){
-    let target = $(this).data('bs-target');
-    let id = $(this).data('id');
-    let id2 = $(this).id;
-    let value= $(this).val();
-    $(target).toggle('show');
-
-})
+// $('input[type=button]').on('submit', function(){
+//     let target = $(this).data('bs-target');
+//     let id = $(this).data('id');
+//     let id2 = $(this).id;
+//     let value= $(this).val();
+//     $(target).toggle('show');
+//
+// })
 
 /*
 <button class="btn btn-info"
