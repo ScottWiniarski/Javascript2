@@ -14,14 +14,6 @@ app.component('InventoryItemTable', {
        }
    },
 
-    methods:{
-        soundOff(inventory){
-           for(let i = 0; i<inventory.length; i++){
-               console.log(inventory[i]);
-           }
-       }
-    },
-
    template: `
     <div class="container-md">
     <h3 class="text-center"> Full Inventory </h3>
@@ -34,14 +26,22 @@ app.component('InventoryItemTable', {
         <th scope="col">Product Priority</th>
       </tr>
       </thead>
-      <inventory-item-table-row  v-for="item in inventory" :item="item"/>
+      <tbody>
+      <inventory-item-table-row v-for="item in inventory" :item="item"/>
+      <hr>
+      <h3 class="text-center">Receiving Table</h3>
+      <receiving-item-table v-for="item in inventory" :item="item"></receiving-item-table>
+      <hr>
+      <h3 class="text-center">Shipping Table</h3>
+      <shipping-item-table v-for="item in inventory" :item="item"></shipping-item-table>
+      
+      </tbody>
     </table>
     </div>
    `
 });
 
-app.component("InventoryItemTableRow", {
-// const InventoryItemTableRowComponent = {
+const InventoryItemTableRowComponent = {
     props: {
         item: {type: InventoryItem}
         // "ReceivingItem"
@@ -54,13 +54,47 @@ app.component("InventoryItemTableRow", {
     },
 
     template: `
-      <div class="tbody">
         <component :is="itemRowComponent(item)" :item="item.material"/>
-      </div>
+    `
+};
+
+app.component("InventoryItemTableRow", InventoryItemTableRowComponent)
+
+app.component("ReceivingItemTable", {
+    props:{
+        item: {type: InventoryItem}
+    },
+
+    methods: {
+        receivingTableComponent(item){
+          if(item.material.constructor.type === "ReceivingItem"){
+              return item.material.constructor.type + "Details";
+          }
+        }
+    },
+
+    template: `
+      <component :is="receivingTableComponent(item)" :item="item.material"/>
     `
 });
 
-// app.component("InventoryItemTableRow", InventoryItemTableRowComponent)
+app.component("ShippingItemTable", {
+    props:{
+        item: {type: InventoryItem}
+    },
+
+    methods: {
+        shippingTableComponent(item){
+            if(item.material.constructor.type === "ShippingItem"){
+                return item.material.constructor.type + "Details";
+            }
+        },
+    },
+
+    template: `
+    <component :is="shippingTableComponent(item)" :item="item.material"></component>
+    `
+});
 
 app.component('ReceivingItemDetails', {
    props:{
@@ -73,7 +107,7 @@ app.component('ReceivingItemDetails', {
      {{item.title}}
    </td>
    <td>
-     {{item.productID}}
+     {{item.productId}}
    </td>
    <td>
      {{item.status}}
