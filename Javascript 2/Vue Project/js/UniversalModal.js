@@ -33,15 +33,15 @@ app.component('UniModalFoundation', {
       <div>
       <button class="btn btn-info"
               data-bs-toggle="modal"
-              :data-bs-target="'#sli'+ item.productID">
+              :data-bs-target="'#sli'+ item.material.productId">
         <i class="fas fa-wrench"></i> Modify
       </button>
 
-      <div ref="ModalElement" class="modal fade" tabindex="-1" role="dialog" :id="'sli'+ item.productID">
+      <div ref="ModalElement" class="modal fade" tabindex="-1" role="dialog" :id="'sli'+ item.material.productId">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-body">
-              <h3 class="text-center p-2">{{ title }}</h3>
+              <h3 class="text-center p-2">{{ item.material.title }}</h3>
               <form @submit.prevent="formSubmit" novalidate>
               <div class="row">
                 <uni-modal-source></uni-modal-source>
@@ -49,7 +49,12 @@ app.component('UniModalFoundation', {
                 <div class="row">
                   
                 </div>
-              
+                <div class="container-fluid" id="modalFooter">
+                  <div class="text-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Discard</button>
+                    <button type="submit" class="btn btn-primary" @click="editTableItem">Confirm</button>
+                  </div>
+                </div>
               </form>
             </div>
           </div>
@@ -89,7 +94,7 @@ app.component('UniModalDetails', {
       <label for="sli + {{item}}" class="form-label">{{ item }}</label>
       <input id="sli + {{item}}" type="text" class="form-control" required v-model="" autofocus>
       <div class="invalid-feedback">
-        Please enter the {{ item }} name.
+        Please enter the {{ item }}.
       </div>
       </div>
     `
