@@ -75,7 +75,6 @@ app.component("ReceivingItemTable", {
 
     template: `
       <component :is="receivingTableComponent(item)" :item="item.material"/>
-      <uni-modal-foundation></uni-modal-foundation>
     `
 });
 

@@ -1,18 +1,12 @@
-app.component('UniModalFoundation', {
-    data: function () {
-        return {
-            newItem: {
-                name: this.item.name,
-                productID: this.item.productID,
-                itemStatus: this.item.itemStatus,
-                priority: this.item.priority,
-                category: this.item.category,
-            },
-        }
-    },
+const UniversalModalFoundation = {
+    data:{},
 
     props: {
-        item: Object,
+        item: {type: InventoryItem},
+
+        itemType: {
+            type: String
+        },
 
         formSubmit: {
             type: Function,
@@ -21,7 +15,28 @@ app.component('UniModalFoundation', {
         },
     },
 
-    methods: {},
+    methods: {
+        passInventoryItemToModal(item, itemType){
+            if(itemType === "addItemReceiving"){
+                console.log(item.constructor + 'From add/receiving Method');
+                return new ReceivingItem();
+            }
+            else if(itemType === "addItemShipping"){
+                console.log(item.constructor + 'from add/shipping method');
+                return new ShippingItem();
+            }
+            else if(itemType === "editItemReceiving"){
+                console.log(item.material.constructor + "From Edit method");
+                let newItem = item;
+                return (newItem, item);
+            }
+            else if(itemType === "editItemShipping"){
+                console.log(item.material.constructor + "From edit/shipping method.");
+                let newItem = item;
+                return (newItem, item);
+            }
+        }
+    },
 
     mounted() {
         this.$el.addEventListener('shown.bs.modal', function () {
@@ -44,7 +59,7 @@ app.component('UniModalFoundation', {
               <h3 class="text-center p-2">{{ item.material.title }}</h3>
               <form @submit.prevent="formSubmit" novalidate>
               <div class="row">
-                <uni-modal-source></uni-modal-source>
+                <uni-modal-source :is="passInventoryItemToModal(item, itemType)"></uni-modal-source>
               </div>
                 <div class="row">
                   
@@ -62,9 +77,26 @@ app.component('UniModalFoundation', {
       </div>
       </div>
     `
+};
 
+app.component("UniModalFoundation", UniversalModalFoundation);
 
-})
+app.component('universalButton',{
+   props: {
+       itemType: {type: String},
+       item: InventoryItem,
+   },
+
+    methods: {
+
+    },
+
+    template:`
+      <div class="text-center">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Discard</button>
+      </div>
+    `
+});
 
 app.component("UniModalSource", {
     props: {
@@ -92,7 +124,7 @@ app.component('UniModalDetails', {
     template: `
       <div>
       <label for="sli + {{item}}" class="form-label">{{ item }}</label>
-      <input id="sli + {{item}}" type="text" class="form-control" required v-model="" autofocus>
+      <input id="sli + {{item}}" type="text" class="form-control" required v-model="{item}" autofocus>
       <div class="invalid-feedback">
         Please enter the {{ item }}.
       </div>
