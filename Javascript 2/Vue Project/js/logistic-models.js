@@ -5,10 +5,16 @@ function InventoryItem(material){
 function ReceivingItem(title, productId, status, priority){
     this.title = title ?? 'Default Title';
     this.productId = productId ?? 0;
-    this.status = status ?? 'N/A'
-    this.priority = priority ?? "N/A"
+    //this['productId'] = productId ?? 0;
+    this.status = status ?? 'N/A';
+    this.priority = priority ?? "N/A";
 }
 ReceivingItem.type = 'ReceivingItem';
+ReceivingItem.fields = [
+    {label: 'Title', property: 'title'},
+    {label: 'Product ID', property: 'productId'},
+
+]
 
 class ShippingItem {
     static type = "ShippingItem"
@@ -20,8 +26,8 @@ class ShippingItem {
     constructor(title, productId, status, priority) {
         this.title = title ?? '';
         this.productId = productId ?? 0;
-        this.status = status ?? 'N/A'
-        this.priority = priority ?? "N/A"
+        this.status = status ?? 'N/A';
+        this.priority = priority ?? "N/A";
     }
 }
 

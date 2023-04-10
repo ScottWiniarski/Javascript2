@@ -2,6 +2,7 @@ app.component('InventoryItemTable', {
    data(){
        const STATUSES = {PENDING: 'Pending', SHIPPED: 'Shipped', RECEIVED: 'Received'}
        const PRIORITIES = {LOW: 'Low', MEDIUM: 'Medium', HIGH: 'High', ABSOLUTE: 'Absolute'}
+
        return {
            inventory: [
                new InventoryItem( new ReceivingItem('Iron Ore', 231093, STATUSES.PENDING, PRIORITIES.HIGH)),
@@ -10,9 +11,25 @@ app.component('InventoryItemTable', {
                new InventoryItem( new ShippingItem('Steel I-Beam', 323810, STATUSES.SHIPPED, PRIORITIES.LOW)),
                new InventoryItem( new ShippingItem('Cutting Tips', 102383, STATUSES.SHIPPED, PRIORITIES.LOW)),
                new InventoryItem( new ShippingItem('Pressure Valves', 110392, STATUSES.PENDING, PRIORITIES.MEDIUM)),
-           ]
+           ],
+           newReceivingItem: new ReceivingItem(),
+           newShippingItem: new ShippingItem(),
        }
    },
+
+    methods:{
+       addToTable(InventoryItem){
+           InventoryItemTable.inventory.push(InventoryItem);
+       },
+
+       removeFromTable(InventoryItem){
+           InventoryItemTable.inventory.splice(InventoryItemTable.inventory.indexOf(InventoryItem.material.productId), 1);
+       },
+
+        editTableItem(oldItem, newItem){
+           InventoryItemTable.inventory.splice(oldItem, 1, newItem);
+        }
+    },
 
    template: `
     <div class="container-md">
@@ -30,6 +47,9 @@ app.component('InventoryItemTable', {
       <inventory-item-table-row v-for="item in inventory" :item="item"/>
       <hr>
       <h3 class="text-center">Receiving Table</h3>
+<!--      <universal-button @click="uniModalFoundation()">Add Item</universal-button>-->
+      <universal-modal :item="newReceivingItem" title="" button-text=""></universal-modal>
+<!--      <universal-button @click="addThisItem(item)">Add Item</universal-button>-->
       <receiving-item-table v-for="item in inventory" :item="item"></receiving-item-table>
       <hr>
       <h3 class="text-center">Shipping Table</h3>
