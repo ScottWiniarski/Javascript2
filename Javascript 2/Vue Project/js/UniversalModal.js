@@ -83,17 +83,19 @@ app.component("UniModalFoundation", UniversalModalFoundation);
 
 app.component('universalButton',{
    props: {
-       itemType: {type: String},
-       item: InventoryItem,
+       title: {type: String},
+       item: { type: InventoryItem},
    },
 
     methods: {
-
+        filterModalSections(item){
+            if(title === '')
+        }
     },
 
     template:`
       <div class="text-center">
-      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Discard</button>
+      <button title="" is:filterModalSections(item) type="button" class="btn btn-secondary" data-bs-dismiss="modal">Discard</button>
       </div>
     `
 });
