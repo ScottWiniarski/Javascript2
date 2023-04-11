@@ -40,7 +40,7 @@ ShippingItem.fields = [
 
 ]
 
-let receivingItem = new InventoryItem( new ReceivingItem('Iron Ore', 231093, "received", 'High'));
-let shippingItem = new InventoryItem( new ShippingItem('Steel I-Beam', 323810, 'shipped', 'High'));
-console.log(receivingItem.material.title);
-console.log(receivingItem, shippingItem);
+// let receivingItem = new InventoryItem( new ReceivingItem('Iron Ore', 231093, "received", 'High'));
+// let shippingItem = new InventoryItem( new ShippingItem('Steel I-Beam', 323810, 'shipped', 'High'));
+// console.log(receivingItem.material.title);
+// console.log(receivingItem, shippingItem);

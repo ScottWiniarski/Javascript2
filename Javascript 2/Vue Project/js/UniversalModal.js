@@ -2,7 +2,6 @@ const UniversalModalFoundation = {
     data(){
         return{
             itemNumber: Math.floor(Math.random() * 10e16),
-
         }
     },
 
@@ -22,11 +21,7 @@ const UniversalModalFoundation = {
     methods: {
         sendNotice(item){
             console.log("Item Sent " + item);
-            //let newItem = new InventoryItem(item);
-            // InventoryItemTable.addToTable(newItem);
-            //console.log(newItem.material.title );
-            let newItem = item;
-            this.$emit('add-item', this.item, this.newItem);
+            this.$emit('add-item', item);
         }
     },
 
@@ -53,10 +48,10 @@ const UniversalModalFoundation = {
               <form @submit.prevent="formSubmit" novalidate>
               <div class="row">
 <!--                <uni-modal-details v-for="field in item.fields" :label="field.label" v-model="item.material[field.property]"></uni-modal-details>-->
-                <uni-modal-details label="Title" v-model="item.title"></uni-modal-details>
-                <uni-modal-details label="Product Id" v-model="item.productId"></uni-modal-details>
-                <uni-modal-details label="Product Status" v-model="item.status"></uni-modal-details>
-                <uni-modal-details label="Product Priority" v-model="item.priority"></uni-modal-details>
+                <uni-modal-details label="Title" v-model="item.material.title"></uni-modal-details>
+                <uni-modal-details label="Product Id" v-model="item.material.productId"></uni-modal-details>
+                <uni-modal-details label="Product Status" v-model="item.material.status"></uni-modal-details>
+                <uni-modal-details label="Product Priority" v-model="item.material.priority"></uni-modal-details>
               </div>
                 <div class="container-fluid" id="modalFooter">
                   <div class="text-center">

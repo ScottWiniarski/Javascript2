@@ -12,39 +12,37 @@ app.component('InventoryItemTable', {
                 new InventoryItem(new ShippingItem('Cutting Tips', 102383, STATUSES.SHIPPED, PRIORITIES.LOW)),
                 new InventoryItem(new ShippingItem('Pressure Valves', 110392, STATUSES.PENDING, PRIORITIES.MEDIUM)),
             ],
-            newReceivingItem: new ReceivingItem(),
-            //newShippingItem: new InventoryItem( new ShippingItem()),
+            newReceivingItem: new InventoryItem(new ReceivingItem()),
+            newShippingItem: new InventoryItem(new ShippingItem()),
         }
     },
 
     methods: {
         addToTable(item) {
-            // let newItem = new InventoryItem();
-            //let newItem = new InventoryItem();
-            //newItem.material = item.material;
-            //console.log(item.attributes);
-            //console.log(item.constructor.type);
-            //console.log(item.material);
-            //console.log(item.type);
-            //newItem.material = item.constructor.type;
-            //console.log(newItem);
             this.inventory.push((item));
-            //console.log(this.inventory);
+
         },
 
         removeFromTable(item) {
-            //console.log('removed from library');
-            this.inventory.splice(InventoryItemTable.inventory.indexOf(item.material.productId), 1);
+            // for (let i = 0; i < this.inventory.length; i++) {
+            //     console.log(this.inventory[i]);
+            // }
+            console.log('removed from inventory');
+            console.log(item);
+            //inventory.splice(inventory.indexOf(item));
+            this.inventory.splice(this.inventory.indexOf(item, item), 1);
+            //this.inventory.splice(this.inventory.prototype.indexOf.call(item.material), 1);
+            //this.inventory.splice(this.inventory.indexOf(item),1);
+            //this.inventory.splice(this.inventory.indexOf(item.prototype), 1);
+            //this.inventory.splice(this.inventory.indexOf(item.prototype.material), 1);
         },
 
         editTableItem(oldItem, newItem) {
-            InventoryItemTable.inventory.splice(oldItem, 1, newItem);
+            this.inventory.splice(oldItem, 1, newItem);
         }
     },
 
-    computed:{
-
-    },
+    computed: {},
 
     template: `
       <div class="container-md">
@@ -66,16 +64,26 @@ app.component('InventoryItemTable', {
             :item="newReceivingItem"
             title="Receiving"
             button-text="Add Item"
-            @add-item="addToTable(item)"
+            @add-item="addToTable"
         ></uni-modal-foundation>
         <receiving-item-table
             v-for="item in inventory"
             :item="item"
-            @remove-item-from-table="removeFromTable(this.item)"
+            @remove-item-from-table="removeFromTable"
         ></receiving-item-table>
         <hr>
         <h3 class="text-center">Shipping Table</h3>
-        <shipping-item-table v-for="item in inventory" :item="item"></shipping-item-table>
+        <uni-modal-foundation
+            :item="newShippingItem"
+            title="Shipping"
+            button-text="Add Item"
+            @add-item="addToTable"
+        ></uni-modal-foundation>
+        <shipping-item-table
+            v-for="item in inventory"
+            :item="item"
+            @remove-item-from-table="removeFromTable"
+        ></shipping-item-table>
 
         </tbody>
       </table>
@@ -117,8 +125,12 @@ app.component("ReceivingItemTable", {
         },
 
         removeThisItem(item) {
-            console.log('removed from table', item);
-            this.$emit('remove-item-from-table', this.item);
+            //console.log('removed from table', item);
+            this.$emit('remove-item-from-table', item);
+        },
+
+        editThisItem(item, newItem){
+            console.log('Edited at ReceivingItemTable', item, newItem)
         },
     },
 
@@ -126,7 +138,8 @@ app.component("ReceivingItemTable", {
       <component
           :is="receivingTableComponent(item)"
           :item="item.material"
-          @remove-this-item="removeThisItem(this.item)"
+          @remove-this-item="removeThisItem"
+          @edit-this-item="editThisItem"
       />
     `
 });
@@ -139,8 +152,13 @@ app.component('ReceivingItemDetails', {
     methods: {
         removeThisItem(item) {
             //console.log(item);
-            this.$emit('remove-this-item', this.item);
+            this.$emit('remove-this-item', item);
         },
+
+        editThisItem(item, newItem){
+
+            this.$emit('edit-this-item', item, newItem)
+        }
     },
 
     template: `
@@ -158,7 +176,15 @@ app.component('ReceivingItemDetails', {
         {{ item.priority }}
       </td>
       <td>
-        <button class="btn btn-info" v-on:click="removeThisItem(this.item)"><i class="fas fa-minus-circle"></i> Remove</button>
+        <button class="btn btn-info" v-on:click="removeThisItem"><i class="fas fa-minus-circle"></i> Remove</button>
+        <edit-modal-component 
+            title="Edit Item" 
+            button-text="Edit"
+            @edit-this-table-item="editThisItem"
+            :item="item"
+        ></edit-modal-component>
+<!--        <button class="btn btn-dark" v-on:click="editThisItem"><i class="fas fa-plus-circle"></i> Edit</button>-->
+
       </td>
       </tr>
     `
@@ -176,10 +202,19 @@ app.component("ShippingItemTable", {
                 return item.material.constructor.type + "Details";
             }
         },
+
+        removeThisItem(item) {
+            console.log('removed from table', item);
+            this.$emit('remove-item-from-table', item);
+        },
     },
 
     template: `
-      <component :is="shippingTableComponent(item)" :item="item.material"></component>
+      <component
+          :is="shippingTableComponent(item)"
+          :item="item.material"
+          @remove-this-item="removeThisItem"
+      ></component>
     `
 });
 
@@ -187,6 +222,13 @@ app.component("ShippingItemTable", {
 app.component('ShippingItemDetails', {
     props: {
         item: {type: ShippingItem}
+    },
+
+    methods: {
+        removeThisItem(item) {
+            //console.log(item);
+            this.$emit('remove-this-item', item);
+        },
     },
 
     template: `
@@ -204,7 +246,7 @@ app.component('ShippingItemDetails', {
         {{ item.priority }}
       </td>
       <td>
-        <button class="btn btn-info"><i class="fas fa-minus-circle"></i> Remove</button>
+        <button class="btn btn-info" v-on:click="removeThisItem"><i class="fas fa-minus-circle"></i> Remove</button>
       </td>
       </tr>
     `
