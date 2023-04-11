@@ -20,20 +20,20 @@ app.component('InventoryItemTable', {
     methods: {
         addToTable(item) {
             // let newItem = new InventoryItem();
-            let newItem = new InventoryItem();
-            newItem.material = item.material;
+            //let newItem = new InventoryItem();
+            //newItem.material = item.material;
             //console.log(item.attributes);
             //console.log(item.constructor.type);
             //console.log(item.material);
             //console.log(item.type);
             //newItem.material = item.constructor.type;
-            console.log(newItem);
+            //console.log(newItem);
             this.inventory.push((item));
-            console.log(this.inventory);
+            //console.log(this.inventory);
         },
 
         removeFromTable(item) {
-            console.log('removed from library');
+            //console.log('removed from library');
             this.inventory.splice(InventoryItemTable.inventory.indexOf(item.material.productId), 1);
         },
 
@@ -91,8 +91,8 @@ const InventoryItemTableRowComponent = {
 
     methods: {
         itemRowComponent(item) {
-            console.log(item.constructor.type);
-            console.log(item.material.constructor.type);
+            //console.log(item.constructor.type);
+            //console.log(item.material.constructor.type);
             return item.material.constructor.type + 'Details';
         }
     },
