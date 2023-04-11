@@ -2,6 +2,7 @@ const UniversalModalFoundation = {
     data(){
         return{
             itemNumber: Math.floor(Math.random() * 10e16),
+
         }
     },
 
@@ -24,7 +25,8 @@ const UniversalModalFoundation = {
             //let newItem = new InventoryItem(item);
             // InventoryItemTable.addToTable(newItem);
             //console.log(newItem.material.title );
-            this.$emit('add-item', item);
+            let newItem = item;
+            this.$emit('add-item', this.item, this.newItem);
         }
     },
 
@@ -50,11 +52,11 @@ const UniversalModalFoundation = {
               <h3 class="text-center p-2">{{ title }}</h3>
               <form @submit.prevent="formSubmit" novalidate>
               <div class="row">
-<!--                <uni-modal-details v-for="field in item.fields" :label="field.label" v-model="item.material[field.property]"></uni-modal-details>-->
-                <uni-modal-details label="Title" v-model="item.title"></uni-modal-details>
-                <uni-modal-details label="Product Id" v-model="item.productId"></uni-modal-details>
-                <uni-modal-details label="Product Status" v-model="item.status"></uni-modal-details>
-                <uni-modal-details label="Product Priority" v-model="item.priority"></uni-modal-details>
+                <uni-modal-details v-for="field in item.fields" :label="field.label" v-model="item.material[field.property]"></uni-modal-details>
+<!--                <uni-modal-details label="Title" v-model="item.title"></uni-modal-details>-->
+<!--                <uni-modal-details label="Product Id" v-model="item.productId"></uni-modal-details>-->
+<!--                <uni-modal-details label="Product Status" v-model="item.status"></uni-modal-details>-->
+<!--                <uni-modal-details label="Product Priority" v-model="item.priority"></uni-modal-details>-->
               </div>
                 <div class="container-fluid" id="modalFooter">
                   <div class="text-center">
@@ -73,6 +75,7 @@ const UniversalModalFoundation = {
 
 app.component("UniModalFoundation", UniversalModalFoundation);
 
+/*
 app.component('universalButton',{
    props: {
        title: {type: String},
@@ -108,7 +111,7 @@ app.component('universalButton',{
     `
 });
 
-/*
+/!*
 app.component("UniModalSource", {
     props: {
         item: {type: InventoryItem}
@@ -120,6 +123,7 @@ app.component("UniModalSource", {
       <uni-modal-details v-for="attr in item.attributes" :item="attr"></uni-modal-details>
     `
 });
+*!/
 */
 
 app.component('UniModalDetails', {
