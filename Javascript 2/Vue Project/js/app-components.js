@@ -13,13 +13,22 @@ app.component('InventoryItemTable', {
                new InventoryItem( new ShippingItem('Pressure Valves', 110392, STATUSES.PENDING, PRIORITIES.MEDIUM)),
            ],
            newReceivingItem: new ReceivingItem(),
-           newShippingItem: new ShippingItem(),
+           //newShippingItem: new InventoryItem( new ShippingItem()),
        }
    },
 
     methods:{
-       addToTable(InventoryItem){
-           InventoryItemTable.inventory.push(InventoryItem);
+       addToTable(item){
+           // let newItem = new InventoryItem();
+           let newItem = new InventoryItem( item );
+           //console.log(item.attributes);
+           //console.log(item.constructor.type);
+           //console.log(item.material);
+           //console.log(item.type);
+           //newItem.material = item.constructor.type;
+           console.log(newItem);
+           this.inventory.push((item));
+           console.log(this.inventory);
        },
 
        removeFromTable(InventoryItem){
@@ -47,9 +56,12 @@ app.component('InventoryItemTable', {
       <inventory-item-table-row v-for="item in inventory" :item="item"/>
       <hr>
       <h3 class="text-center">Receiving Table</h3>
-<!--      <universal-button @click="uniModalFoundation()">Add Item</universal-button>-->
-      <universal-modal :item="newReceivingItem" title="" button-text=""></universal-modal>
-<!--      <universal-button @click="addThisItem(item)">Add Item</universal-button>-->
+      <uni-modal-foundation
+          :item="newReceivingItem"
+          title="Receiving"
+          button-text="Add Item"
+          @add-item="addToTable(item)"
+      ></uni-modal-foundation>
       <receiving-item-table v-for="item in inventory" :item="item"></receiving-item-table>
       <hr>
       <h3 class="text-center">Shipping Table</h3>
@@ -63,12 +75,14 @@ app.component('InventoryItemTable', {
 
 const InventoryItemTableRowComponent = {
     props: {
-        item: {type: InventoryItem}
+        item: {type: Object}
         // "ReceivingItem"
     },
 
     methods: {
         itemRowComponent(item) {
+            console.log(item.constructor.type);
+            console.log(item.material.constructor.type);
             return item.material.constructor.type + 'Details';
         }
     },
@@ -82,7 +96,7 @@ app.component("InventoryItemTableRow", InventoryItemTableRowComponent)
 
 app.component("ReceivingItemTable", {
     props:{
-        item: {type: InventoryItem}
+        item: {type: Object}
     },
 
     methods: {
@@ -100,7 +114,7 @@ app.component("ReceivingItemTable", {
 
 app.component("ShippingItemTable", {
     props:{
-        item: {type: InventoryItem}
+        item: {type: Object}
     },
 
     methods: {

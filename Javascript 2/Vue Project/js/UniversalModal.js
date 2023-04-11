@@ -1,12 +1,14 @@
 const UniversalModalFoundation = {
-    data:{
-
+    data(){
+        return{
+            itemNumber: Math.floor(Math.random() * 10e16),
+        }
     },
 
     props: {
         title: {type: String},
         buttonText: {type: String},
-        item: {type: InventoryItem},
+        item: {type: Object},
 
 
         formSubmit: {
@@ -17,42 +19,47 @@ const UniversalModalFoundation = {
     },
 
     methods: {
-        passInventoryItemToModal(item, itemType){
-
+        sendNotice(item){
+            console.log("Item Sent " + item);
+            //let newItem = new InventoryItem(item);
+            // InventoryItemTable.addToTable(newItem);
+            //console.log(newItem.material.title );
+            this.$emit('add-item', item);
         }
     },
 
-    mounted() {
+    /*mounted() {
         this.$el.addEventListener('shown.bs.modal', function () {
             this.querySelector('[autofocus]').focus();
         });
-    },
+    },*/
 
     template: `
       <div>
 <!--      Generate random number for bs-target-->
       <button class="btn btn-info"
               data-bs-toggle="modal"
-              :data-bs-target="'#sli'+ item.material.productId"> 
+              :data-bs-target="'#sli' + itemNumber"> 
         <i class="fas fa-wrench"></i> {{ buttonText }}
       </button>
 
-      <div ref="ModalElement" class="modal fade" tabindex="-1" role="dialog" :id="'sli'+ item.material.productId">
+      <div class="modal fade" tabindex="-1" role="dialog" :id="'sli'+ itemNumber" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-body">
               <h3 class="text-center p-2">{{ title }}</h3>
               <form @submit.prevent="formSubmit" novalidate>
               <div class="row">
-                <uni-modal-details v-for="field in item.material.constructor.fields" :label="field.label" v-model="item.material[field.property]"></uni-modal-details>
-<!--                <uni-modal-details label="Title" v-model="item.material.title"></uni-modal-details>-->
-<!--                <uni-modal-details label="Title" v-model="item.material.title"></uni-modal-details>-->
-<!--                <uni-modal-details label="Title" v-model="item.material.title"></uni-modal-details>-->
+<!--                <uni-modal-details v-for="field in item.fields" :label="field.label" v-model="item.material[field.property]"></uni-modal-details>-->
+                <uni-modal-details label="Title" v-model="item.title"></uni-modal-details>
+                <uni-modal-details label="Product Id" v-model="item.productId"></uni-modal-details>
+                <uni-modal-details label="Product Status" v-model="item.status"></uni-modal-details>
+                <uni-modal-details label="Product Priority" v-model="item.priority"></uni-modal-details>
               </div>
                 <div class="container-fluid" id="modalFooter">
                   <div class="text-center">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Discard</button>
-                    <button type="submit" class="btn btn-primary" @click="">Confirm</button>
+                    <button type="submit" class="btn btn-primary" @click="sendNotice(item)">Confirm</button>
                   </div>
                 </div>
               </form>
@@ -101,6 +108,7 @@ app.component('universalButton',{
     `
 });
 
+/*
 app.component("UniModalSource", {
     props: {
         item: {type: InventoryItem}
@@ -112,6 +120,7 @@ app.component("UniModalSource", {
       <uni-modal-details v-for="attr in item.attributes" :item="attr"></uni-modal-details>
     `
 });
+*/
 
 app.component('UniModalDetails', {
 
