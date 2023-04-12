@@ -1,12 +1,7 @@
 const EditModalComponent = {
     data(){
         return{
-            newItem:{
-                title: this.item.material.title,
-                productId: this.item.material.productId,
-                status: this.item.material.status,
-                priority: this.item.material.priority
-            },
+            newItem:{...this.item},
 
             itemNumber: Math.floor(Math.random() * 10e16),
 
@@ -52,7 +47,7 @@ const EditModalComponent = {
               <h3 class="text-center p-2">{{ title }}</h3>
               <form @submit.prevent="formSubmit" novalidate>
               <div class="row">
-                <uni-modal-details v-for="field in newItem.material.constructor.fields" :label="field.label" v-model="item.material[field.property]"></uni-modal-details>
+                <uni-modal-details v-for="field in item.constructor.fields" :label="field.label" v-model="newItem[field.property]"></uni-modal-details>
 <!--                <uni-modal-details label="Title" v-model="newItem.material.title"></uni-modal-details>-->
 <!--                <uni-modal-details label="Product Id" v-model="newItem.material.productId"></uni-modal-details>-->
 <!--                <uni-modal-details label="Product Status" v-model="newItem.material.status"></uni-modal-details>-->

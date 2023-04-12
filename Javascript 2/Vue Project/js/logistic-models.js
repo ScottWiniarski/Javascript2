@@ -5,7 +5,8 @@ function InventoryItem(material){
 function ReceivingItem(title, productId, status, priority){
     this.title = title ?? 'Default Title';
     this.productId = productId ?? 0;
-    //this['productId'] = productId ?? 0;
+    // let fieldName = 'productId';
+    // this[fieldName] = productId ?? 0;
     this.status = status ?? 'N/A';
     this.priority = priority ?? "N/A";
 }

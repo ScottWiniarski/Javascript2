@@ -125,7 +125,7 @@ app.component('UniModalDetails', {
 
     props: {
         label: {type: String},
-        modelValue: {type: String}
+        modelValue: {}
     },
 
     template: `

@@ -11,9 +11,21 @@ app.component('InventoryItemTable', {
                 new InventoryItem(new ShippingItem('Steel I-Beam', 323810, STATUSES.SHIPPED, PRIORITIES.LOW)),
                 new InventoryItem(new ShippingItem('Cutting Tips', 102383, STATUSES.SHIPPED, PRIORITIES.LOW)),
                 new InventoryItem(new ShippingItem('Pressure Valves', 110392, STATUSES.PENDING, PRIORITIES.MEDIUM)),
+                //new ShippingItem(new Product('Pressure Valves', 110392), STATUSES.PENDING, PRIORITIES.MEDIUM)),
             ],
             newReceivingItem: new InventoryItem(new ReceivingItem()),
             newShippingItem: new InventoryItem(new ShippingItem()),
+        }
+    },
+
+    computed:{
+        const: ITEMTYPES = {RECEIVING: 'ReceivingItem', SHIPPING: 'ShippingItem'},
+
+        returnReceivingItem(){
+            return this.inventory.filter(e => e.material.constructor.type === 'ReceivingItem');
+        },
+        returnShippingItem(){
+            return this.inventory.filter(e => e.material.constructor.type === "ShippingItem");
         }
     },
 
@@ -24,25 +36,17 @@ app.component('InventoryItemTable', {
         },
 
         removeFromTable(item) {
-            // for (let i = 0; i < this.inventory.length; i++) {
-            //     console.log(this.inventory[i]);
-            // }
-            console.log('removed from inventory');
-            console.log(item);
-            this.inventory.splice(this.inventory.indexOf(item.material));
-            //this.inventory.splice(this.inventory.indexOf(item, item), 1);
-            //this.inventory.splice(this.inventory.prototype.indexOf.call(item.material), 1);
-            //this.inventory.splice(this.inventory.indexOf(item),1);
-            //this.inventory.splice(this.inventory.indexOf(item.prototype), 1);
-            //this.inventory.splice(this.inventory.indexOf(item.prototype.material), 1);
+            //console.log('removed from inventory');
+            this.inventory = this.inventory.filter(e => e.material.productId !== item.productId);
+            //this.inventory.splice(this.inventory.indexOf(item.material), 1);
+
         },
 
         editTableItem(oldItem, newItem) {
+            console.log("Editing in InventoryItemTable");
             this.inventory.splice(oldItem, 1, newItem);
         }
     },
-
-    computed: {},
 
     template: `
       <div class="container-md">
@@ -67,9 +71,10 @@ app.component('InventoryItemTable', {
             @add-item="addToTable"
         ></uni-modal-foundation>
         <receiving-item-table
-            v-for="item in inventory"
+            v-for="item in returnReceivingItem"
             :item="item"
             @remove-item-from-table="removeFromTable"
+            @edit-from-receiving-table="editTableItem"
         ></receiving-item-table>
         <hr>
         <h3 class="text-center">Shipping Table</h3>
@@ -80,11 +85,10 @@ app.component('InventoryItemTable', {
             @add-item="addToTable"
         ></uni-modal-foundation>
         <shipping-item-table
-            v-for="item in inventory"
+            v-for="item in returnShippingItem"
             :item="item"
             @remove-item-from-table="removeFromTable"
         ></shipping-item-table>
-
         </tbody>
       </table>
       </div>
@@ -118,11 +122,6 @@ app.component("ReceivingItemTable", {
     },
 
     methods: {
-        receivingTableComponent(item) {
-            if (item.material.constructor.type === "ReceivingItem") {
-                return item.material.constructor.type + "Details";
-            }
-        },
 
         removeThisItem(item) {
             //console.log('removed from table', item);
@@ -131,12 +130,12 @@ app.component("ReceivingItemTable", {
 
         editThisItem(item, newItem){
             console.log('Edited at ReceivingItemTable', item, newItem)
+            this.$emit('edit-from-receiving-table', item, newItem)
         },
     },
 
     template: `
-      <component
-          :is="receivingTableComponent(item)"
+      <receiving-item-details
           :item="item.material"
           @remove-this-item="removeThisItem"
           @edit-this-item="editThisItem"
@@ -197,11 +196,6 @@ app.component("ShippingItemTable", {
     },
 
     methods: {
-        shippingTableComponent(item) {
-            if (item.material.constructor.type === "ShippingItem") {
-                return item.material.constructor.type + "Details";
-            }
-        },
 
         removeThisItem(item) {
             console.log('removed from table', item);
@@ -210,11 +204,10 @@ app.component("ShippingItemTable", {
     },
 
     template: `
-      <component
-          :is="shippingTableComponent(item)"
+      <shipping-item-details
           :item="item.material"
           @remove-this-item="removeThisItem"
-      ></component>
+      ></shipping-item-details>
     `
 });
 
@@ -229,6 +222,10 @@ app.component('ShippingItemDetails', {
             //console.log(item);
             this.$emit('remove-this-item', item);
         },
+
+        editThisItem(item){
+            this.$emit('edit-this-item', item);
+        }
     },
 
     template: `
