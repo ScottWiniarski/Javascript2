@@ -29,8 +29,8 @@ app.component('InventoryItemTable', {
             // }
             console.log('removed from inventory');
             console.log(item);
-            //inventory.splice(inventory.indexOf(item));
-            this.inventory.splice(this.inventory.indexOf(item, item), 1);
+            this.inventory.splice(this.inventory.indexOf(item.material));
+            //this.inventory.splice(this.inventory.indexOf(item, item), 1);
             //this.inventory.splice(this.inventory.prototype.indexOf.call(item.material), 1);
             //this.inventory.splice(this.inventory.indexOf(item),1);
             //this.inventory.splice(this.inventory.indexOf(item.prototype), 1);
@@ -150,9 +150,9 @@ app.component('ReceivingItemDetails', {
     },
 
     methods: {
-        removeThisItem(item) {
+        removeThisItem() {
             //console.log(item);
-            this.$emit('remove-this-item', item);
+            this.$emit('remove-this-item', this.item);
         },
 
         editThisItem(item, newItem){

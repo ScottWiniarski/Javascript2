@@ -47,11 +47,11 @@ const UniversalModalFoundation = {
               <h3 class="text-center p-2">{{ title }}</h3>
               <form @submit.prevent="formSubmit" novalidate>
               <div class="row">
-<!--                <uni-modal-details v-for="field in item.fields" :label="field.label" v-model="item.material[field.property]"></uni-modal-details>-->
-                <uni-modal-details label="Title" v-model="item.material.title"></uni-modal-details>
-                <uni-modal-details label="Product Id" v-model="item.material.productId"></uni-modal-details>
-                <uni-modal-details label="Product Status" v-model="item.material.status"></uni-modal-details>
-                <uni-modal-details label="Product Priority" v-model="item.material.priority"></uni-modal-details>
+                <uni-modal-details v-for="field in item.material.constructor.fields" :label="field.label" v-model="item.material[field.property]"></uni-modal-details>
+<!--                <uni-modal-details label="Title" v-model="item.material.title"></uni-modal-details>-->
+<!--                <uni-modal-details label="Product Id" v-model="item.material.productId"></uni-modal-details>-->
+<!--                <uni-modal-details label="Product Status" v-model="item.material.status"></uni-modal-details>-->
+<!--                <uni-modal-details label="Product Priority" v-model="item.material.priority"></uni-modal-details>-->
               </div>
                 <div class="container-fluid" id="modalFooter">
                   <div class="text-center">
