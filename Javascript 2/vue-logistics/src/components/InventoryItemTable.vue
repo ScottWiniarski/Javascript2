@@ -48,7 +48,7 @@
 import ReceivingItemTable from  "@/components/ReceivingItemTable.vue";
 import ShippingItemTable from "@/components/ShippingItemTable.vue";
 import UniModalFoundation from '@/components/UniModalFoundation.vue';
-import InventoryItem from "@/models/Inventoryitem.js";
+import InventoryItem from "@/models/InventoryItem.js";
 import {ReceivingItem, ShippingItem} from "@/models/Material.js";
 
 export default {
