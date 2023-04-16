@@ -16,12 +16,14 @@
       <h3 class="text-center">Receiving Table</h3>
       <uni-modal-foundation
           :item="newReceivingItem"
+
           title="Receiving"
           button-text="Add Item"
           @add-item="addToTable"
       ></uni-modal-foundation>
       <receiving-item-table
           v-for="item in returnReceivingItem"
+          :key="item.material"
           :item="item"
           @remove-item-from-table="removeFromTable"
           @edit-from-receiving-table="editTableItem"
@@ -30,12 +32,14 @@
       <h3 class="text-center">Shipping Table</h3>
       <uni-modal-foundation
           :item="newShippingItem"
+
           title="Shipping"
           button-text="Add Item"
           @add-item="addToTable"
       ></uni-modal-foundation>
       <shipping-item-table
           v-for="item in returnShippingItem"
+          :key="item.material"
           :item="item"
           @remove-item-from-table="removeFromTable"
       ></shipping-item-table>
