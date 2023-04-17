@@ -14,7 +14,7 @@
             <h3 class="text-center p-2">{{ title }}</h3>
             <form @submit.prevent="formSubmit" novalidate>
               <div class="row">
-                <uni-modal-details v-for="field in item.constructor.fields" :key="item.material.productId" :label="field.label" v-model="newItem[field.property]"></uni-modal-details>
+                <uni-modal-details v-for="field in item.constructor.fields" :key="field.material.productId" :label="field.label" v-model="newItem[field.property]"></uni-modal-details>
                 <!--                <uni-modal-details label="Title" v-model="newItem.material.title"></uni-modal-details>-->
                 <!--                <uni-modal-details label="Product Id" v-model="newItem.material.productId"></uni-modal-details>-->
                 <!--                <uni-modal-details label="Product Status" v-model="newItem.material.status"></uni-modal-details>-->
@@ -36,6 +36,7 @@
 
 <script>
 import UniModalDetails from "@/components/UniModalDetails.vue";
+import InventoryItem from "@/models/InventoryItem.js";
 export default {
   name: "EditModalComponent.vue",
   components:{UniModalDetails},
@@ -43,9 +44,7 @@ export default {
   data(){
     return{
       newItem:{...this.item},
-
       itemNumber: Math.floor(Math.random() * 10e16),
-
     }
   },
 
@@ -63,12 +62,13 @@ export default {
   },
 
   methods: {
-    editThisItem(){
+    editThisItem(item, newItem){
       console.log("Edited Item Sent");
       //let newItem = new InventoryItem(item);
       // InventoryItemTable.addToTable(newItem);
       //console.log(newItem.material.title );
-      this.$emit('edit-this-table-item', this.item, this.newItem);
+      //this.$emit('edit-this-table-item', this.item, this.newItem);
+      this.$emit('edit-this-table-item', new InventoryItem(item), new InventoryItem(newItem));
     }
   },
 }

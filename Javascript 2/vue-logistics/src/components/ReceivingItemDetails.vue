@@ -26,7 +26,7 @@
 
 <script>
 import {ReceivingItem} from "@/models/Material";
-import {EditModalComponent} from "@/components/EditModalComponent.vue";
+import EditModalComponent from "@/components/EditModalComponent.vue";
 export default {
   name: "ReceivingItemDetails.vue",
   components:{EditModalComponent},

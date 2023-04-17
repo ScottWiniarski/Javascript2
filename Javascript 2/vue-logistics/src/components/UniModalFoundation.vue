@@ -14,7 +14,8 @@
             <h3 class="text-center p-2">{{ title }}</h3>
             <form @submit.prevent="formSubmit" novalidate>
               <div class="row">
-                <uni-modal-details v-for="field in item.material.constructor.fields" :key="item.material.productId" :label="field.label" v-model="item.material[field.property]"></uni-modal-details>
+                <!--eslint-disable-next-line vue/no-mutating-props -->
+                <uni-modal-details v-for="field in item.material.constructor.fields" :key="field.material.productId" :label="field.label" v-model="item.material[field.property]"></uni-modal-details>
                 <!--                <uni-modal-details label="Title" v-model="item.material.title"></uni-modal-details>-->
                 <!--                <uni-modal-details label="Product Id" v-model="item.material.productId"></uni-modal-details>-->
                 <!--                <uni-modal-details label="Product Status" v-model="item.material.status"></uni-modal-details>-->
