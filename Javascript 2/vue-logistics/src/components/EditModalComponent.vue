@@ -12,18 +12,18 @@
         <div class="modal-content">
           <div class="modal-body">
             <h3 class="text-center p-2">{{ title }}</h3>
-            <form @submit.prevent="formSubmit" novalidate>
-<!--              <div class="row">
-                <uni-modal-details v-for="field in item.constructor.fields" :key="field.material.productId" :label="field.label" v-model="newItem[field.property]"></uni-modal-details>
-                &lt;!&ndash;                <uni-modal-details label="Title" v-model="newItem.material.title"></uni-modal-details>&ndash;&gt;
-                &lt;!&ndash;                <uni-modal-details label="Product Id" v-model="newItem.material.productId"></uni-modal-details>&ndash;&gt;
-                &lt;!&ndash;                <uni-modal-details label="Product Status" v-model="newItem.material.status"></uni-modal-details>&ndash;&gt;
-                &lt;!&ndash;                <uni-modal-details label="Product Priority" v-model="newItem.material.priority"></uni-modal-details>&ndash;&gt;
-              </div>-->
+            <form @submit.prevent="editThisItem" novalidate>
+              <div class="row">
+                <uni-modal-details v-for="field in item.constructor.fields" :key="field.property" :label="field.label" v-model="newItem[field.property]"></uni-modal-details>
+                <!--                <uni-modal-details label="Title" v-model="newItem.material.title"></uni-modal-details>-->
+                <!--                <uni-modal-details label="Product Id" v-model="newItem.material.productId"></uni-modal-details>-->
+                <!--                <uni-modal-details label="Product Status" v-model="newItem.material.status"></uni-modal-details>-->
+                <!--                <uni-modal-details label="Product Priority" v-model="newItem.material.priority"></uni-modal-details>-->
+              </div>
               <div class="container-fluid" id="modalFooter">
                 <div class="text-center">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Discard</button>
-                  <button type="submit" class="btn btn-primary" @click="editThisItem">Confirm</button>
+                  <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Confirm</button>
                 </div>
               </div>
             </form>
@@ -35,15 +35,14 @@
 </template>
 
 <script>
-// import UniModalDetails from "@/components/UniModalDetails.vue";
-import InventoryItem from "@/models/InventoryItem.js";
+import UniModalDetails from "@/components/UniModalDetails.vue";
 export default {
   name: "EditModalComponent.vue",
-  // components:{UniModalDetails},
+  components:{UniModalDetails},
 
   data(){
     return{
-      newItem:{...this.item},
+      newItem: Object.assign(new this.item.constructor(), this.item),
       itemNumber: Math.floor(Math.random() * 10e16),
     }
   },
@@ -62,13 +61,9 @@ export default {
   },
 
   methods: {
-    editThisItem(item, newItem){
+    editThisItem(){
       console.log("Edited Item Sent");
-      //let newItem = new InventoryItem(item);
-      // InventoryItemTable.addToTable(newItem);
-      //console.log(newItem.material.title );
-      //this.$emit('edit-this-table-item', this.item, this.newItem);
-      this.$emit('edit-this-table-item', new InventoryItem(item), new InventoryItem(newItem));
+      this.$emit('edit-this-table-item', this.item, this.newItem);
     }
   },
 }

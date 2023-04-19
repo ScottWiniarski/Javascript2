@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+see console
+
+<script>
+
+    // Promises are functions that return a Promise object.
+    // A promise object consists of two functions: resolve and reject
+
+    // function wait(ms){
+    //     return new Promise(function(resolve){
+    //
+    //         return setTimeout(resolve, ms);
+    //     });
+    // }
+
+    const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+    // const wait = (ms) => {return new Promise(resolve => {return setTimeout(resolve, ms)})};
+    wait(3000).then(() => {
+        console.log('3 seconds have passed')
+    });
+    console.log("this is last.");
+
+    wait(3000)
+        .then(() => {
+            console.log('3 seconds have passed');
+            // throw an error to skip the following .then()s
+            throw new Error('No more waiting');
+            return wait(2000)
+        })
+        .then(() => {
+            console.log('2 seconds have passed');
+        })
+        .then(() => {
+            console.log('0 seconds have passed');
+        })
+        .then(() => wait(3000))
+        .then(() => console.log('3 more seconds passed'))
+        .catch(error => console.error('An error happened.', error))
+        .finally(() => console.log('All done'))
+    // .finally is the same as another .then, just more obvious.
+    ;
+
+    Promise.all([
+        wait(1000),
+        wait(2000),
+        wait(3000)
+    ]).then(() => console.log('promise all finished')); // This will take 3 seconds
+
+    Promise.any([
+        wait(1000),
+        wait(2000),
+        wait(3000)
+    ]).then(() => console.log('promise any finished')); // This will take 1 second
+
+
+    console.log('this is last');
+    // TODO: learn promises
+
+</script>
+
+</body>
+</html>

@@ -23,7 +23,7 @@
       ></uni-modal-foundation>
       <receiving-item-table
           v-for="item in returnReceivingItem"
-          :key="item.material"
+          :key="item.id"
           :item="item"
           @remove-item-from-table="removeFromTable"
           @edit-from-receiving-table="editTableItem"
@@ -38,7 +38,7 @@
       ></uni-modal-foundation>
       <shipping-item-table
           v-for="item in returnShippingItem"
-          :key="item.material"
+          :key="item.id"
           :item="item"
           @remove-item-from-table="removeFromTable"
           @edit-from-receiving-table="editTableItem"
@@ -102,8 +102,10 @@ export default {
     },
 
     editTableItem(oldItem, newItem) {
-      console.log("Editing in InventoryItemTable");
-      this.inventory.splice(oldItem, 1, newItem);
+      console.log("Editing in InventoryItemTable", oldItem, newItem);
+      let inventory = this.inventory.filter( o => o.material.productId === oldItem.productId)
+      // this.inventory.splice(oldItem, 1, newItem);
+      inventory[0].material = newItem;
     }
   },
 

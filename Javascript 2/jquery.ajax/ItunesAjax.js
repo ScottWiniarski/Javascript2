@@ -35,9 +35,10 @@
     console.log('done loading');
 });*/
 
-$('#form').on('submit', function () {
-    event.preventDefault();
-    let searchTerm = $('#searchTerm');
+$('#searchBar').on('submit', function (e) {
+    e.preventDefault();
+    console.log('in function');
+    let searchTerm = $('#searchTerm').val();
     console.log(searchTerm);
     let endpoint = 'https://itunes.apple.com/search';
     let params = {
@@ -58,11 +59,9 @@ $('#form').on('submit', function () {
 
                 $('#results').append(`<h3>${result.artistId}</h3>`);
 
-                if(results.artworkUrl130){
+                if(result.artworkUrl100){
                     $('#results').append(`<img src="${result.artworkUrl100}">`);
                 }
-
-
             });
         },
         'json'
