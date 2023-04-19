@@ -13,13 +13,13 @@
           <div class="modal-body">
             <h3 class="text-center p-2">{{ title }}</h3>
             <form @submit.prevent="formSubmit" novalidate>
-              <div class="row">
+<!--              <div class="row">
                 <uni-modal-details v-for="field in item.constructor.fields" :key="field.material.productId" :label="field.label" v-model="newItem[field.property]"></uni-modal-details>
-                <!--                <uni-modal-details label="Title" v-model="newItem.material.title"></uni-modal-details>-->
-                <!--                <uni-modal-details label="Product Id" v-model="newItem.material.productId"></uni-modal-details>-->
-                <!--                <uni-modal-details label="Product Status" v-model="newItem.material.status"></uni-modal-details>-->
-                <!--                <uni-modal-details label="Product Priority" v-model="newItem.material.priority"></uni-modal-details>-->
-              </div>
+                &lt;!&ndash;                <uni-modal-details label="Title" v-model="newItem.material.title"></uni-modal-details>&ndash;&gt;
+                &lt;!&ndash;                <uni-modal-details label="Product Id" v-model="newItem.material.productId"></uni-modal-details>&ndash;&gt;
+                &lt;!&ndash;                <uni-modal-details label="Product Status" v-model="newItem.material.status"></uni-modal-details>&ndash;&gt;
+                &lt;!&ndash;                <uni-modal-details label="Product Priority" v-model="newItem.material.priority"></uni-modal-details>&ndash;&gt;
+              </div>-->
               <div class="container-fluid" id="modalFooter">
                 <div class="text-center">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Discard</button>
@@ -35,11 +35,11 @@
 </template>
 
 <script>
-import UniModalDetails from "@/components/UniModalDetails.vue";
+// import UniModalDetails from "@/components/UniModalDetails.vue";
 import InventoryItem from "@/models/InventoryItem.js";
 export default {
   name: "EditModalComponent.vue",
-  components:{UniModalDetails},
+  // components:{UniModalDetails},
 
   data(){
     return{

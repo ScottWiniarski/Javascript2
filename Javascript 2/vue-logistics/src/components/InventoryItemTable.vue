@@ -32,7 +32,6 @@
       <h3 class="text-center">Shipping Table</h3>
       <uni-modal-foundation
           :item="newShippingItem"
-
           title="Shipping"
           button-text="Add Item"
           @add-item="addToTable"
@@ -42,6 +41,7 @@
           :key="item.material"
           :item="item"
           @remove-item-from-table="removeFromTable"
+          @edit-from-receiving-table="editTableItem"
       ></shipping-item-table>
       </tbody>
     </table>

@@ -1,7 +1,7 @@
 <template>
   <shipping-item-details
       :item="item.material"
-      @remove-this-item="removeThisItem"
+      @remove-this-shipping-item="removeThisItem"
       @edit-this-item="editThisItem"
   ></shipping-item-details>
 </template>
@@ -10,7 +10,7 @@
 import ShippingItemDetails from "@/components/ShippingItemDetails.vue";
 export default {
   name: "ShippingItemTable.vue",
-  components:{ShippingItemDetails,},
+  components:{ShippingItemDetails},
 
   props: {
     item: {type: Object}

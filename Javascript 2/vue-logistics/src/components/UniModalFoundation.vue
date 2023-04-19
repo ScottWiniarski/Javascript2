@@ -14,8 +14,8 @@
             <h3 class="text-center p-2">{{ title }}</h3>
             <form @submit.prevent="formSubmit" novalidate>
               <div class="row">
-                <!--eslint-disable-next-line vue/no-mutating-props -->
-                <uni-modal-details v-for="field in item.material.constructor.fields" :key="field.material.productId" :label="field.label" v-model="item.material[field.property]"></uni-modal-details>
+                eslint-disable-next-line vue/no-mutating-props
+<!--                <uni-modal-details v-for="field in item.material.constructor.fields" :key="field.fields" :label="field.label" v-model="item.material[field.property]"></uni-modal-details>-->
                 <!--                <uni-modal-details label="Title" v-model="item.material.title"></uni-modal-details>-->
                 <!--                <uni-modal-details label="Product Id" v-model="item.material.productId"></uni-modal-details>-->
                 <!--                <uni-modal-details label="Product Status" v-model="item.material.status"></uni-modal-details>-->
@@ -36,10 +36,10 @@
 </template>
 
 <script>
-import UniModalDetails from '@/components/UniModalDetails.vue'
+// import UniModalDetails from '@/components/UniModalDetails.vue'
 export default {
   name: "UniModalFoundation.vue",
-  components: {UniModalDetails,},
+  // components: {UniModalDetails,},
   data(){
     return{
       itemNumber: Math.floor(Math.random() * 10e16),
