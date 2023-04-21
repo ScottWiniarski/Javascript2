@@ -1,20 +1,31 @@
 <template>
   <nav class="navbar bg-dark">
     <span class="navbar-brand text-light "><i class="fas fa-shopping-bag ms-4 me-3"></i> CHECK IT OUT!</span>
+    <ItunesSearchBar></ItunesSearchBar>
   </nav>
   <div class="container-fluid mt-3">
-    <library-item-list></library-item-list>
+    <library-item-list @search-item="searchForItem"></library-item-list>
   </div>
 </template>
 
 <script>
 import LibraryItemList from "@/components/LibraryItemList.vue";
+import ItunesSearchBar from "@/components/ItunesSearchBar";
 
 export default {
   name: 'App',
   components: {
-    LibraryItemList,
-  }
+    LibraryItemList, ItunesSearchBar
+  },
+  props:{
+    item: Object,
+  },
+
+  methods:{
+    searchForItem(item){
+      console.log(item);
+    },
+  },
 }
 </script>
 
