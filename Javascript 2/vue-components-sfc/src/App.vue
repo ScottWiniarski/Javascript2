@@ -6,6 +6,7 @@
   <div class="container-fluid mt-3">
     <library-item-list @search-item="searchForItem"></library-item-list>
   </div>
+  <div id="results"></div>
 </template>
 
 <script>
