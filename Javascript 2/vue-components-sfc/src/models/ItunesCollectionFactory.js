@@ -1,22 +1,38 @@
 class ItunesCollectionFactory {
-    static createFromItunesMedia(mediaItem){
+    static CreateFromItunesMedia(mediaItem) {
         const collection = new ItunesCollection();
-        const ITUNES_KIND = {MOVIE: 'movie'.toLowerCase(), SONG: 'song'.toLowerCase()}
+        const ITUNES_KIND = {
+            MOVIE: 'feature-movie'.toLowerCase(),
+            SONG: 'song'.toLowerCase(),
+            TVEPISODE: 'tv-episode'.toLowerCase()
+        };
+        const ITUNES_WRAPPERTYPE = {
+            TRACK: 'track',
+            COLLECTION: 'collection',
+            ARTIST: 'artist',
+            AUDIOBOOK: 'audiobook'
+        };
 
         mediaItem.forEach(item => {
             let newItem = false;
-            switch (item.kind.toLowerCase()){
-                case ITUNES_KIND.MOVIE:
-                    newItem = Object.assign(new Movie(), item);
-                    break;
-                case ITUNES_KIND.SONG:
-                    newItem = Object.assign(new Song(), item);
+            switch (item.wrapperType.toLowerCase()) {
+                case ITUNES_WRAPPERTYPE.TRACK:
+                    switch (item.kind.toLowerCase()) {
+                        case ITUNES_KIND.SONG:
+                            newItem = Object.assign(new Song(), item);
+                            break;
+                        case ITUNES_KIND.MOVIE:
+                            newItem = Object.assign(new Movie(), item);
+                            break;
+                        default:
+                            console.warn('Something beyond song/movie kind.', item);
+                    }
                     break;
                 default :
-                    console.warn('Something beyond Movie or Song', item);
+                    console.warn('Something beyond track wrapperType', item);
 
             }
-            if(newItem){
+            if (newItem) {
                 collection.add(newItem);
             }
         })
