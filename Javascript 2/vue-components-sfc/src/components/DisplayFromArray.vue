@@ -1,5 +1,5 @@
 <template>
-  <p id="itunesdata" :is="displayData"></p>
+<!--  <p id="itunesdata" :is="displayData"></p>-->
 </template>
 
 <script>
@@ -7,7 +7,7 @@
 
 export default {
   name: "DisplayFromArray.vue",
-  props:{
+  /*props:{
     items: Object,
   },
   components: {},
@@ -29,7 +29,7 @@ export default {
 
       })
     }
-  },
+  },*/
 
 //   computed:{
 //     $('#itunesdata').html('');

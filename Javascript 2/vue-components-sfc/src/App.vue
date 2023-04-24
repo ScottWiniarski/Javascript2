@@ -3,7 +3,7 @@
     <span class="navbar-brand text-light "><i class="fas fa-shopping-bag ms-4 me-3"></i> CHECK IT OUT!</span>
     <ItunesSearchBar></ItunesSearchBar>
   </nav>
-  <DisplayFromArray></DisplayFromArray>
+<!--  <DisplayFromArray></DisplayFromArray>-->
   <div class="container-fluid mt-3">
     <library-item-list @search-item="searchForItem"></library-item-list>
   </div>
@@ -21,12 +21,12 @@
 <script>
 import LibraryItemList from "@/components/LibraryItemList.vue";
 import ItunesSearchBar from "@/components/ItunesSearchBar.vue";
-import DisplayFromArray from '@/components/DisplayFromArray.vue';
+/*import DisplayFromArray from '@/components/DisplayFromArray.vue';*/
 
 export default {
   name: 'App',
   components: {
-    LibraryItemList, ItunesSearchBar, DisplayFromArray
+    LibraryItemList, ItunesSearchBar, /*DisplayFromArray*/
   },
   props:{
     item: Object,

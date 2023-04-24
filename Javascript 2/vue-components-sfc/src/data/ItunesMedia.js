@@ -10,6 +10,6 @@ export default class ItunesMedia {
             limit: limit,
         }
         console.log(endpoint, {params})
-        return axios.get(endpoint, {params})
+        return axios.get(endpoint, {params});
     }
 }

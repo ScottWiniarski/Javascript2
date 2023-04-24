@@ -14,9 +14,11 @@
 <script>
 import BookDetails from "@/components/BookDetails.vue";
 import MovieDetails from "@/components/MovieDetails.vue";
+import SongDetails from "@/components/SongDetails.vue";
+import FeatureMovieDetails from "@/components/FeatureMovieDetails.vue";
 export default {
   name: "LibraryItemCard.vue",
-  components: {MovieDetails, BookDetails},
+  components: {MovieDetails, BookDetails, SongDetails, FeatureMovieDetails},
   props: {
     item: {type: Object},
   },
