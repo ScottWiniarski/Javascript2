@@ -4,7 +4,7 @@
     <ItunesSearchBar @loop-these-results="consultapi"></ItunesSearchBar>
   </nav>
   <div class="container-fluid mt-3">
-    <library-item-list></library-item-list>
+    <library-item-list :item="item"></library-item-list>
 <!--    <library-item-list :item="item" :key="item.collectionId"></library-item-list>-->
   </div>
   <div id="results"></div>
@@ -28,7 +28,10 @@ export default {
       console.log(item);
     },
     consultapi(item){
-      console.log(item);
+      console.log('printed from app.vue' , item);
+      // item.data.forEach(e => {
+      //   console.log(e.data.result);
+      // })
       // this.inject?
     },
   },

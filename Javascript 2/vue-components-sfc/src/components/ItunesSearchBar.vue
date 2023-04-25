@@ -17,13 +17,9 @@ export default {
     submitTerm(){
       console.log(ItunesMedia.search(this.text, 12));
       let media =ItunesMedia.search(this.text, 12)
-          .then(results => ItunesCollectionFactory.CreateFromItunesMedia(results));
-      //let media = new ItunesCollectionFactory.CreateFromItunesMedia(ItunesMedia.search(this.text, 12));
-      //let media = ItunesCollectionFactory.CreateFromItunesMedia( e => e.ItunesMedia.search(this.text, 12));
-      //let media = (ItunesMedia.search(this.text, 12).then( e => ItunesCollectionFactory.CreateFromItunesMedia(e)));
-      console.log(media);
-      //this.$emit("loop-these-results", media);
-
+          .then(response => ItunesCollectionFactory.CreateFromItunesMedia(response.data.results));
+      console.log('Results from ItunesCollectionFactory call', media);
+      this.$emit("loop-these-results", media);
     }
   }
 }
