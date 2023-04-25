@@ -13,6 +13,9 @@ import ItunesMedia from "@/data/ItunesMedia.js";
 import ItunesCollectionFactory from "@/models/ItunesCollectionFactory.js";
 export default {
   name: "ItunesSearchBar.vue",
+
+  //Search component is missing the data() section to define text/property model
+
   methods:{
     submitTerm(){
       console.log(ItunesMedia.search(this.text, 12));
