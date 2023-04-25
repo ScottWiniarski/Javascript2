@@ -1,8 +1,9 @@
 import Song from "@/models/Song";
 import Movie from "@/models/Movie";
+import ItunesCollection from "@/models/ItunesCollection.js";
 
 export default class ItunesCollectionFactory {
-    static CreateFromItunesMedia(mediaItem) {
+    static CreateFromItunesMedia(mediaItems) {
         const collection = new ItunesCollection();
         const ITUNES_KIND = {
             MOVIE: 'feature-movie',
@@ -15,8 +16,8 @@ export default class ItunesCollectionFactory {
             ARTIST: 'artist',
             AUDIOBOOK: 'audiobook'
         };
-
-        mediaItem.forEach(item => {
+        //for(let item in mediaItems){}
+        mediaItems.forEach(item => {
             let newItem = false;
             switch (item.wrapperType.toLowerCase()) {
                 case ITUNES_WRAPPERTYPE.TRACK:

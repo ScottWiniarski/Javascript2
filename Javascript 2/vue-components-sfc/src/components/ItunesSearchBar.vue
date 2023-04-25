@@ -9,21 +9,20 @@
 </template>
 
 <script>
-import  ItunesMedia from "@/data/ItunesMedia.js"
-//import DisplayFromArray from "@/components/DisplayFromArray.vue"
-import ItunesCollectionFactory from "@/models/ItunesCollectionFactory.js"
+import ItunesMedia from "@/data/ItunesMedia.js";
+import ItunesCollectionFactory from "@/models/ItunesCollectionFactory.js";
 export default {
   name: "ItunesSearchBar.vue",
-  /*components:{DisplayFromArray},*/
-  /*created(){
-    console.log(new ItunesCollectionFactory.CreateFromItunesMedia(ItunesMedia.search(this.text, 12)));
-  },*/
   methods:{
     submitTerm(){
-      //console.log(this.text);
-      //this.$emit('search-this' ,this.text);
       console.log(ItunesMedia.search(this.text, 12));
+      let media =ItunesMedia.search(this.text, 12)
+          .then(results => ItunesCollectionFactory.CreateFromItunesMedia(results));
       //let media = new ItunesCollectionFactory.CreateFromItunesMedia(ItunesMedia.search(this.text, 12));
+      //let media = ItunesCollectionFactory.CreateFromItunesMedia( e => e.ItunesMedia.search(this.text, 12));
+      //let media = (ItunesMedia.search(this.text, 12).then( e => ItunesCollectionFactory.CreateFromItunesMedia(e)));
+      console.log(media);
+      //this.$emit("loop-these-results", media);
 
     }
   }
