@@ -3,7 +3,8 @@
     <div class="col" v-for="item in library" :key="item.name">
       <library-item-card :item="item" :remove-item-function="Library"/>
     </div>
-    <div class="col" v-for="item in item" :key="item.collectionId">
+    {{loadItunes}}
+    <div class="col" v-for="it in item" :key="it.trackId">
       <library-item-card :item="item"></library-item-card>
     </div>
   </div>
@@ -18,9 +19,18 @@ export default {
   name: "LibraryItemList",
   components: {LibraryItemCard},
   props:{
-    item: Object
+    item: Object,
+    id: Number,
   },
 
+  computed: {
+    loadItunes: function (){
+      console.log(this.item)
+      //console.log(this.collection.data);
+      return this.collection
+
+    }
+  },
   data() {
     return {
       library: new LibraryCollection()

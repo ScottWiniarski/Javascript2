@@ -19,6 +19,7 @@ export default class ItunesCollectionFactory {
         //for(let item in mediaItems){}
         mediaItems.forEach(item => {
             let newItem = false;
+            //console.log(item);
             switch (item.wrapperType.toLowerCase()) {
                 case ITUNES_WRAPPERTYPE.TRACK:
                     switch (item.kind.toLowerCase()) {
@@ -45,6 +46,7 @@ export default class ItunesCollectionFactory {
                 collection.add(newItem);
             }
         })
+        console.log(collection);
         return collection;
     }
 }
