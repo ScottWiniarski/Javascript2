@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TEST IT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<button id="add">Add Tacos</button>
+
+<div id="list"></div>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase.js"></script>
+
+<!-- Vue Application -->
+<script src="js/models/Firebase.js"></script>
+<script src="js/models/Recipe.js"></script>
+<script>
+    // add recipe
+    document.getElementById('add').onclick = function(e){
+        let recipe = new Recipe();
+        recipe.name = 'Tacos';
+        recipe.description = 'Very tasty.';
+        recipe.ingredients = ['Meat', 'Cheese', 'Other Stuff'];
+        recipe.directions = ['Mix ingredients.', 'Eat It.'];
+        recipe.rating = 3.5;
+
+        // TODO: add recipe
+        db.collection("recipes").add(recipe)
+            .then(docRef => {
+                console.log('Document Added: ', docRef);
+            })
+        .catch(error => {
+            console.log('Error adding document: ', error);
+        })
+    }
+
+    // TODO: display recipes
+    window.onload = function() {
+        // one time all
+        db.collection('recipes')
+            .get()
+            .then(result => console.log('One time call', result));
+
+        // call everytime a record updates
+        db.collection('recipes')
+        .onSnapshot(snapshot => {
+            const recipes = [];
+            document.getElementById('list').innerHTML = '';
+
+            snapshot.forEach(doc => {
+                recipes.push(doc.data());
+
+                document.getElementById('list').innerHTML += `
+                    <h3>${doc.data().name}</h3>
+                    <p>${doc.data().rating}</p>
+                    <p>${JSON.stringify(doc.data())}</p>
+                `
+            })
+        })
+    }
+</script>
+
+
+
+</body>
+</html>

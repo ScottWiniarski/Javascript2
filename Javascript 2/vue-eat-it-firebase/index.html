@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EAT IT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- favicon - https://realfavicongenerator.net -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <!--    <link rel="manifest" href="images/site.webmanifest">-->
+    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#aa2a6a">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <meta name="msapplication-TileColor" content="#aa2a6a">
+    <meta name="msapplication-config" content="images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- BootstrapVue -->
+    <!--<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />-->
+    <link rel="stylesheet" href="css/app.min.css">
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"/>
+
+    <!-- fonts / icons -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Signika+Negative:700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div id="app">
+    <nav class="navbar navbar-dark bg-primary fixed-top navbar-expand-md">
+        <div class="navbar-brand"><a href="https://www.youtube.com/watch?v=ZcJjMnHoIBI" target="_blank"><img
+                src="images/fork-white.png" class="logo"></a> Eat It
+        </div>
+        <ul class="navbar-nav ml-auto">
+            <button @click="addRecipeModal = !addRecipeModal" type="button" class="btn btn-outline-light"><i
+                    class="fas fa-plus"></i> Add It
+            </button>
+        </ul>
+    </nav>
+
+    <div class="container-fluid">
+        <recipe-list></recipe-list>
+    </div>
+
+    <!-- Modal Component -->
+    <add-recipe-modal v-model="addRecipeModal"></add-recipe-modal>
+</div>
+<div class="footer">
+    <div>&copy; 2022 — <strong>EAT IT</strong></div>
+</div>
+
+<!-- BS4 -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<!-- Firebase (this demo will not work with v9+) -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase.js"></script>
+
+<!-- Vue Libraries/Plugins -->
+<script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+
+<!-- Vue Application -->
+<script src="js/models/Firebase.js"></script>
+<script src="js/models/Recipe.js"></script>
+<script src="js/app.js"></script>
+<script src="js/components/AddRecipeModal.js"></script>
+<script src="js/components/BsModal.js"></script>
+<script src="js/components/BsFileInput.js"></script>
+<script src="js/components/RecipeCard.js"></script>
+<script src="js/components/RecipeList.js"></script>
+
+
+<script>
+    app.mount('#app')
+</script>
+</body>
+</html>
