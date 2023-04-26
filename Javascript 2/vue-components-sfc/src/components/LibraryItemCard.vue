@@ -2,7 +2,6 @@
   <div class="card h-100">
     <div class="card-body">
       <component :is="itemCardComponent(item)" :item="item"/>
-      {{loadFunction}}
     </div>
     <div class="card-footer d-flex justify-content-end">
       <button v-if="item.isAvailable && item.checkOut && item.isAvailable()" class="btn btn-outline-success" @click="item.checkOut()">Check Out</button>
