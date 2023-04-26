@@ -26,11 +26,11 @@ export default {
 
   computed:{
     loadItunes: function (){
-      console.log('Load Itunes');
+      console.log('Load Itunes', this.searchResults);
       // for(let i=0;i<this.collection.length;i++){
       //   console.log(this.collection[i]);
       // }
-      console.log(this.searchResults);
+      //console.log(this.searchResults);
       return null;
     }
   },
@@ -38,6 +38,8 @@ export default {
 
   methods: {
     submitTerm() {
+      console.log(ItunesMedia.search(this.text, 12));
+
       ItunesMedia.search(this.text, 12)
           .then(response => {
             let results = ItunesCollectionFactory.CreateFromItunesMedia(response.data.results);

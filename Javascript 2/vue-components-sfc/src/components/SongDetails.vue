@@ -1,5 +1,6 @@
 <template>
 <div class="song">
+  song
   <h3 class="card-title">{{item.trackName}}</h3>
   <p class="card-text">Artist: {{item.artistName}}</p>
   <img src="$({{item.thumbnail}})">

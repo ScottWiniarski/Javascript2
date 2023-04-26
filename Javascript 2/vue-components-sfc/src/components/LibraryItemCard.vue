@@ -1,6 +1,7 @@
 <template>
   <div class="card h-100">
     <div class="card-body">
+      {{item.type}}
       <component :is="itemCardComponent(item)" :item="item"/>
     </div>
     <div class="card-footer d-flex justify-content-end">

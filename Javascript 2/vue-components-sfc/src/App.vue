@@ -6,7 +6,7 @@
   </nav>
 <!--  {{loaditems}}-->
   <div class="container-fluid mt-3">
-    <library-item-list v-for="item of searchResults" v-bind:key="item.trackId"></library-item-list>
+    <library-item-list :items="searchResults.items"></library-item-list>
 <!--    <library-item-list :item="item"></library-item-list>-->
   </div>
   <div id="results"></div>

@@ -4,8 +4,8 @@
       <library-item-card :item="item" :remove-item-function="Library"/>
     </div>
     {{loadItunes}}
-    <div class="col" v-for="it in item" :key="it.trackId">
-      <library-item-card :item="item"></library-item-card>
+    <div class="col" v-for="it in items" :key="it.trackId">
+      <library-item-card :item="it"></library-item-card>
     </div>
   </div>
 </template>
@@ -19,14 +19,14 @@ export default {
   name: "LibraryItemList",
   components: {LibraryItemCard},
   props:{
-    item: Object,
+    items: Object,
     id: Number,
   },
 
   computed: {
     loadItunes: function (){
       console.log(this.item)
-      //console.log(this.collection.data);
+      console.log(this.collection);
       return this.collection
 
     }
