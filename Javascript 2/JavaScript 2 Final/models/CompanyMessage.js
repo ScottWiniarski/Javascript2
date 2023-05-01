@@ -7,7 +7,7 @@ class CompanyMessage{
 
     messageTitle = '';
     messageContent = '';
-    wasSeen = false;
+    wasSeen;
 
     constructor(messageTitle, messageContent, wasSeen){
         this.messageTitle = messageTitle ?? '[Redacted]';
@@ -15,3 +15,5 @@ class CompanyMessage{
         this.wasSeen = wasSeen ?? false;
     }
 }
+
+export {CompanyMessage};
