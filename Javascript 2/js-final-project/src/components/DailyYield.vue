@@ -19,7 +19,7 @@ export default {
   },
 
   props:{
-    employee: Employee.constructor,
+    employee: Object,
     miningCart: MiningCart,
   },
 
