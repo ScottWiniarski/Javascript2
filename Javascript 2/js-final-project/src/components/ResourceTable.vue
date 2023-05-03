@@ -10,7 +10,7 @@
     <tbody>
     <tr>
       {{objectInput}}
-      <th scope="row" v-for="it in item" :key="it.constructor.resourceId">
+      <th scope="row" v-for="it in item" :key="it.type.resourceId">
         <resource-details :item="it" ></resource-details>
       </th>
 <!--      <td v-for="it in item" :key="it.constructor.resourceId">-->
@@ -49,7 +49,7 @@ export default {
       return null;
     }},
 
-  data(){
+  /*data(){
     return {
       number: 0,
     }
@@ -62,7 +62,7 @@ export default {
       if(this.number === 0) return
       this.number--;
     },
-  }
+  }*/
 }
 </script>
 

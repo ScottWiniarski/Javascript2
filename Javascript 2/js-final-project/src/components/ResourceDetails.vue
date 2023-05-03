@@ -30,6 +30,21 @@ export default {
       return null;
     }
   },
+
+  data(){
+    return {
+      number: 0,
+    }
+  },
+  methods:{
+    increment(){
+      this.number++;
+    },
+    decrement(){
+      if(this.number === 0) return
+      this.number--;
+    },
+  }
 }
 </script>
 
