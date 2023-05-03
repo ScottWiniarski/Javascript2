@@ -3,7 +3,7 @@
     <navigational-bar></navigational-bar>
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
-<!--    <company-memos></company-memos>-->
+    <company-memos></company-memos>
     <mineral-horde></mineral-horde>
 
   </div>
@@ -12,7 +12,7 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
-// import CompanyMemos from "@/components/CompanyMemos";
+import CompanyMemos from "@/components/CompanyMemos";
 import MineralHorde from "@/components/MineralHorde";
 import NavigationalBar from "@/components/NavigationalBar";
 
@@ -21,7 +21,7 @@ export default {
   components: {
     MineralHorde,
     HelloWorld,
-    // CompanyMemos,
+    CompanyMemos,
     NavigationalBar,
   }
 }
