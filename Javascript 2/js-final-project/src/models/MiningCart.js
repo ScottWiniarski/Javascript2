@@ -10,4 +10,6 @@ export default function MiningCart(resource){
     resource.unload = function(){
         this.status = STATUSES.UNLOADED;
     }
+
+    return resource;
 }

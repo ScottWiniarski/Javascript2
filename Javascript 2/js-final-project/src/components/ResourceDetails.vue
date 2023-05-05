@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import {Resource} from "@/models/Resource";
+import Resource from "@/models/Resource";
 
 export default {
   name: "ResourceDetails.vue",

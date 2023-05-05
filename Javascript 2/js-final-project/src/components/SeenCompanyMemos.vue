@@ -1,5 +1,5 @@
 <template>
-  <div class="table-responsive">
+  <div class="table-responsive" v-if="item.wasSeen">
     <table class="table table-bordered table-hover table-striped">
       <thead class="thead-light">
       <tr>
@@ -26,23 +26,6 @@ export default {
 
   props:{
     item: CompanyMessage
-  },
-
-  /*data() {
-    return {
-      if(this.item.wasSeen === true){
-      return this.item;
-    }
-  else console.log(this.item);
-    return null;
-    }
-  },*/
-
-  data: function(){
-    if(this.item.wasSeen === true){
-      return this.item;
-    }
-    else console.log(this.item);
   },
 }
 </script>

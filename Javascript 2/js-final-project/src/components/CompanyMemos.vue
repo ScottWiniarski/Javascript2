@@ -3,7 +3,8 @@
     <Company-memo-modal button-text="Inbox" :item="item"></Company-memo-modal>
   </div>
   <div class="col" v-for="item in library" :key="item.messageId">
-    <SeenCompanyMemos :item="item.messageId"></SeenCompanyMemos>
+    <SeenCompanyMemos  :item="item"></SeenCompanyMemos>
+<!--    v-if="employees.day === item.messageId"-->
   </div>
 </template>
 
@@ -22,7 +23,7 @@ export default {
       library: new CompanyMessageList()
           .addItem(new CompanyMessage(1,'Welcome, new employee!',
               "We're glad to have you with us!", false))
-          .addItem(new CompanyMessage(2,'Please remember to read the company manuel',
+          .addItem(new CompanyMessage(2,'Please remember to read the company manuel!',
               "A safe and cautious employee, is a profitable employee!", false))
           .addItem(new CompanyMessage(3, 'To All Employees', 'A reminder that attempting' +
               'to unionize is a direct violation of your contract.', true))

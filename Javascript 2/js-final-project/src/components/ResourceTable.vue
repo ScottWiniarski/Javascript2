@@ -10,8 +10,8 @@
     <tbody>
     <tr>
       {{objectInput}}
-      <th scope="row" v-for="it in item" :key="it.type.resourceId">
-        <resource-details :item="it" ></resource-details>
+      <th scope="row" v-for="item in items" :key="item.id">
+        <resource-details :item="item" ></resource-details>
       </th>
 <!--      <td v-for="it in item" :key="it.constructor.resourceId">-->
 <!--        <resource-details :item="it" ></resource-details>-->
@@ -31,8 +31,6 @@
 
 <script>
 import ResourceDetails from "@/components/ResourceDetails";
- import MiningCart from "@/models/MiningCart";
-//import {Resource} from "@/models/Resource";
 
 export default {
   name: "ResourceTable.vue",
@@ -41,28 +39,13 @@ export default {
   },
 
   props:{
-    item: MiningCart,
+    items: Array,
   },
 
   computed:{objectInput()
-    { console.log('from ResourceTable', JSON.parse(JSON.stringify(this.item)))
+    { console.log('from ResourceTable', (this.items))
       return null;
     }},
-
-  /*data(){
-    return {
-      number: 0,
-    }
-  },
-  methods:{
-    increment(){
-      this.number++;
-    },
-    decrement(){
-      if(this.number === 0) return
-      this.number--;
-    },
-  }*/
 }
 </script>
 

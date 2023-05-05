@@ -29,7 +29,6 @@
 </template>
 
 <script>
-//import CompanyMemos from "./CompanyMemos";
 import {CompanyMessage} from "@/models/CompanyMessage";
 
 export default {
@@ -44,33 +43,7 @@ export default {
       return this.wasSeen = true;
     }
   },
-
-  data: function(){
-    if(this.item.wasSeen === false){
-      return this.item;
-    }
-    else{
-      console.log('Logged from Memo Modal', this.item);
-    }
-  },
-  //components:{CompanyMemos},
-  computed: {
-    titleOfMessage(){
-      if(this.wasSeen === false){
-        return this.titleOfMessage;
-      }
-      else return 'Nothing New';
-
-    },
-    contentOfMessage(){
-      if(this.wasSeen === false){
-        return this.contentOfMessage;
-      }
-      else return 'No new messages';
-    }
-  }
-
-
+  computed: {}
 }
 </script>
 

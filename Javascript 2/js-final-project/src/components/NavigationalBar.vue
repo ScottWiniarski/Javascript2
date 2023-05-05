@@ -1,8 +1,9 @@
 <template>
   <nav>
     <ul class="list-unstyled components" id="navroute">
-      <li><router-link to="/home">Employee Home</router-link></li>
-      <li><router-link to="">Past Messages</router-link></li>
+      <li><router-link to="/">Employee Home</router-link></li>
+      <li><router-link to="memo">Messages</router-link></li>
+      <li><router-link to="/submit">Daily Submission</router-link></li>
       <!--    <li v-if="authUser"><a href="#" @click.prevent="logout">Logout</a></li>
           <li v-else><a href="#" @click.prevent="login">Login</a></li>-->
     </ul>
@@ -43,11 +44,11 @@ export default {
   width: 200px;
   position: fixed;
   top: 0;
-  left: -50px;
+  left: -30px;
   min-height: 100vh;
   padding: 15px;
   z-index: 999;
-  background: #343a40;
+  background: #f0d8d0;
   color: #fff;
   transition: all 0.3s;
 }
