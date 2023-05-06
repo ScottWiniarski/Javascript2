@@ -1,4 +1,4 @@
-export default function Employee(employee, fireFunction) {
+export default function Employee(employee) {
     const STATUSES = {EMPLOYED: true, NOTEMPLOYED: false }
 
     employee.status = STATUSES.EMPLOYED;

@@ -1,21 +1,22 @@
 <template>
-<div class="container-fluid">
-<!--  {{signalItem}}-->
-  <tr>
-    <th scope="row">
-      {{item.resourceName}}
-    </th>
-    |
-    <th scope="row">
+  <!--  {{signalItem}}-->
+  <th scope="row"></th>
+  <td>{{ item.resourceName }}</td>
 
-      <button type="button" class="btn btn-secondary"  @click="increment"><i class="fa-solid fa-minus"></i>plus</button>
-      {{number}}
-      <button type="button" class="btn btn-secondary" @click="decrement"><i class="fa-solid fa-minus"></i>minus</button>
+  <th scope="row"></th>
+  <td>
+    <button type="button" class="btn btn-secondary btn-sm" @click="increment"><i class="fa-solid fa-minus"></i>plus
+    </button>
+    {{ number }}
+    <button type="button" class="btn btn-secondary btn-sm" @click="decrement"><i class="fa-solid fa-minus"></i>minus
+    </button>
+  </td>
 
-    </th>
-  </tr>
+  <th scope="row"></th>
+  <td>
+    <button type="submit" class="btn btn-info btn-sm" @click="mathTime">Save</button>
+  </td>
 
-</div>
 </template>
 
 <script>
@@ -24,7 +25,7 @@ import Resource from "@/models/Resource";
 export default {
   name: "ResourceDetails.vue",
 
-  props:{
+  props: {
     item: Resource
   },
 
@@ -35,17 +36,24 @@ export default {
   //   }
   // },
 
-  data(){
+  data() {
     return {
       number: 0,
     }
   },
-  methods:{
-    increment(){
+  methods: {
+
+    mathTime(){
+      let resourceTotal = this.number * this.item.resourceValue;
+      console.log(resourceTotal);
+      this.$emit('item-total' ,resourceTotal);
+    },
+
+    increment() {
       this.number++;
     },
-    decrement(){
-      if(this.number === 0) return
+    decrement() {
+      if (this.number === 0) return
       this.number--;
     },
   }
