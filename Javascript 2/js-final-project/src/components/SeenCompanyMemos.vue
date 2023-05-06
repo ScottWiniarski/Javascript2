@@ -9,7 +9,6 @@
       </thead>
       <tbody>
       <tr>
-        <th scope="col"></th>
         <td>{{item.messageTitle}}</td>
         <td>{{item.messageContent}}</td>
       </tr>
@@ -19,7 +18,7 @@
 </template>
 
 <script>
-import {CompanyMessage} from "@/models/CompanyMessage";
+import CompanyMessage from "@/models/CompanyMessage";
 
 export default {
   name: "SeenCompanyMemos.vue",

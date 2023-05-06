@@ -1,10 +1,10 @@
-import {CompanyMessage} from "./CompanyMessage"
+import CompanyMessage from "./CompanyMessage"
 
 function CompanyMessageList(){
     let folder = [];
 
-    folder.addItem = function(messageId, message, content, wasSeen){
-        this.push(new CompanyMessage(messageId, message, content, wasSeen));
+    folder.addItem = function(item){
+        this.push(new CompanyMessage(item));
         return this;
     }
     return folder;

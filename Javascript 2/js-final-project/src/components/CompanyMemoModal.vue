@@ -6,7 +6,6 @@
       <i class="fas fa-wrench"></i> {{ buttonText }}
     </button>
 
-
     <div class="modal fade" tabindex="-1" role="dialog" :id="'sli'+ item.messageId" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -29,7 +28,7 @@
 </template>
 
 <script>
-import {CompanyMessage} from "@/models/CompanyMessage";
+import CompanyMessage from "@/models/CompanyMessage";
 
 export default {
   name: "CompanyMemoModal.vue",
@@ -41,6 +40,7 @@ export default {
   methods:{
     wasSeenByUser(){
       return this.wasSeen = true;
+      // return this.item.wasSeen = true;
     }
   },
   computed: {}

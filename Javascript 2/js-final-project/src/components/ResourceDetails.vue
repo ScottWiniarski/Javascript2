@@ -1,16 +1,20 @@
 <template>
-<div class="container">
-  {{signalItem}}
-  <td>
-    {{item.resourceName}}
-  </td>
-  <td>
-    <form class="form-check-input">
-      <button type="button" class="btn btn-secondary" @click="increment"><i class="fa-solid fa-plus"></i>Add</button>
+<div class="container-fluid">
+<!--  {{signalItem}}-->
+  <tr>
+    <th scope="row">
+      {{item.resourceName}}
+    </th>
+    |
+    <th scope="row">
+
+      <button type="button" class="btn btn-secondary"  @click="increment"><i class="fa-solid fa-minus"></i>plus</button>
       {{number}}
-      <button type="button" class="btn btn-secondary" @click="decrement"><i class="fa-solid fa-minus"></i>Diminish</button>
-    </form>
-  </td>
+      <button type="button" class="btn btn-secondary" @click="decrement"><i class="fa-solid fa-minus"></i>minus</button>
+
+    </th>
+  </tr>
+
 </div>
 </template>
 
@@ -24,12 +28,12 @@ export default {
     item: Resource
   },
 
-  computed:{
-    signalItem(){
-      console.log('from ResourceDetails', this.item);
-      return null;
-    }
-  },
+  // computed:{
+  //   signalItem(){
+  //     console.log('from ResourceDetails', this.item);
+  //     return null;
+  //   }
+  // },
 
   data(){
     return {
@@ -49,5 +53,6 @@ export default {
 </script>
 
 <style scoped>
+/*id="'sli' + {{item.id}} + 'plus'"*/
 
 </style>

@@ -1,4 +1,4 @@
-class CompanyMessage{
+/*class CompanyMessage{
     static type = 'CompanyMessage';
 
     get type(){
@@ -17,5 +17,37 @@ class CompanyMessage{
         this.wasSeen = wasSeen ?? false;
     }
 }
+export {CompanyMessage};*/
 
-export {CompanyMessage};
+function CompanyMessage(messageTitle, messageContent, wasSeen){
+    this.id='';
+    this.messageTitle = messageTitle ?? 'N/A';
+    this.messageContent = messageContent ?? 'N/A';
+    this.wasSeen = wasSeen;
+
+    this._path = '';
+
+    this.toString = function (){
+        return this.messageTitle;
+    }
+
+    this.toFirestore = function(){
+        return {
+            messageTitle: this.messageTitle,
+            messageContent: this.messageContent,
+            wasSeen: this.wasSeen,
+        }
+    }
+}
+CompanyMessage.collectionName = 'CompanyMessages';
+
+CompanyMessage.fromFirestore = function(snapshot, options) {
+    const data = snapshot.data(options);
+    const companyMessage = new CompanyMessage(data.messageTitle, data.messageContent, data.wasSeen);
+
+    companyMessage.id = snapshot.id;
+    companyMessage._path = snapshot.ref.path;
+
+    return companyMessage;
+}
+export default CompanyMessage;

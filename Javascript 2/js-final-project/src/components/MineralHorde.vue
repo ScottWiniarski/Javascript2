@@ -1,7 +1,10 @@
 <template>
-  {{ logItems }}
-  <resource-table :items="storage"></resource-table>
-  <button class="btn btn-secondary" @click="addResources"> Click </button>
+<!--  {{ logItems }}-->
+  <div class="container-fluid d-flex align-items-center justify-content-center" >
+    <resource-table :items="storage"></resource-table>
+  </div>
+
+<!--  <button class="btn btn-secondary" @click="addResources"> Click </button>-->
 </template>
 
 <script>
@@ -17,18 +20,17 @@ export default {
     ResourceTable,
   },
 
-  computed: {
-    logItems() {
-      this.storage.forEach(item => {
-        console.log('from MineralHorde', item);
-        return null;
-      })
-      return null;
-    }
-  },
+  // computed: {
+  //   logItems() {
+  //     this.storage.forEach(item => {
+  //        console.log('from MineralHorde', item);
+  //       return null;
+  //     })
+  //     return null;
+  //   }
+  // },
 
   methods: {
-
     loadResources() {
       db.collection(Resource.collectionName)
           .withConverter(Resource)
@@ -42,8 +44,8 @@ export default {
     },
 
     addResources() {
-      let newResource = new MiningCart(new Resource('Gold', 50));
-      console.log(newResource);
+      let newResource = new MiningCart(new Resource('Plutonium', 100));
+      // console.log(newResource);
       db.collection(Resource.collectionName)
           .add(newResource.toFirestore())
     }
@@ -51,7 +53,6 @@ export default {
 
   mounted: function () {
     this.loadResources();
-
   },
   data() {
     return {

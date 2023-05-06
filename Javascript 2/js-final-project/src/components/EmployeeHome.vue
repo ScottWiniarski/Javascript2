@@ -6,12 +6,8 @@
       <div class="container-fluid" id="frontpagecontent">
         <h2>Welcome Valued Employee</h2>
         <company-memos></company-memos>
-
       </div>
-
     </div>
-
-
   </div>
 </template>
 
