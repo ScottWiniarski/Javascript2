@@ -1,63 +1,67 @@
 <template>
-<div class="container-fluid d-flex align-items-center justify-content-center" >
-  <div class="table table-striped table-hover table-bordered table-light">
-    <thead>
-    <tr>
-      <th scope="row">Item Name</th>
-      <th scope="row">Item Quantity</th>
-    </tr>
-    </thead>
-    <tbody scope="row" v-for="item in items" :key="item.id">
-      <resource-details :item="item" @item-total="dailyTotal.valueOf" ></resource-details>
-
-    </tbody>
+  <div class="container-fluid d-flex align-items-center justify-content-center">
+    <div class="table table-striped table-hover table-bordered table-light">
+      <thead>
+      <tr>
+        <th scope="row">Item Name</th>
+        <th scope="row">Item Quantity</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr scope="row" v-for="item in items" :key="item.id">
+        <resource-details :item="item" @item-total="dailyTotal"></resource-details>
+      </tr>
+      <tr>
+        <td>{{ dailySum }}</td>
+        <td><button type="button" class="btn btn-outline-dark" @click="submitAmount">Submit</button></td>
+      </tr>
+      </tbody>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
 import ResourceDetails from "@/components/ResourceDetails";
 
+
 export default {
   name: "ResourceTable.vue",
-  components:{
+  components: {
     ResourceDetails,
   },
 
-  props:{
+  props: {
     items: Array,
   },
 
-  computed:{
+  methods: {
+    submitAmount() {
+      console.log('Pump the total');
+      //this.$emit()
+    },
 
-    dailyTotal(itemTotal){
-      let total = 0;
-      let historyTotal = 0;
-
-      if(itemTotal > total && itemTotal > historyTotal) {
-        total = itemTotal;
-        historyTotal = itemTotal;
+    dailyTotal(itemId, itemTotal) {
+      // console.log('Dailytotal is firing', itemId, itemTotal);
+      if (!this.itemsTotal.find(e => e.id === itemId)) {
+        this.itemsTotal.push({'id': itemId, 'total': 0});
       }
-      else if(itemTotal > total && itemTotal < historyTotal){
-        return null;
-      }
-      total += itemTotal;
-      console.log(total);
-      return null;
+      let item = this.itemsTotal.find(e => e.id === itemId);
+      item.total = itemTotal;
+      // console.log(this.itemsTotal);
     }
   },
 
-  data(){
-    return{
-      pointTotal: []
+  computed: {
+    dailySum(){
+      return this.itemsTotal.reduce( (accumulator, currentValue) => accumulator + currentValue.total, 0)
     }
   },
 
-
-  // computed:{objectInput()
-  //   { console.log('from ResourceTable', (this.items))
-  //     return null;
-  //   }},
+  data() {
+    return {
+      itemsTotal: [],
+    }
+  },
 }
 </script>
 

@@ -1,0 +1,99 @@
+:root {
+    --lemon-chiffon: hsla(56, 85%, 89%, 1);
+    --champagne-pink: hsla(27, 92%, 90%, 1);
+    --baby-pink: hsla(356, 100%, 91%, 1);
+    --pink-lavender: hsla(311, 64%, 85%, 1);
+    --mauve: hsla(263, 64%, 84%, 1);
+    --baby-blue-eyes: hsla(215, 77%, 80%, 1);
+    --non-photo-blue: hsla(195, 82%, 76%, 1);
+    --electric-blue: hsla(185, 84%, 76%, 1);
+    --magic-mint: hsla(167, 82%, 78%, 1);
+    --granny-smith-apple: hsla(126, 89%, 85%, 1);
+
+    --lemon-chiffon-light: hsla(56, 85%, 89%, .5);
+    --champagne-pink-light: hsla(27, 92%, 90%, .5);
+    --baby-pink-light: hsla(356, 100%, 91%, .5);
+    --pink-lavender-light: hsla(311, 64%, 85%, .5);
+    --mauve-light: hsla(263, 64%, 84%, .5);
+    --baby-blue-eyes-light: hsla(215, 77%, 80%, .5);
+    --non-photo-blue-light: hsla(195, 82%, 76%, .5);
+    --electric-blue-light: hsla(185, 84%, 76%, .5);
+    --magic-mint-light: hsla(167, 82%, 78%, .5);
+    --granny-smith-apple-light: hsla(126, 89%, 85%, .5);
+}
+
+* {
+    font-family: museo-sans, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+strong {
+    font-weight: 700;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: array-proportional, serif;
+    font-weight: 700;
+    border-bottom: 3px solid black;
+    padding-bottom: 3px;
+
+}
+
+.nav-link {
+    font-family: array-proportional, serif;
+    font-weight: 400;
+}
+
+.navbar {
+    font-size: 1.1em;
+}
+
+.navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show > .nav-link {
+    color: rgba(0, 0, 0, 1);
+    font-weight: 700;
+}
+
+.table th {
+    border-top: none;
+}
+
+.h1 {
+    font-size: 2.5em;
+}
+
+@media (min-width: 576px){
+    .h1 {
+        font-size: 3.2em;
+    }
+}
+
+@media (min-width: 768px){
+    .h1 {
+        font-size: 4em;
+    }
+}
+
+
+.benefit-1 {
+    background-color: var(--pink-lavender-light);
+    border: 3px solid var(--pink-lavender);
+}
+
+.benefit-2 {
+    background-color: var(--non-photo-blue-light);
+    border: 3px solid var(--non-photo-blue);
+}
+
+.benefit-3 {
+    background-color: var(--granny-smith-apple-light);
+    border: 3px solid var(--granny-smith-apple);
+}
+
+.benefit-4 {
+    background-color: var(--lemon-chiffon-light);
+    border: 3px solid var(--lemon-chiffon);
+}
+
+
+

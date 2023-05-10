@@ -1,20 +1,12 @@
 <template>
   <!--  {{signalItem}}-->
-  <th scope="row"></th>
   <td>{{ item.resourceName }}</td>
-
-  <th scope="row"></th>
   <td>
     <button type="button" class="btn btn-secondary btn-sm" @click="increment"><i class="fa-solid fa-minus"></i>plus
     </button>
     {{ number }}
     <button type="button" class="btn btn-secondary btn-sm" @click="decrement"><i class="fa-solid fa-minus"></i>minus
     </button>
-  </td>
-
-  <th scope="row"></th>
-  <td>
-    <button type="submit" class="btn btn-info btn-sm" @click="mathTime">Save</button>
   </td>
 
 </template>
@@ -29,13 +21,6 @@ export default {
     item: Resource
   },
 
-  // computed:{
-  //   signalItem(){
-  //     console.log('from ResourceDetails', this.item);
-  //     return null;
-  //   }
-  // },
-
   data() {
     return {
       number: 0,
@@ -45,16 +30,18 @@ export default {
 
     mathTime(){
       let resourceTotal = this.number * this.item.resourceValue;
-      console.log(resourceTotal);
-      this.$emit('item-total' ,resourceTotal);
+      //console.log(resourceTotal);
+      this.$emit('item-total' , this.item.id ,resourceTotal);
     },
 
     increment() {
       this.number++;
+      this.mathTime();
     },
     decrement() {
       if (this.number === 0) return
       this.number--;
+      this.mathTime();
     },
   }
 }
