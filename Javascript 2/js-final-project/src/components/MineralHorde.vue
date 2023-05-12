@@ -20,16 +20,6 @@ export default {
     ResourceTable,
   },
 
-  // computed: {
-  //   logItems() {
-  //     this.storage.forEach(item => {
-  //        console.log('from MineralHorde', item);
-  //       return null;
-  //     })
-  //     return null;
-  //   }
-  // },
-
   methods: {
     loadResources() {
       db.collection(Resource.collectionName)

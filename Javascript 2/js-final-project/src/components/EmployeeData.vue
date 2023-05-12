@@ -1,9 +1,10 @@
 <template>
-<button @click="addEmployees">Click</button>
+  <button></button>
+<!--<button @click="addEmployees">Click</button>-->
 </template>
 
 <script>
-import Employee from "@/models/Employee";
+// import Employee from "@/models/Employee";
 import Miner from "@/models/Miner";
 import {db} from "@/firebase"
 export default {
@@ -22,11 +23,11 @@ export default {
       })
     },
 
-    addEmployees(){
-      let newEmployee = new Employee(new Miner('Lisa', 'Baker', 110, 5, 1));
-      db.collection(Miner.collectionName)
-      .add(newEmployee.toFirestore())
-    },
+    // addEmployees(){
+    //   let newEmployee = new Employee(new Miner('Lisa', 'Baker', 110, 5, 1));
+    //   db.collection(Miner.collectionName)
+    //   .add(newEmployee.toFirestore())
+    // },
 
     /*fireEmployee(){
       db.collection(Miner.collectionName)

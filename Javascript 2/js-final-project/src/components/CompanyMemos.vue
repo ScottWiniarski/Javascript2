@@ -1,12 +1,18 @@
 <template>
-<!--  <button class="btn btn-primary" @click="addMessages">CLick</button>-->
-  <div class="col" v-for="item in library" :key="item.messageId">
-    <Company-memo-modal v-if="item.wasSeen === false" :button-text="'Inbox'" :item="item"></Company-memo-modal>
-  </div>
-  <div class="col" v-for="item in library" :key="item.messageId">
-    <SeenCompanyMemos v-if="item.wasSeen === true" :item="item"></SeenCompanyMemos>
-<!--    v-if="employees.day === item.messageId"-->
-  </div>
+<!--  <div class="companyModal" v-show="displayPermission === 'unseen'">-->
+    <div class="col" v-for="item in unSeenMemos" :key="item.messageId">
+      <Company-memo-modal  :button-text="'New Message(s) ' + `${unSeenMemos.length}`" :item="item">New Message</Company-memo-modal>
+    </div>
+<!--  </div>-->
+
+<!--  <div class="seenMessages" v-if="displayPermission !== 'seen'">-->
+    <div class="col" v-for="item in seenMemos" :key="item.messageId">
+      <SeenCompanyMemos :item="item"></SeenCompanyMemos>
+    </div>
+<!--  </div>-->
+
+
+  <!--  <button class="btn btn-primary" @click="addMessages">CLick</button>-->
 </template>
 
 <script>
@@ -18,6 +24,10 @@ import {db} from "@/firebase";
 export default {
   name: "CompanyMemos.vue",
   components: {CompanyMemoModal, SeenCompanyMemos},
+
+  // props:{
+  //   displayPermission: String,
+  // },
 
   methods:{
     loadMessages() {
@@ -42,6 +52,21 @@ export default {
 
   mounted: function(){
     this.loadMessages();
+  },
+
+  computed:{
+    seenMemos(){
+      return this.library.filter(item => item.wasSeen === true);
+      /*console.log('help')
+      let seenMessages = this.library.filter(item => item.wasSeen === true);
+      console.log('help', seenMessages[0]);
+      return seenMessages[0];*/
+
+    },
+
+    unSeenMemos(){
+      return this.library.filter(item => item.wasSeen === false);
+    }
   },
 
   data(){

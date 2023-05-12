@@ -1,5 +1,5 @@
 <template>
-  <div class="table-responsive" v-if="item.wasSeen">
+  <div class="table-responsive">
     <table class="table table-bordered table-hover table-striped">
       <thead class="thead-light">
       <tr>

@@ -2,11 +2,11 @@
   <div>
     <button class="btn btn-info"
             data-bs-toggle="modal"
-            :data-bs-target="'#sli' + item.messageId">
+            :data-bs-target="'#sli' + item.id">
       <i class="fas fa-wrench"></i> {{ buttonText }}
     </button>
-
-    <div class="modal fade" tabindex="-1" role="dialog" :id="'sli'+ item.messageId" aria-hidden="true">
+<!--    {{logit}}-->
+    <div class="modal fade" tabindex="-1" role="dialog" :id="'sli'+ item.id" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -29,6 +29,7 @@
 
 <script>
 import CompanyMessage from "@/models/CompanyMessage";
+import {db} from "@/firebase";
 
 export default {
   name: "CompanyMemoModal.vue",
@@ -36,14 +37,29 @@ export default {
   props:{
     buttonText: {type: String},
     item: CompanyMessage,
+    // firebaseKey: {type: String, required: false}
   },
   methods:{
-    wasSeenByUser(){
-      return this.wasSeen = true;
+    async wasSeenByUser() {
+
+      const messageRef = db.collection('CompanyMessages').doc(`${this.item.id}`);
+      const doc = await messageRef.get();
+
+      if (!doc.exists) {
+        console.log('No such document');
+      } else {
+        await messageRef.update({wasSeen: true});
+      }
+
       // return this.item.wasSeen = true;
     }
   },
-  computed: {}
+  /*computed: {
+    logit(){
+      console.log(this.item.id);
+      return null;
+    }
+  }*/
 }
 </script>
 

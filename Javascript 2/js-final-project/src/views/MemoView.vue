@@ -7,7 +7,7 @@
 
       <div class="container-fluid" id="seenmessagecontent">
         <div class="col">
-          <company-memos></company-memos>
+          <company-memos :item="seenContent"></company-memos>
         </div>
       </div>
     </div>
@@ -19,12 +19,21 @@
 import navigationalBar from "@/components/NavigationalBar";
 import CompanyMemos from "@/components/CompanyMemos";
 
+
 export default {
   name: "MemoView.vue",
   components: {
     navigationalBar,
     CompanyMemos,
-  }
+
+  },
+
+  computed:{
+    seenContent(){
+      return 'seen';
+    },
+
+  },
 }
 </script>
 

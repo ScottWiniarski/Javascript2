@@ -5,7 +5,7 @@
     height: 100vh">
       <div class="container-fluid" id="frontpagecontent">
         <h2>Welcome Valued Employee</h2>
-        <company-memos></company-memos>
+        <company-memos :item="unseenShow"></company-memos>
       </div>
     </div>
   </div>
@@ -15,7 +15,13 @@
 import companyMemos from "@/components/CompanyMemos";
 export default {
   name: "EmployeeHome.vue",
-  components:{companyMemos, }
+  components:{companyMemos, },
+
+  computed:{
+    unseenShow(){
+      return 'unseen';
+    },
+  },
 }
 </script>
 
