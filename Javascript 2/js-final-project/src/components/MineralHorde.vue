@@ -1,6 +1,7 @@
 <template>
 <!--  {{ logItems }}-->
   <div class="container-fluid d-flex align-items-center justify-content-center" >
+<!--    <button @click="notifyMiner"></button>-->
     <resource-table :items="storage"></resource-table>
   </div>
 
@@ -20,7 +21,16 @@ export default {
     ResourceTable,
   },
 
+  // props:{
+  //   testMiner: Object,
+  // },
+
   methods: {
+
+    // notifyMiner(){
+    //   console.log(this.testMiner)
+    // },
+
     loadResources() {
       db.collection(Resource.collectionName)
           .withConverter(Resource)

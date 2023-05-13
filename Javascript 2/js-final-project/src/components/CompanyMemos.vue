@@ -42,12 +42,12 @@ export default {
       })
     },
 
-    addMessages(){
+    /*addMessages(){
       let newMessage = new CompanyMessage( 'To All Employees', 'A reminder that attempting' +
           ' to unionize is a direct violation of your contract.', true);
       db.collection(CompanyMessage.collectionName)
       .add(newMessage.toFirestore())
-    }
+    }*/
   },
 
   mounted: function(){

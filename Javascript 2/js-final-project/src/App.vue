@@ -1,4 +1,5 @@
 <template>
+<!--  <submit-view :item="testMiner"></submit-view>-->
 <!--  <nav>-->
 <!--    <router-link to="/">Home</router-link> |-->
 <!--    <router-link to="/about">About</router-link> |-->
@@ -6,7 +7,32 @@
 <!--  </nav>-->
   <router-view/>
 </template>
+<!--<script>
+import SubmitView from "@/views/SubmitView";
+import {db} from "@/firebase";
+export default{
+  name: "App.vue",
 
+  components:{
+    SubmitView,
+  },
+  /*computed:{
+    async testMiner() {
+      const singleMiner = db.collection('Miners').doc('gzuKCKk3qwgAJM7IpTEE');
+      const doc = await singleMiner.get();
+
+      if (!doc.exists) {
+        alert("No such Document Exists");
+      }
+      else
+      {
+        console.log(doc);
+        return singleMiner;
+      }
+    }
+  },*/
+}
+</script>-->
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
