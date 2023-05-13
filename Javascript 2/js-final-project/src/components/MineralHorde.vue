@@ -1,10 +1,9 @@
 <template>
 <!--  {{ logItems }}-->
-  <div class="container-fluid d-flex align-items-center justify-content-center" >
+  <div class="d-flex align-items-center justify-content-center">
 <!--    <button @click="notifyMiner"></button>-->
     <resource-table :items="storage"></resource-table>
   </div>
-
 <!--  <button class="btn btn-secondary" @click="addResources"> Click </button>-->
 </template>
 

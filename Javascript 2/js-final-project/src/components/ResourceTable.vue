@@ -1,23 +1,25 @@
 <template>
   <company-memo-modal v-if="warning != null" :item="{warning}"></company-memo-modal>
-  <div class="container-fluid justify-content-center">
-    <div class="table table-striped table-hover table-bordered table-light">
-      <thead>
-      <tr>
-        <th scope="row">Item Name</th>
-        <th scope="row">Item Quantity</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr scope="row" v-for="item in items" :key="item.id">
-        <resource-details :item="item" @item-total="dailyTotal"></resource-details>
-      </tr>
-      <tr>
-        <td>{{ dailySum }}</td>
-        <td><button type="button" class="btn btn-outline-dark" @click="submitAmount">Submit</button></td>
-      </tr>
-      </tbody>
-    </div>
+  <div class="d-flex justify-content-center">
+  <div class="table table-striped table-hover table-bordered table-light">
+    <thead>
+    <tr>
+      <th scope="row">Item Name</th>
+      <th scope="row">Item Quantity</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr scope="row" v-for="item in items" :key="item.id">
+      <resource-details :item="item" @item-total="dailyTotal"></resource-details>
+    </tr>
+    <tr>
+      <td>{{ dailySum }}</td>
+      <td>
+        <button type="button" class="btn btn-outline-dark" @click="submitAmount">Submit</button>
+      </td>
+    </tr>
+    </tbody>
+  </div>
   </div>
 </template>
 
@@ -53,7 +55,7 @@ export default {
       if (!doc.exists) {
         console.log('No such document');
       } else {
-        if(doc.data().maxYield < this.dailySum){
+        if (doc.data().maxYield < this.dailySum) {
           console.log('Employee Data: ', doc.data().maxYield);
           await minerRef.update({maxYield: this.dailySum});
           /*await minerRef.onSnapshot(snapshot => {
@@ -63,18 +65,19 @@ export default {
               this.miner.push(person.data());
             })
           })*/
-        }
-        else {
+        } else {
           //alert('You have missed your daily threshold.');
           let counter = doc.data().strikes;
           counter++;
-          switch(counter){
-            case 1: this.warning = firstWarning;
-                    break;
-            case 2: this.warning = secondWarning;
-                    break;
-            // case 3: this.warning = finalWarning;
-            //         break;
+          switch (counter) {
+            case 1:
+              this.warning = firstWarning;
+              break;
+            case 2:
+              this.warning = secondWarning;
+              break;
+              // case 3: this.warning = finalWarning;
+              //         break;
             default:
               this.warning = null;
           }
@@ -104,11 +107,11 @@ export default {
   },
 
   computed: {
-    dailySum(){
-      return this.itemsTotal.reduce( (accumulator, currentValue) => accumulator + currentValue.total, 0)
+    dailySum() {
+      return this.itemsTotal.reduce((accumulator, currentValue) => accumulator + currentValue.total, 0)
     },
 
-    warning(){
+    warning() {
       return this.warning;
     }
   },
