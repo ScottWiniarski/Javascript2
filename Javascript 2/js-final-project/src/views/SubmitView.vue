@@ -5,7 +5,8 @@
        style="background-image: url(https://wallpapercave.com/wp/wp1959154.jpg);
     height: 100vh">
     <div class="container-fluid" id="submissionbackground">
-      <mineral-horde :item="testMiner"></mineral-horde>
+      <mineral-horde></mineral-horde>
+<!--      <mineral-horde :item="testMiner"></mineral-horde>-->
     </div>
   </div>
 </div>
@@ -21,9 +22,9 @@ export default {
     NavigationalBar,
   },
 
-  props:{
-    testMiner: Object,
-  },
+  // props:{
+  //   testMiner: Object,
+  // },
 }
 </script>
 
