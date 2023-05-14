@@ -7,7 +7,8 @@
 
       <div class="container-fluid" id="seenmessagecontent">
         <div class="col">
-          <company-memos :item="seenContent"></company-memos>
+<!--          <company-memos :item="seenContent"></company-memos>-->
+          <company-memos></company-memos>
         </div>
       </div>
     </div>
@@ -28,12 +29,11 @@ export default {
 
   },
 
-  computed:{
+  /*computed:{
     seenContent(){
       return 'seen';
     },
-
-  },
+  },*/
 }
 </script>
 

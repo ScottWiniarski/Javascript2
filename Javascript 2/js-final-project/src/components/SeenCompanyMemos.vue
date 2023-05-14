@@ -1,20 +1,20 @@
 <template>
-  <div class="table-responsive">
-    <table class="table table-bordered table-hover table-striped">
-      <thead class="thead-light">
-      <tr>
-        <th scope="col">Message Title</th>
-        <th scope="col">Message Content</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
+<!--  <div class="table-responsive">-->
+<!--    <table class="table table-bordered table-hover table-striped">-->
+<!--      <thead>-->
+<!--      <tr>-->
+<!--        <th scope="col">Message Title</th>-->
+<!--        <th scope="col">Message Content</th>-->
+<!--      </tr>-->
+<!--      </thead>-->
+<!--      <tbody>-->
+<!--      <tr>-->
         <td>{{item.messageTitle}}</td>
         <td>{{item.messageContent}}</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+<!--      </tr>-->
+<!--      </tbody>-->
+<!--    </table>-->
+<!--  </div>-->
 </template>
 
 <script>

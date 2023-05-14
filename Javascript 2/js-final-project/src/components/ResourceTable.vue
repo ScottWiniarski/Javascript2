@@ -1,7 +1,7 @@
 <template>
-  <company-memo-modal v-if="warning != null" :item="{warning}"></company-memo-modal>
+<!--  <company-memo-modal v-if="warning != null" :item="{warning}"></company-memo-modal>-->
   <div class="d-flex justify-content-center">
-  <div class="table table-striped table-hover table-bordered table-light">
+  <div class="table table-striped table-hover table-bordered table-warning">
     <thead>
     <tr>
       <th scope="row">Item Name</th>
@@ -13,9 +13,9 @@
       <resource-details :item="item" @item-total="dailyTotal"></resource-details>
     </tr>
     <tr>
-      <td>{{ dailySum }}</td>
+      <td>Current Total: <br>{{ dailySum }}</td>
       <td>
-        <button type="button" class="btn btn-outline-dark" @click="submitAmount">Submit</button>
+        <button type="button" class="btn btn-success" @click="submitAmount">Submit</button>
       </td>
     </tr>
     </tbody>
@@ -26,14 +26,14 @@
 <script>
 import ResourceDetails from "@/components/ResourceDetails";
 import {db} from "@/firebase";
-import CompanyMemoModal from "@/components/CompanyMemoModal";
+// import CompanyMemoModal from "@/components/CompanyMemoModal";
 
 
 export default {
   name: "ResourceTable.vue",
   components: {
     ResourceDetails,
-    CompanyMemoModal,
+    // CompanyMemoModal,
   },
 
   props: {
@@ -44,20 +44,22 @@ export default {
     async submitAmount() {
       console.log('Pump the total', this.dailySum);
 
-      const minerRef = db.collection('Miners').doc('GF2I01UwakEhAQwEohqB');
+      const minerRef = db.collection('Miners').doc('gzuKCKk3qwgAJM7IpTEE');
       const doc = await minerRef.get();
 
-      const firstWarning = db.collection('CompanyMessages').doc('EZtk7KfC5Gwwvq2jMNw0');
-      const secondWarning = db.collection('CompanyMessages').doc('n1GrbmlyyfVOIZE4jNGO');
+      // const firstWarning = db.collection('CompanyMessages').doc('EZtk7KfC5Gwwvq2jMNw0');
+      // const secondWarning = db.collection('CompanyMessages').doc('n1GrbmlyyfVOIZE4jNGO');
       //const finalWarning = db.collection('CompanyMessages').doc('');
 
 
       if (!doc.exists) {
         console.log('No such document');
       } else {
-        if (doc.data().maxYield < this.dailySum) {
+        if (doc.data().maxYield <= this.dailySum) {
           console.log('Employee Data: ', doc.data().maxYield);
-          await minerRef.update({maxYield: this.dailySum});
+          let daysWorked = doc.data().daysEmployed;
+          daysWorked++;
+          await minerRef.update({maxYield: this.dailySum, daysEmployed: daysWorked});
           /*await minerRef.onSnapshot(snapshot => {
             this.miner = [];
 
@@ -66,21 +68,21 @@ export default {
             })
           })*/
         } else {
-          //alert('You have missed your daily threshold.');
+          alert('You have missed your daily threshold.');
           let counter = doc.data().strikes;
           counter++;
-          switch (counter) {
-            case 1:
-              this.warning = firstWarning;
-              break;
-            case 2:
-              this.warning = secondWarning;
-              break;
-              // case 3: this.warning = finalWarning;
-              //         break;
-            default:
-              this.warning = null;
-          }
+          // switch (counter) {
+          //   case 1:
+          //     this.warning = firstWarning;
+          //     break;
+          //   case 2:
+          //     this.warning = secondWarning;
+          //     break;
+          //     // case 3: this.warning = finalWarning;
+          //     //         break;
+          //   default:
+          //     this.warning = null;
+          // }
           await minerRef.update({strikes: counter});
           /*minerRef.onSnapshot(snapshot => {
             this.miner = [];
@@ -111,14 +113,15 @@ export default {
       return this.itemsTotal.reduce((accumulator, currentValue) => accumulator + currentValue.total, 0)
     },
 
-    warning() {
-      return this.warning;
-    }
+    // warning() {
+    //   return this.warning;
+    // }
   },
 
   data() {
     return {
       itemsTotal: [],
+      // warning: '',
     }
   },
 }

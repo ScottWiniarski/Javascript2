@@ -19,11 +19,13 @@
 }
 export {CompanyMessage};*/
 
-function CompanyMessage(messageTitle, messageContent, wasSeen){
+function CompanyMessage(messageTitle, messageContent, wasSeen, releaseDay, strikeCount){
     this.id='';
     this.messageTitle = messageTitle ?? 'N/A';
     this.messageContent = messageContent ?? 'N/A';
     this.wasSeen = wasSeen;
+    this.releaseDay = releaseDay ?? 0;
+    this.strikeCount = strikeCount ?? 0;
 
     this._path = '';
 
@@ -36,6 +38,8 @@ function CompanyMessage(messageTitle, messageContent, wasSeen){
             messageTitle: this.messageTitle,
             messageContent: this.messageContent,
             wasSeen: this.wasSeen,
+            releaseDay: this.releaseDay,
+            strikeCount: this.strikeCount,
         }
     }
 }
@@ -43,7 +47,8 @@ CompanyMessage.collectionName = 'CompanyMessages';
 
 CompanyMessage.fromFirestore = function(snapshot, options) {
     const data = snapshot.data(options);
-    const companyMessage = new CompanyMessage(data.messageTitle, data.messageContent, data.wasSeen);
+    const companyMessage = new CompanyMessage(data.messageTitle, data.messageContent, data.wasSeen,
+        data.releaseDay, data.strikeCount);
 
     companyMessage.id = snapshot.id;
     companyMessage._path = snapshot.ref.path;

@@ -6,9 +6,22 @@
 <!--  </div>-->
 
 <!--  <div class="seenMessages" v-if="displayPermission !== 'seen'">-->
-    <div class="col" v-for="item in seenMemos" :key="item.messageId">
+  <table class="table table-bordered table-hover table-striped messageTable">
+    <thead>
+    <tr>
+      <th scope="col">Message Title</th>
+      <th scope="col">Message Content</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr v-for="item in seenMemos" :key="item.messageId">
       <SeenCompanyMemos :item="item"></SeenCompanyMemos>
-    </div>
+    </tr>
+    </tbody>
+  </table>
+<!--    <div class="col" v-for="item in seenMemos" :key="item.messageId">-->
+<!--      <SeenCompanyMemos :item="item"></SeenCompanyMemos>-->
+<!--    </div>-->
 <!--  </div>-->
 
 
@@ -44,20 +57,44 @@ export default {
 
     /*addMessages(){
       let newMessage = new CompanyMessage( 'To All Employees', 'A reminder that attempting' +
-          ' to unionize is a direct violation of your contract.', true);
+          ' to unionize is a direct violation of your contract.', true, 0, 2);
       db.collection(CompanyMessage.collectionName)
       .add(newMessage.toFirestore())
     }*/
+
+    // async getEmployee(callSign) {
+    //   const minerRef = db.collection('Miners').doc('gzuKCKk3qwgAJM7IpTEE');
+    //   const doc = await minerRef.get();
+    //
+    //   if(callSign === 'strikes'){
+    //     console.log('# of strikes', doc.data().strikes);
+    //     return doc.data().strikes;
+    //   }
+    //   else if(callSign === 'daysWorked'){
+    //     console.log( '# of days worked' ,doc.data().daysEmployed);
+    //     return doc.data().daysEmployed;
+    //   }
+    // }
   },
+
+  // async created() {
+  //   let minerRef;
+  //   minerRef = db.collection('Miners').doc('gzuKCKk3qwgAJM7IpTEE');
+  //   return await minerRef.get();
+  // },
 
   mounted: function(){
     this.loadMessages();
+    // this.getEmployee();
   },
 
   computed:{
     seenMemos(){
-      return this.library.filter(item => item.wasSeen === true);
-      /*console.log('help')
+      // return this.library.filter(item => item.wasSeen && item.strikeCount >= this.getEmployee('strikes'));
+      //return this.library.filter(item => item.wasSeen && item.strikeCount >= this.doc.strikes);
+      return this.library.filter(item => item.wasSeen);
+
+      /*console.log('help');
       let seenMessages = this.library.filter(item => item.wasSeen === true);
       console.log('help', seenMessages[0]);
       return seenMessages[0];*/
@@ -65,13 +102,18 @@ export default {
     },
 
     unSeenMemos(){
-      return this.library.filter(item => item.wasSeen === false);
+      return this.library.filter(item => !item.wasSeen);
+
+      // return this.library.filter(item => !item.wasSeen && item.releaseDay <=
+      //     this.getEmployee('daysWorked')  && item.strikeCount <= this.getEmployee('strikes'));
     }
   },
 
   data(){
     return {
       library: [],
+      minerRef: '',
+      doc: [],
     }
   }
 
@@ -79,5 +121,9 @@ export default {
 </script>
 
 <style scoped>
+.messageTable{
+  margin: auto;
+  padding-bottom: 15px;
+}
 
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <button class="btn btn-info"
+  <div class="m-2">
+    <button class="btn btn-success"
             data-bs-toggle="modal"
             :data-bs-target="'#sli' + item.id">
       <i class="fas fa-wrench"></i> {{ buttonText }}

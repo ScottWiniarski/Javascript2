@@ -8,9 +8,6 @@
 
 <script>
 // @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
-// import CompanyMemos from "@/components/CompanyMemos";
-// import MineralHorde from "@/components/MineralHorde";
 import NavigationalBar from "@/components/NavigationalBar";
 import employeeHome from "@/components/EmployeeHome";
 import EmployeeData from "@/components/EmployeeData";
@@ -19,9 +16,6 @@ export default {
   name: 'HomeView',
   components: {
     EmployeeData,
-    // MineralHorde,
-    // HelloWorld,
-    // CompanyMemos,
     NavigationalBar,
     employeeHome,
   }

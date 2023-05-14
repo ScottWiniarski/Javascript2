@@ -1,9 +1,9 @@
 <template>
   <div class="container-fluid" id="frontpage">
     <div class="bg-image d-flex justify-content-center align-items-center"
-         style="background-image: url(https://wallpapercave.com/wp/wp1959154.jpg);
+         style="background-image: url(https://deeprockgalactic.wiki.gg/images/1/16/SpaceRigExterior.png);
     height: 100vh">
-      <div class="container-fluid" id="frontpagecontent">
+      <div class="container-fluid align-items-center" id="frontpagecontent">
         <h2>Welcome Valued Employee</h2>
         <company-memos :item="unseenShow"></company-memos>
       </div>
@@ -26,9 +26,14 @@ export default {
 </script>
 
 <style scoped>
+h2{
+  font-family: "Helvetica", sans-serif;
+  --bs-body-color: #f06600;
+}
 
 #frontpagecontent{
-  background-color: #f0d8d066;
+  background-color: #fffff080;
+  padding-bottom: 20px;
 
 }
 

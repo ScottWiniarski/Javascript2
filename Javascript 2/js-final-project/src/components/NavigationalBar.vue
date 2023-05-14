@@ -1,19 +1,19 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light">
+  <nav class="navbar navbar-expand-lg navbar-brand" id="navigate">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Home</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#miningNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <ul class="collapse navbar-collapse" id="miningNavbar">
-        <ul class="navbar-nav">
-          <li class="nav-item">
+        <ul class="navbar-nav m-2">
+          <li class="nav-item m-2">
             <router-link to="/"> Home</router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item m-2">
             <router-link to="memo">Messages</router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item m-2">
             <router-link to="/submit">Submission</router-link>
           </li>
         </ul>
@@ -61,6 +61,9 @@ export default {
 </script>
 
 <style scoped>
+#navigate{
+  background-color: #0b2e1377;
+}
 /*#navroute{*/
 /*  width: 200px;*/
 /*  position: fixed;*/
