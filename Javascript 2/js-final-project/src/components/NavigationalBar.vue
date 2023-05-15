@@ -43,6 +43,9 @@ export default {
   },
 
   methods: {
+    // run npm install -g firebase tools
+    // npm build followed by firebase deploy
+
     login(){
       let provider = new firebase.auth.GoogleAuthProvider();
 
