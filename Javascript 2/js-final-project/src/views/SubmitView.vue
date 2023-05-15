@@ -1,6 +1,5 @@
 <template>
 <div class="submit">
-  <navigational-bar></navigational-bar>
   <div class="bg-image d-flex justify-content-center align-items-center"
        style="background-image: url(https://wallpapercave.com/wp/wp1959154.jpg);
     height: 100vh">
@@ -13,13 +12,11 @@
 </template>
 
 <script>
- import NavigationalBar from "@/components/NavigationalBar";
 import MineralHorde from "@/components/MineralHorde";
 export default {
   name: "SubmitView.vue",
   components: {
     MineralHorde,
-    NavigationalBar,
   },
 
   // props:{

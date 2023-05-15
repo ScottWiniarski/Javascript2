@@ -1,28 +1,31 @@
 <template>
-  <div class="companyModal" v-show="displayPermission === 'unseen'">
+  <div class="companyModal" v-if="displayPermission === 'unseen'">
+    Words in a div
     <div class="col" v-for="(item,i) in unSeenMemos" :key="item.messageId">
-      <Company-memo-modal v-if="i === 0"  :button-text="'New Message(s) ' + `${unSeenMemos.length}`" :item="item">New Message</Company-memo-modal>
+      <Company-memo-modal v-if="i === 0" :button-text="'New Message(s) ' + `${unSeenMemos.length}`" :item="item">New
+        Message
+      </Company-memo-modal>
     </div>
   </div>
 
-<!--  <div class="seenMessages" v-if="displayPermission !== 'seen'">-->
-  <table class="table table-bordered table-hover table-striped messageTable">
-    <thead>
-    <tr>
-      <th scope="col">Message Title</th>
-      <th scope="col">Message Content</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr v-for="item in seenMemos" :key="item.messageId">
-      <SeenCompanyMemos :item="item"></SeenCompanyMemos>
-    </tr>
-    </tbody>
-  </table>
-<!--    <div class="col" v-for="item in seenMemos" :key="item.messageId">-->
-<!--      <SeenCompanyMemos :item="item"></SeenCompanyMemos>-->
-<!--    </div>-->
-<!--  </div>-->
+  <div class="seenMessages" v-if="displayPermission === 'seen'">
+    <table class="table table-bordered table-hover table-striped messageTable">
+      <thead>
+      <tr>
+        <th scope="col">Message Title</th>
+        <th scope="col">Message Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr v-for="item in seenMemos" :key="item.messageId">
+        <SeenCompanyMemos :item="item"></SeenCompanyMemos>
+      </tr>
+      </tbody>
+    </table>
+    <!--    <div class="col" v-for="item in seenMemos" :key="item.messageId">-->
+    <!--      <SeenCompanyMemos :item="item"></SeenCompanyMemos>-->
+    <!--    </div>-->
+  </div>
 
 
   <!--  <button class="btn btn-primary" @click="addMessages">CLick</button>-->
@@ -38,21 +41,21 @@ export default {
   name: "CompanyMemos.vue",
   components: {CompanyMemoModal, SeenCompanyMemos},
 
-  props:{
+  props: {
     displayPermission: String,
   },
 
-  methods:{
+  methods: {
     loadMessages() {
       db.collection(CompanyMessage.collectionName)
-      .withConverter(CompanyMessage)
-      .onSnapshot(snapshot => {
-        this.library = [];
+          .withConverter(CompanyMessage)
+          .onSnapshot(snapshot => {
+            this.library = [];
 
-        snapshot.forEach(item =>{
-          this.library.push(item.data());
-        })
-      })
+            snapshot.forEach(item => {
+              this.library.push(item.data());
+            })
+          })
     },
 
     /*addMessages(){
@@ -83,13 +86,13 @@ export default {
   //   return await minerRef.get();
   // },
 
-  mounted: function(){
+  mounted: function () {
     this.loadMessages();
     // this.getEmployee();
   },
 
-  computed:{
-    seenMemos(){
+  computed: {
+    seenMemos() {
       // return this.library.filter(item => item.wasSeen && item.strikeCount >= this.getEmployee('strikes'));
       //return this.library.filter(item => item.wasSeen && item.strikeCount >= this.doc.strikes);
       return this.library.filter(item => item.wasSeen);
@@ -101,7 +104,7 @@ export default {
 
     },
 
-    unSeenMemos(){
+    unSeenMemos() {
       return this.library.filter(item => !item.wasSeen);
 
       // return this.library.filter(item => !item.wasSeen && item.releaseDay <=
@@ -109,7 +112,7 @@ export default {
     }
   },
 
-  data(){
+  data() {
     return {
       library: [],
       minerRef: '',
@@ -121,7 +124,7 @@ export default {
 </script>
 
 <style scoped>
-.messageTable{
+.messageTable {
   margin: auto;
   padding-bottom: 15px;
 }

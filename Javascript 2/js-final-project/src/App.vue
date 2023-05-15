@@ -1,20 +1,14 @@
 <template>
-<!--  <submit-view :item="testMiner"></submit-view>-->
-<!--  <nav>-->
-<!--    <router-link to="/">Home</router-link> |-->
-<!--    <router-link to="/about">About</router-link> |-->
-<!--    <router-link to="/submit">Submit</router-link>-->
-<!--  </nav>-->
+  <navigational-bar></navigational-bar>
   <router-view/>
 </template>
-<!--<script>
-import SubmitView from "@/views/SubmitView";
-import {db} from "@/firebase";
+<script>
+// import SubmitView from "@/views/SubmitView";
+import NavigationalBar from "@/components/NavigationalBar";
+// import {db} from "@/firebase";
 export default{
-  name: "App.vue",
-
   components:{
-    SubmitView,
+    NavigationalBar,
   },
   /*computed:{
     async testMiner() {
@@ -32,7 +26,7 @@ export default{
     }
   },*/
 }
-</script>-->
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

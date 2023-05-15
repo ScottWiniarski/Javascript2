@@ -34,7 +34,7 @@
 
 <script>
 export default {
-  name: "NavigationalBar.vue",
+  name: "NavigationalBar",
   //
   // props: {
   //   authUser: {required: true},

@@ -5,7 +5,7 @@
     height: 100vh">
       <div class="container-fluid align-items-center" id="frontpagecontent">
         <h2>Welcome Valued Employee</h2>
-        <company-memos :item="unseenShow"></company-memos>
+        <company-memos :display-permission="unseenShow"></company-memos>
       </div>
     </div>
   </div>
