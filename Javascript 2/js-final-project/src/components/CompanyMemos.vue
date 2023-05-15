@@ -1,9 +1,9 @@
 <template>
-<!--  <div class="companyModal" v-show="displayPermission === 'unseen'">-->
-    <div class="col" v-for="item in unSeenMemos" :key="item.messageId">
-      <Company-memo-modal  :button-text="'New Message(s) ' + `${unSeenMemos.length}`" :item="item">New Message</Company-memo-modal>
+  <div class="companyModal" v-show="displayPermission === 'unseen'">
+    <div class="col" v-for="(item,i) in unSeenMemos" :key="item.messageId">
+      <Company-memo-modal v-if="i === 0"  :button-text="'New Message(s) ' + `${unSeenMemos.length}`" :item="item">New Message</Company-memo-modal>
     </div>
-<!--  </div>-->
+  </div>
 
 <!--  <div class="seenMessages" v-if="displayPermission !== 'seen'">-->
   <table class="table table-bordered table-hover table-striped messageTable">
@@ -38,9 +38,9 @@ export default {
   name: "CompanyMemos.vue",
   components: {CompanyMemoModal, SeenCompanyMemos},
 
-  // props:{
-  //   displayPermission: String,
-  // },
+  props:{
+    displayPermission: String,
+  },
 
   methods:{
     loadMessages() {
