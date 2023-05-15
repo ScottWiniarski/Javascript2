@@ -1,14 +1,19 @@
 <template>
-  <p></p>
+  <employee-home :roster="this.roster"></employee-home>
 <!--<button @click="addEmployees">Click</button>-->
 </template>
 
 <script>
 // import Employee from "@/models/Employee";
+import EmployeeHome from "@/components/EmployeeHome";
 import Miner from "@/models/Miner";
 import {db} from "@/firebase"
 export default {
   name: "EmployeeData.vue",
+
+  components:{
+    EmployeeHome,
+  },
 
   methods: {
     loadEmployees(){

@@ -1,6 +1,5 @@
 <template>
   <div class="companyModal" v-if="displayPermission === 'unseen'">
-    Words in a div
     <div class="col" v-for="(item,i) in unSeenMemos" :key="item.messageId">
       <Company-memo-modal v-if="i === 0" :button-text="'New Message(s) ' + `${unSeenMemos.length}`" :item="item">New
         Message

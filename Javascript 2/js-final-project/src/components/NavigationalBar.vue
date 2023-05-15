@@ -33,30 +33,32 @@
 </template>
 
 <script>
+import firebase from "firebase/app";
+
 export default {
   name: "NavigationalBar",
-  //
-  // props: {
-  //   authUser: {required: true},
-  // },
-  //
-  // methods: {
-  //   login(){
-  //     let provider = new firebase.auth.GoogleAuthProvider();
-  //
-  //     auth.signInWithPopup(provider)
-  //     .catch(function(error){
-  //       let errorCode = error.code;
-  //       let errorMessage = error.message;
-  //
-  //       console.error("Error signing in: ", error)
-  //     });
-  //   },
-  //
-  //   logout(){
-  //     auth.signOut();
-  //   }
-  // },
+
+  props: {
+    authUser: {required: true},
+  },
+
+  methods: {
+    login(){
+      let provider = new firebase.auth.GoogleAuthProvider();
+
+      auth.signInWithPopup(provider)
+      .catch(function(error){
+        let errorCode = error.code;
+        let errorMessage = error.message;
+
+        console.error("Error signing in: ", error)
+      });
+    },
+
+    logout(){
+      auth.signOut();
+    }
+  },
 }
 </script>
 
