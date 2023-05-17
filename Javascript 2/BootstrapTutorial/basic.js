@@ -1,4 +1,4 @@
-//$('.mathOutput').text("cheese");
+$('.mathOutput').text("cheese");
 
 let n = [20, 54, 82];
 const x = 5;
