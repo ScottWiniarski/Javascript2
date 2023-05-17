@@ -7,7 +7,7 @@
 
       <div class="container-fluid" id="seenmessagecontent">
         <div class="col">
-          <company-memos :display-permission="seenContent"></company-memos>
+          <company-memos display-permission="seen"></company-memos>
 <!--          <company-memos ></company-memos>-->
         </div>
       </div>
